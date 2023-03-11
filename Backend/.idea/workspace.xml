@@ -4,17 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e7aa0d3-827d-48f6-b161-b3ce0960c60f" name="Changes" comment="added database diagram">
-      <change afterPath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/controller/DoctorController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/model/Doctor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/model/Parent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/repository/DoctorRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/repository/ParentRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/service/DoctorService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/service/implementation/DoctorServiceImplementation.java" afterDir="false" />
+    <list default="true" id="8e7aa0d3-827d-48f6-b161-b3ce0960c60f" name="Changes" comment="added architecture">
+      <change afterPath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/model/Child.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/model/ChildVaccine.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/model/Vaccine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db_diagram.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/db_diagram.drawio" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/model/Parent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/model/Parent.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,28 +42,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "spring.configuration.checksum": "2e427c268ac1768b9add94b65e2d6c14",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;2e427c268ac1768b9add94b65e2d6c14&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Spring Boot.BackendApplication">
     <configuration name="generated-requests | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" requestIdentifier="#1" runType="Run single request">
       <method v="2" />
@@ -98,7 +94,8 @@
       <option name="presentableId" value="Default" />
       <updated>1678534478359</updated>
       <workItem from="1678534479503" duration="612000" />
-      <workItem from="1678535287610" duration="3397000" />
+      <workItem from="1678535287610" duration="6560000" />
+      <workItem from="1678555415679" duration="2100000" />
     </task>
     <task id="LOCAL-00001" summary="backend">
       <created>1678534752556</created>
@@ -114,7 +111,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678535317771</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="added architecture">
+      <created>1678538774446</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1678538774446</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -123,6 +127,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="backend" />
     <MESSAGE value="added database diagram" />
-    <option name="LAST_COMMIT_MESSAGE" value="added database diagram" />
+    <MESSAGE value="added architecture" />
+    <option name="LAST_COMMIT_MESSAGE" value="added architecture" />
   </component>
 </project>

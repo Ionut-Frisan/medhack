@@ -15,9 +15,15 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Doctor extends User{
+public class Doctor extends User {
     private String clinic;
 
     @OneToMany(mappedBy = "doctor")
     List<Parent> parents;
+
+    public Doctor(Long id, String firstName, String lastName, String email, String password, String phoneNumber, String clinic, List<Parent> parents) {
+        super(id, firstName, lastName, email, password, phoneNumber);
+        this.clinic = clinic;
+        this.parents = parents;
+    }
 }

@@ -1,6 +1,6 @@
 package hackathon.medhack.backend.controller;
 
-import hackathon.medhack.backend.model.Doctor;
+import hackathon.medhack.backend.model.dto.DoctorDto;
 import hackathon.medhack.backend.service.DoctorService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -18,7 +18,7 @@ public class DoctorController {
     private final DoctorService doctorService;
 
     @GetMapping("/all")
-    public ResponseEntity<List<Doctor>> getAll() {
+    public ResponseEntity<List<DoctorDto>> getAll() {
         return new ResponseEntity<>(doctorService.getAll(), HttpStatus.OK);
     }
 }

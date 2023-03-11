@@ -16,13 +16,19 @@ public class DoctorMapper {
                 doctor.getEmail(),
                 doctor.getPassword(),
                 doctor.getPhoneNumber(),
-                doctor.getClinic());
+                doctor.getClinic()
+        );
     }
 
     public Doctor convertDoctorDtoToDoctor(DoctorDto doctor) {
-        return new Doctor(doctor.getId(), doctor.getFirstName(),
-                doctor.getLastName(), doctor.getEmail(),
-                doctor.getPassword(), doctor.getPhoneNumber(),
-                doctor.getClinic(), null);
+        return new Doctor(doctor.getId(),
+                doctor.getFirstName(),
+                doctor.getLastName(),
+                doctor.getEmail(),
+                doctor.getPassword(),
+                doctor.getPhoneNumber(),
+                doctor.getClinic(),
+                null
+        );
     }
 }

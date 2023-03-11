@@ -11,4 +11,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ParentDto extends UserDto {
     private Long doctorId;
+
+    public ParentDto(Long id, String firstName, String lastName, String email, String password, String phoneNumber, Long doctorId) {
+        super(id, firstName, lastName, email, password, phoneNumber);
+        this.doctorId = doctorId;
+    }
 }

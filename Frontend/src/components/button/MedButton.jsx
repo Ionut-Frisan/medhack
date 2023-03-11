@@ -56,9 +56,9 @@ const medButton = ({
 
     return (
         <button {...computedProps}>
-            <DynamicComponent is={FaBeer}/>
+            <DynamicComponent is={startIcon}/>
             {label}
-            <DynamicComponent is={FaBeer}/>
+            <DynamicComponent is={endIcon}/>
         </button>
     )
 }

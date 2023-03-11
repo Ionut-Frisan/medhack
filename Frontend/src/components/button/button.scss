@@ -1,0 +1,111 @@
+@import '../../assets/style/variables';
+
+.med-button {
+  outline: none;
+  border: none;
+  padding: $padding_md;
+  cursor: pointer;
+  color: $color_light;
+  margin: 0;
+  transition: color $button-transition-time ease-in-out, background-color $button-transition-time ease-in-out;
+
+  &:focus{
+    outline: 0.2rem solid red;
+  }
+
+  &__flexible {
+    width: 100%;
+  }
+
+  &__rounded {
+    border-radius: $border_radius;
+  }
+
+  &__loading {
+    cursor: progress;
+  }
+
+  &__small {
+    font-size: $font_size_sm;
+    padding: $padding_sm;
+  }
+
+  &__large {
+    font-size: $font_size_lg;
+    padding: $padding_lg;
+  }
+
+  &__primary {
+    background-color: $color_primary;
+
+    &:focus {
+      outline: 0.2rem solid $color_primary_focus;
+    }
+
+    &:hover:not(:disabled) {
+      background-color: $color_primary_hover;
+    }
+  }
+
+  &__secondary {
+    background-color: $color_secondary;
+
+    &:focus {
+      outline: 0.2rem solid $color_secondary_focus;
+    }
+
+    &:hover:not(:disabled) {
+      background-color: $color_secondary_hover;
+    }
+  }
+
+  &__success {
+    background-color: $color_success;
+
+    &:focus {
+      outline: 0.2rem solid $color_success_focus;
+    }
+
+    &:hover:not(:disabled) {
+      background-color: $color_success_hover;
+    }
+  }
+
+  &__warning {
+    background-color: $color_warning;
+    color: $color_dark;
+
+    &:focus {
+      outline: 0.2rem solid $color_warning_focus;
+    }
+
+    &:hover:not(:disabled) {
+      background-color: $color_warning_hover;
+    }
+  }
+
+  &__danger {
+    background-color: $color_danger;
+
+    &:focus {
+      outline: 0.2rem solid $color_danger_focus;
+    }
+
+    &:hover:not(:disabled) {
+      background-color: $color_danger_hover;
+    }
+  }
+
+  &__info {
+    background-color: $color_info;
+    color: $color_dark;
+
+    &:focus {
+      outline: 0.2rem solid $color_info_focus;
+    }
+
+    &:hover:not(:disabled) {
+      background-color: $color_info_hover;
+    }
+  }
+}

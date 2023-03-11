@@ -7,7 +7,7 @@ const ls = useLocalStorage();
 const initialState = {
     token: '',
     role: '',
-    isLoggedIn: true,
+    isLoggedIn: false,
 }
 
 export const login = createAsyncThunk('login', async () => {
@@ -26,6 +26,7 @@ export const authSlice = createSlice({
         logout: (state, action) => {
             state.token = '';
             state.role = '';
+            state.isLoggedIn = false;
             ls.set('token', '');
         },
     },
@@ -35,12 +36,14 @@ export const authSlice = createSlice({
                 const {token = '', role = ''} = action.payload;
                 state.token = token;
                 state.role = role;
+                state.isLoggedIn = true;
                 ls.set('token', token);
                 ls.set('role', role);
             })
             .addCase(login.rejected, (state, action) => {
                 state.token = '';
                 state.role = '';
+                state.isLoggedIn = false;
                 ls.set('token', '');
                 ls.set('role', '');
             })

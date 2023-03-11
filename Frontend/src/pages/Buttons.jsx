@@ -1,4 +1,4 @@
-import MedButton from "../components/button/button.jsx";
+import MedButton from "../components/button/MedButton.jsx";
 
 export const buttons = () => {
     return (

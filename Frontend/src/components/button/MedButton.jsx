@@ -1,37 +1,45 @@
 import useClassName from "../../hooks/useClassName.js";
 import {useMemo} from "react";
-import {sizes, variants} from "../../utils/constants.js";
-import './button.scss';
+import DynamicComponent from "../dynamic-component/DynamicComponent.jsx";
+import {justifies, sizes, variants} from "../../utils/constants.js";
+import './MedButton.scss';
 
 const medButton = ({
                        rounded = true,
                        // outlined = false,
-                       size = 'large',
-                       length = 'flexible',
+                       size = 'large', // small, medium, large
+                       length = '', // flexible
                        loading = false,
-                       variant = 'secondary',
+                       variant = 'primary', // primary, secondary, success, danger, info, warning, plain
                        label = 'ana are mere',
-                       icon,
-                       iconPosition = 'start',
+                       startIcon,
+                       endIcon,
+                       justify = 'center',
                        ...props
                    }) => {
 
     const baseClass = 'med-button';
-    const hasIcon = useMemo(() => !!icon, [icon]);
 
     const sizeClass = useMemo(() => sizes.includes(size)
             ? `${baseClass}__${size}`
             : `${baseClass}__medium`,
         [size]);
+
     const variantClass = useMemo(() => variants.includes(variant)
             ? `${baseClass}__${variant}`
             : `${baseClass}__primary`,
+        [variant]);
+
+    const justifyClass = useMemo(() => justifies.includes(justify)
+            ? `${baseClass}__${justify}`
+            : `${baseClass}__center`,
         [variant]);
 
     const classObj = [
         baseClass,
         sizeClass,
         variantClass,
+        justifyClass,
         {
             [`${baseClass}__flexible`]: length === "flexible",
             [`${baseClass}__rounded`]: rounded,
@@ -47,7 +55,11 @@ const medButton = ({
     }
 
     return (
-        <button {...computedProps}>{label}</button>
+        <button {...computedProps}>
+            <DynamicComponent is={FaBeer}/>
+            {label}
+            <DynamicComponent is={FaBeer}/>
+        </button>
     )
 }
 

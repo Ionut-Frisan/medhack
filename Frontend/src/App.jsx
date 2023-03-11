@@ -4,6 +4,7 @@ import Login from './pages/Login';
 import DoctorRoute from "./components/router/DoctorRoute";
 import useRequest from "./hooks/useRequest.js";
 import {useEffect} from "react";
+import './App.scss';
 function App() {
     const {get, post} = useRequest();
 

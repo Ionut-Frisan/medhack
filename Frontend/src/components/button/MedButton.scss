@@ -6,14 +6,19 @@
   padding: $padding_md;
   cursor: pointer;
   color: $color_light;
-  margin: 0;
   transition: color $button-transition-time ease-in-out, background-color $button-transition-time ease-in-out;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
+  margin: 0.2rem;
 
   &__flexible {
     width: 100%;
+  }
+
+  &:disabled{
+    cursor: default;
+    filter: brightness(0.9);
   }
 
   &__rounded {
@@ -53,6 +58,10 @@
   &__plain {
     color: $color_primary;
     background-color: transparent;
+
+    &:focus {
+      outline: 0.2rem solid $color_primary_focus;
+    }
   }
 
   &__primary {

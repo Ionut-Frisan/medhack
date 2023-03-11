@@ -1,0 +1,52 @@
+@import '../../assets/style/variables';
+
+$tab_view_color: $color_secondary;
+$tab_view_active_color: $color_primary;
+
+.med-tabs {
+  max-width: 100%;
+
+  &__header {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border-bottom: 0.2rem solid $tab_view_color;
+
+    .med-button {
+      outline: none;
+      margin: 0;
+      position: relative;
+      top: 0.2rem;
+      color: $tab_view_color;
+
+      &__rounded {
+        border-top-left-radius: 0.5rem !important;
+        border-top-right-radius: 0.5rem !important;
+      }
+
+      &:focus {
+        outline: none !important;
+      }
+
+      &.active {
+        border: 0.2rem solid $tab_view_color;
+        color: $tab_view_active_color;
+        border-bottom: 0 solid;
+        border-radius: 0;
+        background: #fff;
+      }
+    }
+  }
+
+  &__content{
+    width: 100%;
+    max-width: calc(100% - 0.4rem - 4rem);
+    border: 0.2rem solid $tab_view_color;
+    border-top: none;
+    padding: 2rem;
+    margin: 0;
+    & > * {
+      max-width: 100%;
+    }
+  }
+}

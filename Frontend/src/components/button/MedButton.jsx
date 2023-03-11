@@ -11,10 +11,11 @@ const medButton = ({
                        length = '', // flexible
                        loading = false,
                        variant = 'primary', // primary, secondary, success, danger, info, warning, plain
-                       label = 'ana are mere',
+                       label = '',
                        startIcon,
                        endIcon,
                        justify = 'center',
+                       customClass = '',
                        ...props
                    }) => {
 
@@ -40,6 +41,7 @@ const medButton = ({
         sizeClass,
         variantClass,
         justifyClass,
+        customClass,
         {
             [`${baseClass}__flexible`]: length === "flexible",
             [`${baseClass}__rounded`]: rounded,

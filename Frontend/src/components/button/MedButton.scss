@@ -64,7 +64,7 @@
     background-color: transparent;
 
     &:focus {
-      outline: 0.2rem solid $color_primary_focus;
+      box-shadow: 0 0 0 0.2rem $color_primary_focus;
     }
   }
 
@@ -72,7 +72,7 @@
     background-color: $color_primary;
 
     &:focus {
-      outline: 0.2rem solid $color_primary_focus;
+      box-shadow: 0 0 0 0.2rem $color_primary_focus;
     }
 
     &:hover:not(:disabled) {
@@ -84,7 +84,7 @@
     background-color: $color_secondary;
 
     &:focus {
-      outline: 0.2rem solid $color_secondary_focus;
+      box-shadow: 0 0 0 0.2rem $color_secondary_focus;
     }
 
     &:hover:not(:disabled) {
@@ -96,7 +96,7 @@
     background-color: $color_success;
 
     &:focus {
-      outline: 0.2rem solid $color_success_focus;
+      box-shadow: 0 0 0 0.2rem $color_success_focus;
     }
 
     &:hover:not(:disabled) {
@@ -109,7 +109,7 @@
     color: $color_dark;
 
     &:focus {
-      outline: 0.2rem solid $color_warning_focus;
+      box-shadow: 0 0 0 0.2rem $color_warning_focus;
     }
 
     &:hover:not(:disabled) {
@@ -121,7 +121,7 @@
     background-color: $color_danger;
 
     &:focus {
-      outline: 0.2rem solid $color_danger_focus;
+      box-shadow: 0 0 0 0.2rem $color_danger_focus;
     }
 
     &:hover:not(:disabled) {
@@ -134,7 +134,7 @@
     color: $color_dark;
 
     &:focus {
-      outline: 0.2rem solid $color_info_focus;
+      box-shadow: 0 0 0 0.2rem $color_info_focus;
     }
 
     &:hover:not(:disabled) {

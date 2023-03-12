@@ -1,11 +1,16 @@
+import {useState} from "react";
 import MedButton from "../components/button/MedButton.jsx";
 import TabView from "../components/TabView/TabView.jsx";
 import { variants, sizes } from "../utils/constants.js";
 import { FaMedrt } from "react-icons/fa";
 import TabPanel from "../components/TabView/TabPanel.jsx";
 import MedInput from "../components/input/MedInput.jsx";
+import MedModal from "../components/modal/MedModal.jsx";
+import { Carousel } from 'react-responsive-carousel';
 
 export const componentDemo = () => {
+  const [isModalOpen, setModalState] = useState(true);
+
   return (
     <>
       <div>
@@ -146,6 +151,28 @@ export const componentDemo = () => {
         labelPosition={"float"}
         size={"large"}
       ></MedInput>
+        <div
+            style={{width: '20%'}}
+        >
+            <Carousel
+                showStatus={false}
+                showArrows={true}
+                infiniteLoop={true}
+                showThumbs={false}
+            >
+                <div style={{width: '200px', height: '100px', margin: 'auto'}}><MedButton label={'test'}></MedButton></div>
+                <div><MedButton label={'test'}></MedButton></div>
+            </Carousel>
+        </div>
+        <MedModal
+            isOpen={isModalOpen}
+            title={'Title test'}
+            closeButtonCallback={() => setModalState(!isModalOpen)}
+        >
+            <div>
+                Ana are mere
+            </div>
+        </MedModal>
     </>
   );
 };

@@ -4,8 +4,10 @@ import Login from './pages/Login';
 import DoctorRoute from "./components/router/DoctorRoute";
 import useRequest from "./hooks/useRequest.js";
 import {useEffect} from "react";
-import './App.scss';
+import './assets/style/index.scss'
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import Buttons from "./pages/ComponentDemo.jsx";
+
 function App() {
     const {get, post} = useRequest();
 

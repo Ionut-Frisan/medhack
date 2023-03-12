@@ -1,0 +1,17 @@
+.med-modal {
+  &__header {
+    display: flex;
+    width: calc(100% - 4rem);
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    padding: 0.5rem 2rem;
+    box-shadow: 0 3px 4px -4px gray;
+  }
+  &__content{
+    padding: 0.5rem 2rem;
+  }
+}
+
+.ReactModal__Content {
+  padding: 0 !important;
+}

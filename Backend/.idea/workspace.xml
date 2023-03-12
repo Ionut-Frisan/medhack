@@ -4,16 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e7aa0d3-827d-48f6-b161-b3ce0960c60f" name="Changes" comment="added dto &lt;-&gt; doctor mapper">
-      <change afterPath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/model/mapper/ParentMapper.java" afterDir="false" />
+    <list default="true" id="8e7aa0d3-827d-48f6-b161-b3ce0960c60f" name="Changes" comment="added dto &lt;-&gt; parent mapper + api for doctors">
+      <change afterPath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/model/mapper/ChildMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/model/mapper/VaccineMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/controller/DoctorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/controller/DoctorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/model/Parent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/model/Parent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/model/dto/ParentDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/model/dto/ParentDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/model/mapper/DoctorMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/model/mapper/DoctorMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/service/DoctorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/service/DoctorService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/service/implementation/DoctorServiceImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/service/implementation/DoctorServiceImplementation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,20 +17,20 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="HTTP Public Environment File" />
         <option value="Interface" />
         <option value="Class" />
-        <option value="HTTP Public Environment File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -63,29 +57,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "rest.client.default.execution.environment": "dev",
-    "spring.configuration.checksum": "2e427c268ac1768b9add94b65e2d6c14",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;rest.client.default.execution.environment&quot;: &quot;dev&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;2e427c268ac1768b9add94b65e2d6c14&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Spring Boot.BackendApplication">
     <configuration name="generated-requests | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" requestIdentifier="#1" runType="Run single request">
       <method v="2" />
@@ -125,7 +119,8 @@
       <updated>1678534478359</updated>
       <workItem from="1678534479503" duration="612000" />
       <workItem from="1678535287610" duration="6560000" />
-      <workItem from="1678555415679" duration="13730000" />
+      <workItem from="1678555415679" duration="13947000" />
+      <workItem from="1678619247665" duration="1245000" />
     </task>
     <task id="LOCAL-00001" summary="backend">
       <created>1678534752556</created>
@@ -176,7 +171,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678573018858</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="added dto &lt;-&gt; parent mapper + api for doctors">
+      <created>1678575446322</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1678575446322</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,6 +192,7 @@
     <MESSAGE value="added repositories" />
     <MESSAGE value="added data transfer objects" />
     <MESSAGE value="added dto &lt;-&gt; doctor mapper" />
-    <option name="LAST_COMMIT_MESSAGE" value="added dto &lt;-&gt; doctor mapper" />
+    <MESSAGE value="added dto &lt;-&gt; parent mapper + api for doctors" />
+    <option name="LAST_COMMIT_MESSAGE" value="added dto &lt;-&gt; parent mapper + api for doctors" />
   </component>
 </project>

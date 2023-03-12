@@ -35,15 +35,25 @@ $input_disabled_bg_color: #f4f4f5;
 
 $input_focus_color: #3b82f6;
 
-$padding_sm: 0.3rem 0.6rem;
-$padding_md: 0.5rem 1rem;
-$padding_lg: 0.7rem 1.4rem;
+$padding_sm_x: 0.3rem;
+$padding_sm_y: 0.6rem;
+$padding_md_x: 0.5rem;
+$padding_md_y: 1rem;
+$padding_lg_x: 0.7rem;
+$padding_lg_y: 1.4rem;
+
+$padding_sm: $padding_sm_x $padding_sm_y;
+$padding_md: $padding_md_x $padding_md_y;
+$padding_lg: $padding_lg_x $padding_lg_y;
 
 $font_size_sm: 0.8rem;
 $font_size_md: 1rem;
 $font_size_lg: 1.2rem;
 
 $border_radius: 0.3rem;
+
+$border_color: $color_secondary;
+$border_width: 0.1rem;
 
 // component specific
 $button-transition-time: 0.15s;

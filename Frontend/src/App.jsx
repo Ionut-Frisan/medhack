@@ -5,7 +5,7 @@ import DoctorRoute from "./components/router/DoctorRoute";
 import useRequest from "./hooks/useRequest.js";
 import {useEffect} from "react";
 import './App.scss';
-import Buttons from "./pages/Buttons";
+import Buttons from "./pages/ComponentDemo.jsx";
 function App() {
     const {get, post} = useRequest();
 
@@ -29,7 +29,7 @@ function App() {
               <Route exact path='/doctor' element={<Home/>} />
           </Route>
           <Route exact path='/login' element={<Login/>} />
-          <Route exact path='/buttons' element={<Buttons/>} />
+          <Route exact path='/componentDemo' element={<Buttons/>} />
       </Routes>
   )
 }

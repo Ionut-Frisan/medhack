@@ -1,0 +1,247 @@
+@import "../../assets/style/variables";
+
+.med-input {
+  display: inline-flex;
+  flex-direction: column;
+  text-align: start;
+  font-size: $font_size_md;
+  margin: 0.5rem 0;
+
+  input {
+    font-size: inherit;
+  }
+
+  &__flexible {
+    width: 100%;
+  }
+
+  &__float {
+    border: $border_width $border_color solid;
+    flex-direction: row;
+    align-items: center;
+
+    &.med-input__rounded {
+      .med-input__input-container {
+        border-radius: $border_radius;
+      }
+    }
+
+    .med-input__input-container {
+      position: relative;
+
+      label {
+        position: absolute;
+        transform-origin: top left;
+        transition: all 0.1s ease-in-out;
+        transform: translate($padding_md_y, 0);
+        color: $placeholder_color;
+      }
+    }
+
+    svg + .med-input__input-container {
+      label {
+        transform: translate(0, 0);
+      }
+
+      input {
+        padding-left: 0;
+      }
+
+      &:has(input:focus),
+      &:not(:has(input:placeholder-shown)) {
+        label {
+          transform: translate(
+            0,
+            calc(
+              $font_size_md / 2 - $padding_md_x - $border_width - $font_size_md
+            )
+          );
+          background-color: #fff;
+        }
+      }
+    }
+
+    .med-input__input-container:has(+ svg) {
+      input {
+        padding-right: 0;
+      }
+    }
+
+    &:has(input:focus),
+    &:not(:has(input:placeholder-shown)) {
+      label {
+        transform: translate(
+          $padding_md_y,
+          calc(-0.5rem - $padding_md_x - $border_width)
+        );
+        background-color: #fff;
+      }
+    }
+  }
+
+  &:not(&__float) {
+    .med-input__input-container {
+      border: $border_width $border_color solid;
+    }
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    filter: brightness(0.9);
+  }
+
+  &__rounded:not(&__float) {
+    .med-input__input-container {
+      border-radius: $border_radius;
+      overflow: hidden;
+    }
+  }
+
+  &__small {
+    font-size: $font_size_sm;
+
+    input {
+      padding: $padding_sm;
+    }
+
+    svg {
+      margin: 0 $padding_sm_y/4;
+    }
+
+    svg + input {
+      padding-left: 0;
+    }
+
+    input:has(+ svg) {
+      padding-right: 0;
+    }
+
+    &.med-input__float {
+      label {
+        transform: translate($padding_sm_y, 0);
+      }
+
+      svg + .med-input__input-container {
+        label {
+          transform: translate(0, 0);
+        }
+
+        &:has(input:focus),
+        &:not(:has(input:placeholder-shown)) {
+          label {
+            transform: translate(
+              0,
+              calc(
+                $font_size_sm / 2 - $padding_sm_x - $border_width -
+                  $font_size_sm
+              )
+            );
+            background-color: #fff;
+          }
+        }
+      }
+
+      &:has(input:focus),
+      &:not(:has(input:placeholder-shown)) {
+        label {
+          transform: translate(
+            $padding_sm_y,
+            calc(
+              $font_size_sm / 2 - $padding_sm_x - $border_width - $font_size_sm
+            )
+          );
+          background-color: #fff;
+        }
+      }
+    }
+  }
+
+  &__large {
+    font-size: $font_size_lg;
+
+    input {
+      padding: $padding_lg;
+    }
+
+    svg {
+      margin: 0 $padding_lg_y/4;
+    }
+
+    svg + input {
+      padding-left: 0;
+    }
+
+    input:has(+ svg) {
+      padding-right: 0;
+    }
+
+    &.med-input__float {
+      label {
+        transform: translate($padding_lg_y, 0);
+      }
+
+      svg + .med-input__input-container {
+        label {
+          transform: translate(0, 0);
+        }
+
+        &:has(input:focus),
+        &:not(:has(input:placeholder-shown)) {
+          label {
+            transform: translate(
+              0,
+              calc(
+                $font_size_lg / 2 - $padding_lg_x - $border_width -
+                  $font_size_lg
+              )
+            );
+            background-color: #fff;
+          }
+        }
+      }
+
+      &:has(input:focus),
+      &:not(:has(input:placeholder-shown)) {
+        label {
+          transform: translate(
+            $padding_lg_y,
+            calc(
+              $font_size_lg / 2 - $padding_lg_x - $border_width - $font_size_lg
+            )
+          );
+          background-color: #fff;
+        }
+      }
+    }
+  }
+
+  &__medium {
+    input {
+      padding: $padding_md;
+    }
+
+    svg {
+      margin: 0 $padding_md_y/4;
+    }
+
+    svg + input {
+      padding-left: 0;
+    }
+
+    input:has(+ svg) {
+      padding-right: 0;
+    }
+  }
+
+  &__input-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    input {
+      width: 100%;
+      outline: none;
+      border: none;
+    }
+  }
+}

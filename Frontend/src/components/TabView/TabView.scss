@@ -1,4 +1,4 @@
-@import '../../assets/style/variables';
+@import "../../assets/style/variables";
 
 $tab_view_color: $color_secondary;
 $tab_view_active_color: $color_primary;
@@ -10,14 +10,14 @@ $tab_view_active_color: $color_primary;
     width: 100%;
     margin: 0;
     padding: 0;
-    border-bottom: 0.2rem solid $tab_view_color;
+    position: relative;
+    top: 0.1rem;
 
     .med-button {
       outline: none;
       margin: 0;
-      position: relative;
-      top: 0.2rem;
       color: $tab_view_color;
+      transition: color ease 0.3s;
 
       &__rounded {
         border-top-left-radius: 0.5rem !important;
@@ -29,22 +29,23 @@ $tab_view_active_color: $color_primary;
       }
 
       &.active {
-        border: 0.2rem solid $tab_view_color;
+        border: 0.1rem solid $tab_view_color;
         color: $tab_view_active_color;
         border-bottom: 0 solid;
         border-radius: 0;
         background: #fff;
+        order: 1;
       }
     }
   }
 
-  &__content{
+  &__content {
     width: 100%;
     max-width: calc(100% - 0.4rem - 4rem);
-    border: 0.2rem solid $tab_view_color;
-    border-top: none;
+    border: 0.1rem solid $tab_view_color;
     padding: 2rem;
     margin: 0;
+
     & > * {
       max-width: 100%;
     }

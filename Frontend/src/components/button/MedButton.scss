@@ -1,4 +1,4 @@
-@import '../../assets/style/variables';
+@import "../../assets/style/variables";
 
 .med-button {
   outline: none;
@@ -6,7 +6,8 @@
   padding: $padding_md;
   cursor: pointer;
   color: $color_light;
-  transition: color $button-transition-time ease-in-out, background-color $button-transition-time ease-in-out;
+  transition: color $button-transition-time ease-in-out,
+    background-color $button-transition-time ease-in-out;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -16,8 +17,8 @@
     width: 100%;
   }
 
-  &:disabled{
-    cursor: default;
+  &:disabled {
+    cursor: not-allowed;
     filter: brightness(0.9);
   }
 
@@ -27,6 +28,9 @@
 
   &__loading {
     cursor: progress;
+    &:disabled {
+      cursor: progress;
+    }
   }
 
   &__small {

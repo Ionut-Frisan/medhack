@@ -74,6 +74,7 @@ export const componentDemo = () => {
         placeholder={"Placeholder"}
         size={"small"}
         rounded
+        errorMessage={'This is an error message'}
       ></MedInput>
       <MedInput
         onChange={(e) => console.log(e.target.value)}
@@ -82,6 +83,7 @@ export const componentDemo = () => {
         rounded
         placeholder={"Placeholder"}
         size={"large"}
+        errorMessage={'This is an error message'}
       ></MedInput>
       <MedInput
         onChange={(e) => console.log(e.target.value)}
@@ -89,45 +91,50 @@ export const componentDemo = () => {
         placeholder={"Placeholder"}
         size={"large"}
         label={"ana are mere"}
+        errorMessage={'This is an error message'}
       ></MedInput>
       <MedInput
         onChange={(e) => console.log(e.target.value)}
         rounded
         placeholder={"Placeholder"}
-        label={"asd"}
+        label={"Label small"}
         labelPosition={"float"}
         size={"small"}
+        errorMessage={'This is an error message'}
       ></MedInput>
       <MedInput
         onChange={(e) => console.log(e.target.value)}
         rounded
         placeholder={"Placeholder"}
-        label={"asd"}
+        label={"Label medium"}
         labelPosition={"float"}
+        errorMessage={'This is an error message'}
       ></MedInput>
       <MedInput
         onChange={(e) => console.log(e.target.value)}
         rounded
         placeholder={"Placeholder"}
-        label={"asd"}
+        label={"Label large"}
         labelPosition={"float"}
         size={"large"}
+        errorMessage={'This is an error message'}
       ></MedInput>
       <MedInput
         onChange={(e) => console.log(e.target.value)}
         rounded
         placeholder={"Placeholder"}
-        label={"asd"}
+        label={"Label small"}
         labelPosition={"float"}
         size={"small"}
         startIcon={FaMedrt}
+        errorMessage={'This is an error message'}
       ></MedInput>
       <MedInput
         startIcon={FaMedrt}
         onChange={(e) => console.log(e.target.value)}
         rounded
         placeholder={"Placeholder"}
-        label={"asd"}
+        label={"Label medium"}
         labelPosition={"float"}
       ></MedInput>
       <MedInput
@@ -135,7 +142,7 @@ export const componentDemo = () => {
         onChange={(e) => console.log(e.target.value)}
         rounded
         placeholder={"Placeholder"}
-        label={"asd"}
+        label={"Label large"}
         labelPosition={"float"}
         size={"large"}
       ></MedInput>

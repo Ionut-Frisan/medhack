@@ -15,6 +15,7 @@ const MedInput = ({
   startIcon,
   endIcon,
   placeholder,
+  errorMessage = '',
   ...props
 }) => {
   const baseClass = "med-input";
@@ -43,6 +44,7 @@ const MedInput = ({
   const labelClass = `${baseClass}__label`;
   const inputClass = `${baseClass}__input`;
   const innerContainerClass = `${baseClass}__input-container`;
+  const errorMessageClass = `${baseClass}__error`;
 
   const inputProps = useMemo(() => {
     return {
@@ -62,6 +64,9 @@ const MedInput = ({
           <input {...inputProps} />
         </div>
         <DynamicComponent is={endIcon} />
+        {
+          errorMessage ? <span className={errorMessageClass}>{errorMessage}</span> : <></>
+        }
       </div>
     );
   }
@@ -73,6 +78,9 @@ const MedInput = ({
         <input {...inputProps} />
         <DynamicComponent is={endIcon} />
       </div>
+      {
+        errorMessage ? <span className={errorMessageClass}>{errorMessage}</span> : <></>
+      }
     </div>
   );
 };

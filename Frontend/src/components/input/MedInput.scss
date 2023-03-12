@@ -5,7 +5,7 @@
   flex-direction: column;
   text-align: start;
   font-size: $font_size_md;
-  margin: 0.5rem 0;
+  margin: 0 0;
 
   input {
     font-size: inherit;
@@ -15,15 +15,31 @@
     width: 100%;
   }
 
+  &__error {
+    color: $color_danger;
+  }
+
   &__float {
     border: $border_width $border_color solid;
     flex-direction: row;
     align-items: center;
-
+    margin-top: $font_size_md;
     &.med-input__rounded {
       .med-input__input-container {
         border-radius: $border_radius;
       }
+    }
+
+    &:has(.med-input__error) {
+      border: $border_width $color_danger solid;
+      margin-bottom: calc($font-size_md * 1.2);
+    }
+
+    .med-input__error{
+      position: absolute;
+      transform-origin: top left;
+      transition: all 0.1s ease-in-out;
+      transform: translate(0, calc($font_size_md * 2 + $border_width));
     }
 
     .med-input__input-container {
@@ -72,16 +88,32 @@
       label {
         transform: translate(
           $padding_md_y,
-          calc(-0.5rem - $padding_md_x - $border_width)
+          calc($font_size_md / 2 - $padding_md_x - $border_width - $font_size_md)
         );
         background-color: #fff;
       }
+    }
+    &:has(input:focus){
+      outline: $input_focus_color $input_focus_width solid;
     }
   }
 
   &:not(&__float) {
     .med-input__input-container {
       border: $border_width $border_color solid;
+      &:has(input:focus){
+        outline: $input_focus_color $input_focus_width solid;
+      }
+    }
+    &:has(.med-input__error) {
+      .med-input__input-container {
+        border: $border_width $color_danger solid;
+      }
+    }
+    label{
+      font-size: $label_font_size;
+      line-height: 150%;
+      font-weight: $label_font_weight;
     }
   }
 
@@ -121,6 +153,14 @@
         transform: translate($padding_sm_y, 0);
       }
 
+      &:has(.med-input__error){
+        margin-bottom: calc($font_size_sm * 1.2);
+      }
+
+      .med-input__error{
+        transform: translate(0, calc($font_size_sm * 2 + $border_width));
+      }
+
       svg + .med-input__input-container {
         label {
           transform: translate(0, 0);
@@ -132,8 +172,7 @@
             transform: translate(
               0,
               calc(
-                $font_size_sm / 2 - $padding_sm_x - $border_width -
-                  $font_size_sm
+                $font_size_sm / 2 - $padding_sm_x - $border_width - $font_size_sm
               )
             );
             background-color: #fff;
@@ -180,6 +219,14 @@
         transform: translate($padding_lg_y, 0);
       }
 
+      &:has(.med-input__error) {
+        margin-bottom: calc($font-size_lg * 1.2);
+      }
+
+      .med-input__error{
+        transform: translate(0, calc($font_size_lg * 2 + $border_width));
+      }
+
       svg + .med-input__input-container {
         label {
           transform: translate(0, 0);
@@ -191,11 +238,11 @@
             transform: translate(
               0,
               calc(
-                $font_size_lg / 2 - $padding_lg_x - $border_width -
-                  $font_size_lg
+                $font_size_lg / 2 - $padding_lg_x - $border_width - $font_size_lg
               )
             );
             background-color: #fff;
+            font-size: $font_size_lg;
           }
         }
       }

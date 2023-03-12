@@ -26,34 +26,39 @@ $color_info_focus: #06b6d4;
 $color_light_focus: #cbd5e1;
 $color_dark_focus: #171717;
 
-$label_color: #1c1917;
-$input_font_color: #525252;
-$input_readonly_color: #71717a;
-$input_border_color: #a3a3a3;
-$placeholder_color: #71717a;
-$input_disabled_bg_color: #f4f4f5;
-
-$input_focus_color: #3b82f6;
-
-$padding_sm_x: 0.3rem;
-$padding_sm_y: 0.6rem;
-$padding_md_x: 0.5rem;
-$padding_md_y: 1rem;
-$padding_lg_x: 0.7rem;
-$padding_lg_y: 1.4rem;
+$padding_sm_x: 0.5rem;
+$padding_sm_y: 1rem;
+$padding_md_x: 0.7rem;
+$padding_md_y: 1.4rem;
+$padding_lg_x: 1rem;
+$padding_lg_y: 2rem;
 
 $padding_sm: $padding_sm_x $padding_sm_y;
 $padding_md: $padding_md_x $padding_md_y;
 $padding_lg: $padding_lg_x $padding_lg_y;
 
-$font_size_sm: 0.8rem;
-$font_size_md: 1rem;
-$font_size_lg: 1.2rem;
+$font_size_sm: 1rem;
+$font_size_md: 1.2rem;
+$font_size_lg: 1.4rem;
 
 $border_radius: 0.3rem;
 
-$border_color: $color_secondary;
+$border_color: #668494;
 $border_width: 0.1rem;
 
 // component specific
 $button-transition-time: 0.15s;
+
+$input_focus_color: #3b82f6;
+$input_focus_width: 0.2rem;
+$label_color: #1A1A1A;
+
+$label_font_size: 1.4rem;
+$label_font_weight: 400;
+$input_font_color: #525252;
+$input_readonly_color: #71717a;
+$input_border_color: #a3a3a3;
+$input_disabled_bg_color: #f4f4f5;
+$placeholder_color: #71717a;
+
+$input_focus_color: #3b82f6;

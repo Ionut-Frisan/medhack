@@ -1,11 +1,13 @@
 package hackathon.medhack.backend.controller;
 
 import hackathon.medhack.backend.model.dto.DoctorDto;
+import hackathon.medhack.backend.model.dto.ParentDto;
 import hackathon.medhack.backend.service.DoctorService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,5 +22,10 @@ public class DoctorController {
     @GetMapping("/all")
     public ResponseEntity<List<DoctorDto>> getAll() {
         return new ResponseEntity<>(doctorService.getAll(), HttpStatus.OK);
+    }
+
+    @GetMapping("/{doctorId}")
+    public ResponseEntity<List<ParentDto>> getParentsForDoctor(@PathVariable Long doctorId) {
+        return new ResponseEntity<>(doctorService.getParentsForDoctor(doctorId), HttpStatus.OK);
     }
 }

@@ -17,6 +17,8 @@ const medButton = ({
   justify = "center",
   customClass = "",
   disabled,
+  circle = false,
+  outlined = false,
   ...props
 }) => {
   const baseClass = "med-button";
@@ -55,7 +57,8 @@ const medButton = ({
       [`${baseClass}__flexible`]: length === "flexible",
       [`${baseClass}__rounded`]: rounded,
       [`${baseClass}__loading`]: loading,
-      // [`${baseClass}__outlined`]: outlined,
+      [`${baseClass}__outlined`]: outlined && variant !== "plain",
+      [`${baseClass}__rounded_full`]: circle,
     },
   ];
   const classes = useClassName(classObj);
@@ -68,9 +71,9 @@ const medButton = ({
 
   return (
     <button {...computedProps}>
-      <DynamicComponent is={startIcon} />
-      {label}
-      <DynamicComponent is={endIcon} />
+      <DynamicComponent is={startIcon}/>
+      {label ? <span>{label}</span> : ''}
+      <DynamicComponent is={endIcon}/>
     </button>
   );
 };

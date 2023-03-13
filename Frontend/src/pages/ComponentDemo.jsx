@@ -20,6 +20,7 @@ export const componentDemo = () => {
               variant={variant}
               rounded={false}
               label={variant}
+              outlined={true}
             ></MedButton>
           );
         })}
@@ -50,6 +51,21 @@ export const componentDemo = () => {
                 endIcon={FaMedrt}
                 size={size}
                 loading
+              ></MedButton>
+            );
+          });
+        })}
+      </div>
+      <div>
+        {sizes.map((size) => {
+          return variants.map((variant) => {
+            return (
+              <MedButton
+                variant={variant}
+                endIcon={FaMedrt}
+                circle={true}
+                size={size}
+                outlined={true}
               ></MedButton>
             );
           });

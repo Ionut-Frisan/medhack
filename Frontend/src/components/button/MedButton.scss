@@ -26,11 +26,39 @@
     border-radius: $border_radius;
   }
 
+  &__rounded_full {
+    border-radius: 9999rem;
+
+    &:has(:only-child):not(:has(span)){
+      &.med-button__small{
+        padding: $padding_sm_x;
+      }
+
+      &.med-button__medium{
+        padding: $padding_md_x;
+      }
+
+      &.med-button__large{
+        padding: $padding_lg_x;
+      }
+    }
+  }
+
   &__loading {
     cursor: progress;
     &:disabled {
       cursor: progress;
     }
+  }
+
+  svg {
+    &:has(+span){
+      margin-right: 0.3rem;
+    }
+  }
+
+  span + svg {
+    margin-left: 0.3rem;
   }
 
   &__small {
@@ -78,6 +106,19 @@
     &:hover:not(:disabled) {
       background-color: $color_primary_hover;
     }
+
+    &.med-button__outlined {
+      color: $color_primary;
+      background-color: transparent;
+      outline: 1px solid $color_primary;
+
+      &:hover:not(:disabled) {
+        background-color: $color_primary;
+        outline: none;
+        color: $color_light;
+      }
+    }
+
   }
 
   &__secondary {
@@ -90,6 +131,19 @@
     &:hover:not(:disabled) {
       background-color: $color_secondary_hover;
     }
+
+    &.med-button__outlined {
+      color: $color_secondary;
+      background-color: transparent;
+      outline: 1px solid $color_secondary;
+
+      &:hover:not(:disabled) {
+        background-color: $color_secondary;
+        outline: none;
+        color: $color_light;
+      }
+    }
+
   }
 
   &__success {
@@ -102,6 +156,19 @@
     &:hover:not(:disabled) {
       background-color: $color_success_hover;
     }
+
+    &.med-button__outlined {
+      color: $color_success;
+      background-color: transparent;
+      outline: 1px solid $color_success;
+
+      &:hover:not(:disabled) {
+        background-color: $color_success;
+        outline: none;
+        color: $color_light;
+      }
+    }
+
   }
 
   &__warning {
@@ -115,6 +182,19 @@
     &:hover:not(:disabled) {
       background-color: $color_warning_hover;
     }
+
+    &.med-button__outlined {
+      color: $color_warning;
+      background-color: transparent;
+      outline: 1px solid $color_warning;
+
+      &:hover:not(:disabled) {
+        background-color: $color_warning;
+        outline: none;
+        color: $color_dark;
+      }
+    }
+
   }
 
   &__danger {
@@ -127,6 +207,19 @@
     &:hover:not(:disabled) {
       background-color: $color_danger_hover;
     }
+
+    &.med-button__outlined {
+      color: $color_danger;
+      background-color: transparent;
+      outline: 1px solid $color_danger;
+
+      &:hover:not(:disabled) {
+        background-color: $color_danger;
+        outline: none;
+        color: $color_light;
+      }
+    }
+
   }
 
   &__info {
@@ -139,6 +232,18 @@
 
     &:hover:not(:disabled) {
       background-color: $color_info_hover;
+    }
+
+    &.med-button__outlined {
+      color: $color_info;
+      background-color: transparent;
+      outline: 1px solid $color_info;
+
+      &:hover:not(:disabled) {
+        background-color: $color_info;
+        outline: none;
+        color: $color_dark;
+      }
     }
   }
 }

@@ -7,7 +7,8 @@
   cursor: pointer;
   color: $color_light;
   transition: color $button-transition-time ease-in-out,
-    background-color $button-transition-time ease-in-out;
+    background-color $button-transition-time ease-in-out,
+    box-shadow $button-transition-time ease-in-out;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -98,23 +99,23 @@
 
   &__primary {
     background-color: $color_primary;
+    border: 0.2rem solid $color_primary;
 
-    &:focus {
+    &:focus-visible {
       box-shadow: 0 0 0 0.2rem $color_primary_focus;
     }
 
     &:hover:not(:disabled) {
       background-color: $color_primary_hover;
+      border-color: $color_primary_hover;
     }
 
     &.med-button__outlined {
       color: $color_primary;
       background-color: transparent;
-      outline: 1px solid $color_primary;
 
-      &:hover:not(:disabled) {
+      &:hover:not(:disabled), &:focus-visible:not(:disabled) {
         background-color: $color_primary;
-        outline: none;
         color: $color_light;
       }
     }
@@ -123,23 +124,23 @@
 
   &__secondary {
     background-color: $color_secondary;
+    border: 0.2rem solid $color_secondary;
 
-    &:focus {
+    &:focus-visible {
       box-shadow: 0 0 0 0.2rem $color_secondary_focus;
     }
 
     &:hover:not(:disabled) {
       background-color: $color_secondary_hover;
+      border-color: $color_secondary_hover;
     }
 
     &.med-button__outlined {
       color: $color_secondary;
       background-color: transparent;
-      outline: 1px solid $color_secondary;
 
-      &:hover:not(:disabled) {
+      &:hover:not(:disabled), &:focus-visible:not(:disabled) {
         background-color: $color_secondary;
-        outline: none;
         color: $color_light;
       }
     }
@@ -148,23 +149,23 @@
 
   &__success {
     background-color: $color_success;
+    border: 0.2rem solid $color_success;
 
-    &:focus {
+    &:focus-visible {
       box-shadow: 0 0 0 0.2rem $color_success_focus;
     }
 
     &:hover:not(:disabled) {
       background-color: $color_success_hover;
+      border-color: $color_success_hover;
     }
 
     &.med-button__outlined {
       color: $color_success;
       background-color: transparent;
-      outline: 1px solid $color_success;
 
-      &:hover:not(:disabled) {
+      &:hover:not(:disabled), &:focus-visible:not(:disabled) {
         background-color: $color_success;
-        outline: none;
         color: $color_light;
       }
     }
@@ -174,23 +175,23 @@
   &__warning {
     background-color: $color_warning;
     color: $color_dark;
+    border: 0.2rem solid $color_warning;
 
-    &:focus {
+    &:focus-visible {
       box-shadow: 0 0 0 0.2rem $color_warning_focus;
     }
 
     &:hover:not(:disabled) {
       background-color: $color_warning_hover;
+      border-color: $color_warning_hover;
     }
 
     &.med-button__outlined {
       color: $color_warning;
       background-color: transparent;
-      outline: 1px solid $color_warning;
 
-      &:hover:not(:disabled) {
+      &:hover:not(:disabled), &:focus-visible:not(:disabled) {
         background-color: $color_warning;
-        outline: none;
         color: $color_dark;
       }
     }
@@ -199,49 +200,48 @@
 
   &__danger {
     background-color: $color_danger;
+    border: 0.2rem solid $color_danger;
 
-    &:focus {
+    &:focus-visible {
       box-shadow: 0 0 0 0.2rem $color_danger_focus;
     }
 
     &:hover:not(:disabled) {
       background-color: $color_danger_hover;
+      border-color: $color_danger_hover;
     }
 
     &.med-button__outlined {
       color: $color_danger;
       background-color: transparent;
-      outline: 1px solid $color_danger;
 
-      &:hover:not(:disabled) {
+      &:hover:not(:disabled), &:focus-visible:not(:disabled) {
         background-color: $color_danger;
-        outline: none;
         color: $color_light;
       }
     }
-
   }
 
   &__info {
     background-color: $color_info;
     color: $color_dark;
+    border: 0.2rem solid $color_info;
 
-    &:focus {
+    &:focus-visible {
       box-shadow: 0 0 0 0.2rem $color_info_focus;
     }
 
     &:hover:not(:disabled) {
       background-color: $color_info_hover;
+      border-color: $color_info_hover;
     }
 
     &.med-button__outlined {
       color: $color_info;
       background-color: transparent;
-      outline: 1px solid $color_info;
 
-      &:hover:not(:disabled) {
+      &:hover:not(:disabled), &:focus-visible:not(:disabled) {
         background-color: $color_info;
-        outline: none;
         color: $color_dark;
       }
     }

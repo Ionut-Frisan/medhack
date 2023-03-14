@@ -1,0 +1,10 @@
+@import "../../assets/style/variables.scss";
+
+.med-link {
+  text-decoration: none;
+  color: $label_color;
+  &:visited {
+    text-decoration: none;
+    color: $label_color;
+  }
+}

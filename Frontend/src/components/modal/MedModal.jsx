@@ -5,9 +5,14 @@ import './MedModal.scss';
 Modal.setAppElement('#root');
 
 const MedModal = ({children, title, closeButtonCallback,...props}) => {
-
+    const propsComputed = {
+        ...props,
+        style: {
+            overlay: {zIndex: 8},
+        }
+    }
     return (
-        <Modal {...props}>
+        <Modal {...propsComputed}>
             <div className={'med-modal__header'}>
                 <h3 title={title}>{title}</h3>
                 <MedButton startIcon={FaTimes} variant={'plain'} onClick={closeButtonCallback}></MedButton>

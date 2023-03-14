@@ -21,6 +21,7 @@ export const componentDemo = () => {
               rounded={false}
               label={variant}
               outlined={true}
+              circle={true}
             ></MedButton>
           );
         })}

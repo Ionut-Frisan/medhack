@@ -47,4 +47,11 @@ public class DoctorServiceImplementation implements DoctorService {
 
         return parentsDto;
     }
+
+    @Override
+    public Long addDoctor(DoctorDto doctorDto) {
+        Doctor doctor = doctorMapper.convertDoctorDtoToDoctor(doctorDto);
+        doctorRepository.save(doctor);
+        return doctor.getId();
+    }
 }

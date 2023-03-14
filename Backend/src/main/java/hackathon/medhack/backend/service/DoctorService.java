@@ -9,4 +9,6 @@ public interface DoctorService {
     List<DoctorDto> getAll();
 
     List<ParentDto> getParentsForDoctor(Long doctorId);
+
+    Long addDoctor(DoctorDto doctorDto);
 }

@@ -7,7 +7,7 @@ import './NavBar.scss';
 
 
 const NavBar = ({}) => {
-    const [isOpen, setIsOpen] = useState(true);
+    const [isOpen, setIsOpen] = useState(false);
 
     const toggleOpen = (e) => {
         e.preventDefault();

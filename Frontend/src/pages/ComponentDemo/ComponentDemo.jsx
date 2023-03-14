@@ -1,11 +1,11 @@
 import {useState} from "react";
-import MedButton from "../components/button/MedButton.jsx";
-import TabView from "../components/TabView/TabView.jsx";
-import { variants, sizes } from "../utils/constants.js";
+import MedButton from "../../components/button/MedButton.jsx";
+import TabView from "../../components/TabView/TabView.jsx";
+import { variants, sizes } from "../../utils/constants.js";
 import { FaMedrt } from "react-icons/fa";
-import TabPanel from "../components/TabView/TabPanel.jsx";
-import MedInput from "../components/input/MedInput.jsx";
-import MedModal from "../components/modal/MedModal.jsx";
+import TabPanel from "../../components/TabView/TabPanel.jsx";
+import MedInput from "../../components/input/MedInput.jsx";
+import MedModal from "../../components/modal/MedModal.jsx";
 import { Carousel } from 'react-responsive-carousel';
 
 export const componentDemo = () => {

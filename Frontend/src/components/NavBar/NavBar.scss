@@ -109,7 +109,7 @@
     align-items: center;
     overflow: hidden;
     transition: all 0.3s ease-out;
-    transform: translate(-100%, 0);
+    transform: translate(100%, 0);
     justify-content: space-around;
     &__open{
       visibility: visible!important;
@@ -118,13 +118,15 @@
 
     li{
       position: relative;
+      user-select: none;
       &::before{
         content: '';
-        height: 0.5rem;
+        height: 0.2rem;
         width: 0;
         top: 100%;
-        background-color: $color_primary;
+        background-color: $color_secondary;
         transition: width 0.2s ease;
+        position: absolute;
       }
       &:hover{
         &::before{

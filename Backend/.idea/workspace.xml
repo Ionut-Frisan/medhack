@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e7aa0d3-827d-48f6-b161-b3ce0960c60f" name="Changes" comment="added services &amp;&amp; controllers">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+    <list default="true" id="8e7aa0d3-827d-48f6-b161-b3ce0960c60f" name="Changes" comment="doctor controller v1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/controller/DoctorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/controller/DoctorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/service/DoctorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/service/DoctorService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/service/implementation/DoctorServiceImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/service/implementation/DoctorServiceImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/controller/ParentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/controller/ParentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/service/ParentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/service/ParentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/service/implementation/ParentServiceImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/service/implementation/ParentServiceImplementation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,6 +123,8 @@
       <workItem from="1678535287610" duration="6560000" />
       <workItem from="1678555415679" duration="13947000" />
       <workItem from="1678619247665" duration="7709000" />
+      <workItem from="1678815470909" duration="367000" />
+      <workItem from="1678918277263" duration="4332000" />
     </task>
     <task id="LOCAL-00001" summary="backend">
       <created>1678534752556</created>
@@ -194,7 +196,21 @@
       <option name="project" value="LOCAL" />
       <updated>1678621155223</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="add doctor">
+      <created>1678815632988</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1678815632988</updated>
+    </task>
+    <task id="LOCAL-00012" summary="doctor controller v1">
+      <created>1678920223169</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1678920223169</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -211,6 +227,8 @@
     <MESSAGE value="added dto &lt;-&gt; parent mapper + api for doctors" />
     <MESSAGE value="added last mappers(for now)" />
     <MESSAGE value="added services &amp;&amp; controllers" />
-    <option name="LAST_COMMIT_MESSAGE" value="added services &amp;&amp; controllers" />
+    <MESSAGE value="add doctor" />
+    <MESSAGE value="doctor controller v1" />
+    <option name="LAST_COMMIT_MESSAGE" value="doctor controller v1" />
   </component>
 </project>

@@ -27,7 +27,7 @@ public class DoctorServiceImplementation implements DoctorService {
     private final ParentMapper parentMapper;
 
     @Override
-    public List<DoctorDto> getAll() {
+    public List<DoctorDto> getAllDoctors() {
         List<DoctorDto> doctorsDto = new ArrayList<>();
         List<Doctor> doctors = doctorRepository.findAll();
         doctors.forEach(doctor -> doctorsDto.add(doctorMapper.convertDoctorToDoctorDto(doctor)));

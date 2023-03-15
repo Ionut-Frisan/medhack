@@ -17,8 +17,8 @@ public class DoctorController {
     private final DoctorService doctorService;
 
     @GetMapping("/all")
-    public ResponseEntity<List<DoctorDto>> getAll() {
-        return new ResponseEntity<>(doctorService.getAll(), HttpStatus.OK);
+    public ResponseEntity<List<DoctorDto>> getAllDoctors() {
+        return new ResponseEntity<>(doctorService.getAllDoctors(), HttpStatus.OK);
     }
 
     @GetMapping("/{doctorId}")

@@ -6,7 +6,7 @@ import hackathon.medhack.backend.model.dto.ParentDto;
 import java.util.List;
 
 public interface DoctorService {
-    List<DoctorDto> getAll();
+    List<DoctorDto> getAllDoctors();
 
     DoctorDto getDoctor(Long doctorId);
 

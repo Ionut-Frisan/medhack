@@ -36,6 +36,15 @@ public class DoctorServiceImplementation implements DoctorService {
     }
 
     @Override
+    public DoctorDto getDoctor(Long doctorId) {
+        if (doctorRepository.findById(doctorId).isEmpty()) {
+            return null;
+        }
+        Doctor doctor = doctorRepository.findById(doctorId).get();
+        return doctorMapper.convertDoctorToDoctorDto(doctor);
+    }
+
+    @Override
     public List<ParentDto> getParentsForDoctor(Long doctorId) {
         List<ParentDto> parentsDto = new ArrayList<>();
         if (doctorRepository.findById(doctorId).isEmpty()) {
@@ -53,5 +62,10 @@ public class DoctorServiceImplementation implements DoctorService {
         Doctor doctor = doctorMapper.convertDoctorDtoToDoctor(doctorDto);
         doctorRepository.save(doctor);
         return doctor.getId();
+    }
+
+    @Override
+    public void deleteDoctor(Long doctorId) {
+        doctorRepository.deleteById(doctorId);
     }
 }

@@ -8,7 +8,11 @@ import java.util.List;
 public interface DoctorService {
     List<DoctorDto> getAll();
 
+    DoctorDto getDoctor(Long doctorId);
+
     List<ParentDto> getParentsForDoctor(Long doctorId);
 
     Long addDoctor(DoctorDto doctorDto);
+
+    void deleteDoctor(Long doctorId);
 }

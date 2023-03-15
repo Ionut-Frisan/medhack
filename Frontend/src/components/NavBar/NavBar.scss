@@ -6,7 +6,7 @@
   justify-content: space-between;
   align-items: center;
   height: 6rem;
-  padding: 0 2rem;
+  padding: 0 4rem;
   box-sizing: border-box;
   position: relative;
   z-index: 7;
@@ -79,6 +79,15 @@
   .navbar-menu {
     visibility: hidden;
     position: fixed;
+  }
+  &-actions{
+    button:first-child{
+      margin-right: 1rem;
+    }
+    button{
+      padding-right: 3rem;
+      padding-left: 3rem;
+    }
   }
 }
 

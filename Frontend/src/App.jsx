@@ -1,12 +1,17 @@
-import { Route, Routes } from "react-router-dom";
-import Home from './pages/Home';
-import Login from './pages/Login';
-import DoctorRoute from "./components/router/DoctorRoute";
-import useRequest from "./hooks/useRequest.js";
+import {Route, Routes} from "react-router-dom";
 import {useEffect} from "react";
+
+import useRequest from "./hooks/useRequest.js";
+
+import Home from './pages/Home/Home.jsx';
+import Login from './pages/Login/Login.jsx';
+import DoctorRoute from "./components/router/DoctorRoute";
+import Buttons from "./pages/ComponentDemo/ComponentDemo.jsx";
+import NavBar from "./components/NavBar/NavBar.jsx";
+import SignUp from "./pages/SignUp/SignUp.jsx";
+
 import './assets/style/index.scss'
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import Buttons from "./pages/ComponentDemo.jsx";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 function App() {
     const {get, post} = useRequest();
@@ -25,15 +30,19 @@ function App() {
         login().catch(console.error);
         testPost().catch(console.error);
     }, [])
-  return (
-      <Routes>
-          <Route exact path='/' element={<DoctorRoute/>} >
-              <Route exact path='/doctor' element={<Home/>} />
-          </Route>
-          <Route exact path='/login' element={<Login/>} />
-          <Route exact path='/componentDemo' element={<Buttons/>} />
-      </Routes>
-  )
+    return (
+        <>
+            <NavBar/>
+            <Routes>
+                <Route exact path='/' element={<DoctorRoute/>}>
+                    <Route exact path='/doctor' element={<Home/>}/>
+                </Route>
+                <Route exact path='/login' element={<Login/>}/>
+                <Route exact path='/sign-up' element={<SignUp/>}/>
+                <Route exact path='/componentDemo' element={<Buttons/>}/>
+            </Routes>
+        </>
+    )
 }
 
 export default App

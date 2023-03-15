@@ -6,6 +6,7 @@
   text-align: start;
   font-size: $font_size_md;
   margin: 0 0;
+  box-sizing: border-box;
 
   input {
     font-size: inherit;
@@ -24,7 +25,9 @@
     flex-direction: row;
     align-items: center;
     margin-top: $font_size_md;
+    box-sizing: border-box;
     &.med-input__rounded {
+      box-sizing: border-box;
       .med-input__input-container {
         border-radius: $border_radius;
       }

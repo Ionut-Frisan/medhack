@@ -6,8 +6,8 @@ import {
   getRole,
   login,
   logout,
-} from "../store/featutres/auth/auth-slice.js";
-import Link from "../components/router/Link.jsx";
+} from "../../store/featutres/auth/auth-slice.js";
+import Link from "../../components/router/Link.jsx";
 
 export default function Login() {
   const emailRef = useRef("");

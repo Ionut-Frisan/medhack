@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e7aa0d3-827d-48f6-b161-b3ce0960c60f" name="Changes" comment="child controller v1">
+    <list default="true" id="8e7aa0d3-827d-48f6-b161-b3ce0960c60f" name="Changes" comment="vaccine controller v1">
+      <change afterPath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/controller/ChildVaccineController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/model/dto/ChildVaccineDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/repository/ChildVaccineRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/service/ChildVaccineService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/service/implementation/ChildVaccineImplementation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/controller/VaccineController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/controller/VaccineController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/service/VaccineService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/service/VaccineService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/service/implementation/VaccineServiceImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/service/implementation/VaccineServiceImplementation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,6 +113,9 @@
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpringBeansView">
+    <option name="beanDetailsProportion" value="0.3" />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="8e7aa0d3-827d-48f6-b161-b3ce0960c60f" name="Changes" comment="" />
@@ -123,7 +128,8 @@
       <workItem from="1678555415679" duration="13947000" />
       <workItem from="1678619247665" duration="7709000" />
       <workItem from="1678815470909" duration="367000" />
-      <workItem from="1678918277263" duration="7065000" />
+      <workItem from="1678918277263" duration="8595000" />
+      <workItem from="1678953145133" duration="4441000" />
     </task>
     <task id="LOCAL-00001" summary="backend">
       <created>1678534752556</created>
@@ -223,7 +229,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678923946520</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="vaccine controller v1">
+      <created>1678925610074</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1678925610074</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -244,6 +257,7 @@
     <MESSAGE value="doctor controller v1" />
     <MESSAGE value="parent controller v1" />
     <MESSAGE value="child controller v1" />
-    <option name="LAST_COMMIT_MESSAGE" value="child controller v1" />
+    <MESSAGE value="vaccine controller v1" />
+    <option name="LAST_COMMIT_MESSAGE" value="vaccine controller v1" />
   </component>
 </project>

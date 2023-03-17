@@ -21,6 +21,12 @@ public class Child {
     private String lastName;
 
     private LocalDate dateOfBirth;
+    private String gender;
+    private String CNP;
+    private String permanentResidence;
+    private String currentResidence;
+    private String secondParentFirstName;
+    private String secondParentLastName;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="parent_id")

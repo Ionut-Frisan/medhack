@@ -1,5 +1,6 @@
 package hackathon.medhack.backend.service.implementation;
 
+import hackathon.medhack.backend.exceptions.CustomException;
 import hackathon.medhack.backend.model.Child;
 import hackathon.medhack.backend.model.Doctor;
 import hackathon.medhack.backend.model.Parent;
@@ -64,8 +65,12 @@ public class ParentServiceImplementation implements ParentService {
 
     @Override
     public Long addParent(ParentDto parentDto) {
+        if(parentRepository.getByEmail(parentDto.getEmail()).isPresent()) {
+            throw new CustomException("Email already used");
+        }
+
         if (doctorRepository.findById(parentDto.getDoctorId()).isEmpty()) {
-            return null;
+            throw new CustomException("Non existent doctor");
         }
 
         Doctor doctor = doctorRepository.findById(parentDto.getDoctorId()).get();

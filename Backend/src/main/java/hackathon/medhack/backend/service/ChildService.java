@@ -12,4 +12,6 @@ public interface ChildService {
     Long addChild(ChildDto childDto);
 
     void deleteChild(Long childId);
+
+    Long updateChild(Long childId, ChildDto childDto);
 }

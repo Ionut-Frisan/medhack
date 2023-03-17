@@ -4,7 +4,6 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e7aa0d3-827d-48f6-b161-b3ce0960c60f" name="Changes" comment="update child, all fields mandatory when register new kid" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -297,7 +296,6 @@
     <MESSAGE value="doctor controller v1" />
     <MESSAGE value="parent controller v1" />
     <MESSAGE value="child controller v1" />
-    <MESSAGE value="vaccine controller v1" />
     <MESSAGE value="update child, all fields mandatory when register new kid" />
     <option name="LAST_COMMIT_MESSAGE" value="update child, all fields mandatory when register new kid" />
   </component>

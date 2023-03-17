@@ -13,10 +13,11 @@ const useRequest = () => {
     return await axios(config)
       .then((res) => {
         const returnObj = {
-          data: res.data.data,
+          data: res.data,
           status: res.data.status,
           statusCode: res.status,
         };
+        console.warn({ returnObj });
         if (successCallback && typeof successCallback === "function") {
           successCallback(returnObj);
         }

@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e7aa0d3-827d-48f6-b161-b3ce0960c60f" name="Changes" comment="vaccine controller v1">
+    <list default="true" id="8e7aa0d3-827d-48f6-b161-b3ce0960c60f" name="Changes" comment="check new branch">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/controller/ChildVaccineController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/controller/ChildVaccineController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,10 +21,13 @@
       </list>
     </option>
   </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="main" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/.." value="main" />
+        <entry key="$PROJECT_DIR$/.." value="deni" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -58,6 +60,7 @@
     </option>
   </component>
   <component name="ProjectId" id="2MrnGxwhKbu0NQPs2yMYp1aEsAC" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -71,7 +74,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/dunca/OneDrive/Desktop/MedHack/medhack/Backend&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/MedHack/Backend&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -134,7 +137,7 @@
       <workItem from="1678815470909" duration="367000" />
       <workItem from="1678918277263" duration="8595000" />
       <workItem from="1678953145133" duration="4441000" />
-      <workItem from="1678963265144" duration="340000" />
+      <workItem from="1679059255177" duration="4486000" />
     </task>
     <task id="LOCAL-00001" summary="backend">
       <created>1678534752556</created>
@@ -247,6 +250,17 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="backend" />
     <MESSAGE value="added database diagram" />
@@ -263,6 +277,7 @@
     <MESSAGE value="parent controller v1" />
     <MESSAGE value="child controller v1" />
     <MESSAGE value="vaccine controller v1" />
-    <option name="LAST_COMMIT_MESSAGE" value="vaccine controller v1" />
+    <MESSAGE value="check new branch" />
+    <option name="LAST_COMMIT_MESSAGE" value="check new branch" />
   </component>
 </project>

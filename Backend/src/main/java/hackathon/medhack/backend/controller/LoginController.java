@@ -44,8 +44,4 @@ public class LoginController {
         return new ResponseEntity<>(new LoginResponseDto(null,null,false),HttpStatus.OK);
     }
 
-    @PostMapping("/register")
-    public ResponseEntity<String> register() {
-        return null;
-    }
 }

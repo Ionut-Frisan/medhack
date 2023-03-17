@@ -1,0 +1,30 @@
+.welcome-page{
+  display: flex;
+}
+
+.welcome-text{
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.welcome-title {
+  text-align: center;
+  color: #0B0754;
+}
+
+.font-link {
+  font-family: 'Cormorant Infant', cursive;
+}
+
+.description {
+  height: 200px;
+  width: 400px;
+}
+
+img{
+  width: 68%;
+  height: 68%;
+}
+

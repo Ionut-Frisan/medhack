@@ -61,4 +61,41 @@ public class ChildServiceImplementation implements ChildService {
     public void deleteChild(Long childId) {
         childRepository.deleteById(childId);
     }
+
+    @Override
+    public Long updateChild(Long childId, ChildDto childDto){
+        if(childRepository.findById(childId).isEmpty()){
+            return null;
+        }
+
+        Child child = childRepository.findById(childId).get();
+        if(!child.getFirstName().equals(childDto.getFirstName())){
+            child.setFirstName(childDto.getFirstName());
+        }
+        if(!child.getLastName().equals(childDto.getLastName())){
+            child.setLastName(childDto.getLastName());
+        }
+        if(!child.getDateOfBirth().equals(childDto.getDateOfBirth())){
+            child.setDateOfBirth(childDto.getDateOfBirth());
+        }
+        if(!child.getGender().equals(childDto.getGender())){
+            child.setGender(childDto.getGender());
+        }
+        if(!child.getCNP().equals(childDto.getCNP())){
+            child.setCNP(childDto.getCNP());
+        }
+        if(!child.getPermanentResidence().equals(childDto.getPermanentResidence())){
+            child.setPermanentResidence(childDto.getPermanentResidence());
+        }
+        if(!child.getCurrentResidence().equals(childDto.getCurrentResidence())){
+            child.setCurrentResidence(childDto.getCurrentResidence());
+        }
+        if(!child.getSecondParentFirstName().equals(childDto.getSecondParentFirstName())) {
+            child.setSecondParentFirstName(childDto.getSecondParentFirstName());
+        }
+        if(!child.getSecondParentLastName().equals(childDto.getSecondParentLastName())){
+            child.setSecondParentLastName(childDto.getSecondParentLastName());
+        }
+        return childId;
+    }
 }

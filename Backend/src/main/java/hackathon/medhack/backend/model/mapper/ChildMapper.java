@@ -13,6 +13,12 @@ public class ChildMapper {
                 child.getFirstName(),
                 child.getLastName(),
                 child.getDateOfBirth(),
+                child.getGender(),
+                child.getCNP(),
+                child.getPermanentResidence(),
+                child.getCurrentResidence(),
+                child.getSecondParentFirstName(),
+                child.getSecondParentLastName(),
                 child.getParent().getId());
     }
     public Child convertChildDtoToChild(ChildDto childDto) {
@@ -20,6 +26,12 @@ public class ChildMapper {
                 childDto.getFirstName(),
                 childDto.getLastName(),
                 childDto.getDateOfBirth(),
+                childDto.getGender(),
+                childDto.getCNP(),
+                childDto.getPermanentResidence(),
+                childDto.getCurrentResidence(),
+                childDto.getSecondParentFirstName(),
+                childDto.getSecondParentLastName(),
                 null,
                 null);
     }

@@ -7,6 +7,8 @@ import TabPanel from "../../components/TabView/TabPanel.jsx";
 import MedInput from "../../components/input/MedInput.jsx";
 import MedModal from "../../components/modal/MedModal.jsx";
 import { Carousel } from 'react-responsive-carousel';
+import MedTimeline from "../../components/timeline/MedTimeline.jsx";
+import MedTimelineElement from "../../components/timeline/MedTimelineElement.jsx";
 
 export const componentDemo = () => {
   const [isModalOpen, setModalState] = useState(true);
@@ -190,6 +192,20 @@ export const componentDemo = () => {
                 Ana are mere
             </div>
         </MedModal>
+        <MedTimeline>
+          <MedTimeline.item
+            title='ana are mere'
+            status={'error'}
+          >
+            <span>asd</span>
+          </MedTimeline.item>
+          <MedTimeline.item
+            title='ana are mere'
+            status={'done'}
+          >
+            <span>asd</span>
+          </MedTimeline.item>
+        </MedTimeline>
     </>
   );
 };

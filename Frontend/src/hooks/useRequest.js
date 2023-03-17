@@ -3,19 +3,21 @@ import { useSelector } from "react-redux";
 import { getToken } from "../store/featutres/auth/auth-slice.js";
 
 const useRequest = () => {
-  axios.defaults.baseURL = "http://localhost:8000";
+  axios.defaults.baseURL = "http://localhost:8080";
   const token = useSelector(getToken);
   if (token) {
     axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
   }
   const handler = async (config, errorCallback, successCallback) => {
+    console.warn({config});
     return await axios(config)
       .then((res) => {
         const returnObj = {
-          data: res.data.data,
+          data: res.data,
           status: res.data.status,
           statusCode: res.status,
         };
+        console.warn({ returnObj });
         if (successCallback && typeof successCallback === "function") {
           successCallback(returnObj);
         }
@@ -48,7 +50,7 @@ const useRequest = () => {
       method: "post",
       url: path,
     };
-    return handler(path, postConfig, errorCallback, successCallback);
+    return handler(postConfig, errorCallback, successCallback);
   };
 
   const put = async (path, config, successCallback, errorCallback) => {

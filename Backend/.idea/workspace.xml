@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e7aa0d3-827d-48f6-b161-b3ce0960c60f" name="Changes" comment="vaccine controller v1">
-      <change afterPath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/controller/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/model/dto/LoginDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/model/dto/LoginResponseDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+    <list default="true" id="8e7aa0d3-827d-48f6-b161-b3ce0960c60f" name="Changes" comment="pushi push">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/repository/DoctorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/repository/DoctorRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/repository/ParentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/repository/ParentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hackathon/medhack/backend/controller/LoginController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +21,9 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="main" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -77,7 +75,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/MedHack/Backend",
+    "last_opened_file_path": "C:/Users/dunca/OneDrive/Desktop/FISIERE/ARHIVE UTCN/AN4SEM1/SD/Proiect final/Backend",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -118,6 +116,7 @@
         <item itemvalue="HTTP Request.generated-requests | #3" />
         <item itemvalue="HTTP Request.generated-requests | #2" />
         <item itemvalue="HTTP Request.generated-requests | #1" />
+        <item itemvalue="HTTP Request.generated-requests | #4" />
       </list>
     </recent_temporary>
   </component>
@@ -246,7 +245,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678925610074</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="pushi push">
+      <created>1679067477424</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1679067477424</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -279,6 +285,8 @@
     <MESSAGE value="parent controller v1" />
     <MESSAGE value="child controller v1" />
     <MESSAGE value="vaccine controller v1" />
-    <option name="LAST_COMMIT_MESSAGE" value="vaccine controller v1" />
+    <MESSAGE value="check new branch" />
+    <MESSAGE value="pushi push" />
+    <option name="LAST_COMMIT_MESSAGE" value="pushi push" />
   </component>
 </project>

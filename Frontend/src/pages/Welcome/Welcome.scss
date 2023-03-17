@@ -1,26 +1,45 @@
 .welcome-page{
-  display: flex;
+  background-image: url('../../assets/images/ilustratie_-_informare_despre_vaccin.svg');
+  background-repeat: no-repeat;
+  background-position: right;
+  height:calc(100vh - 6rem);
+  background-size: contain;
+
 }
 
 .welcome-text{
   display: flex;
-  height: 100%;
+  height: 83%;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  width: 40%;
+  //background-color: white;
 }
 .welcome-title {
   text-align: center;
   color: #0B0754;
+  font-size: 17px;
 }
 
-.font-link {
-  font-family: 'Cormorant Infant', cursive;
+.welcome-title-accent {
+  color: #E75756;
+  font-size: 55px;
+}
+
+.font-link-title {
+  font-family: 'DM Serif Display', cursive;
+}
+
+.font-link-description {
+  font-family: 'Poppins', cursive;
 }
 
 .description {
   height: 200px;
-  width: 400px;
+  width: 70%;
+  text-align: center;
+  color: #0B0754;
 }
 
 img{

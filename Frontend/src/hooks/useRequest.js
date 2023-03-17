@@ -81,7 +81,7 @@ const useRequest = () => {
     put,
     post,
     patch,
-    delete: del,
+    del,
     request: handler,
   };
 };

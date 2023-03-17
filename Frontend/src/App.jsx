@@ -34,9 +34,11 @@ function App() {
         <>
             <NavBar/>
             <Routes>
-                <Route exact path='/' element={<DoctorRoute/>}>
-                    <Route exact path='/doctor' element={<Home/>}/>
+                <Route exact path='/doctor' element={<DoctorRoute/>}>
+                    <Route index element={<Home/>}/>
+                    <Route path='/doctor/asd' element={<Home/>}/>
                 </Route>
+                <Route exact path='/' element={<Home/>}></Route>
                 <Route exact path='/login' element={<Login/>}/>
                 <Route exact path='/sign-up' element={<SignUp/>}/>
                 <Route exact path='/componentDemo' element={<Buttons/>}/>

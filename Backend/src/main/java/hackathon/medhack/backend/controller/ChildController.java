@@ -46,4 +46,14 @@ public class ChildController {
     public ResponseEntity<List<ChildDto>> getChildrenByName(@PathVariable String name) {
         return new ResponseEntity<>(childService.getChildrenByName(name), HttpStatus.OK);
     }
+
+    @GetMapping("/searchForMedic/{doctorId}")
+    public ResponseEntity<List<ChildDto>> getChildrenForDoctor(@PathVariable Long doctorId) {
+        return new ResponseEntity<>(childService.getChildrenForDoctor(doctorId), HttpStatus.OK);
+    }
+
+    @GetMapping("/searchForMedicWithName/{doctorId}/{name}")
+    public ResponseEntity<List<ChildDto>>  getChildrenForDoctorByName(@PathVariable Long doctorId, @PathVariable String name) {
+        return new ResponseEntity<>(childService. getChildrenForDoctorByName(doctorId, name), HttpStatus.OK);
+    }
 }

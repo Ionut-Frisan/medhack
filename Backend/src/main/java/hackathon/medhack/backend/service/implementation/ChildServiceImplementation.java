@@ -137,4 +137,24 @@ public class ChildServiceImplementation implements ChildService {
 
         return childrenDto;
     }
+
+    @Override
+    public List<ChildDto> getChildrenForDoctor(Long doctorId) {
+        List<ChildDto> childrenDto = new ArrayList<>();
+        List<Child> children = childRepository.getChildrenForDoctor(doctorId);
+
+        children.forEach(child -> childrenDto.add(childMapper.convertChildToChildDto(child)));
+
+        return childrenDto;
+    }
+
+    @Override
+    public List<ChildDto> getChildrenForDoctorByName(Long doctorId,String name) {
+        List<ChildDto> childrenDto = new ArrayList<>();
+        List<Child> children = childRepository.getChildrenForDoctorByName(doctorId, name);
+
+        children.forEach(child -> childrenDto.add(childMapper.convertChildToChildDto(child)));
+
+        return childrenDto;
+    }
 }

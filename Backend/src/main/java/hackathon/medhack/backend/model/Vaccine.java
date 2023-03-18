@@ -4,7 +4,9 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.jetbrains.annotations.NotNull;
 
+import javax.validation.constraints.Size;
 import java.util.List;
 
 @Entity
@@ -18,10 +20,18 @@ public class Vaccine {
     private Long id;
 
     private String name;
+    private String abbreviation;
+
+    @NotNull
+    @Size(max=3000)
     private String description;
+
     private float age;
-    private String preventedDiseases;
-    private String sideEffects;
+    private String comments;
+    private Boolean isMandatory;
+    private String linkDoctor;
+    private String linkPatient;
+
 
     @OneToMany(mappedBy = "vaccine")
     List<ChildVaccine> childVaccineList;

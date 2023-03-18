@@ -9,8 +9,10 @@ const TabView = ({ children, activeTab }) => {
     : children?.type?.name === "TabPanel"
     ? [children]
     : [];
+    
+  console.log(tabs);
 
-  const headerButtons = tabs.map((tab) => tab.props?.title || "_");
+  const headerButtons = tabs.map((tab) => tab.props?.title || "");
   const activeTabComputed =
     headerButtons.indexOf(activeTab) > -1
       ? headerButtons.indexOf(activeTab)
@@ -29,6 +31,7 @@ const TabView = ({ children, activeTab }) => {
               variant="plain"
               customClass={selectedTab === index ? "active" : ""}
               key={index}
+              startIcon={tabs[index]?.props?.icon}
             ></MedButton>
           );
         })}

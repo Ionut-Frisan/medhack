@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const TabPanel = ({ children, title }) => {
+const TabPanel = ({ children, title, icon }) => {
   return <div>{children}</div>;
 };
 

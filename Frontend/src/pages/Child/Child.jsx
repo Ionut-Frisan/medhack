@@ -7,6 +7,8 @@ import {useSelector} from "react-redux";
 import {getToken} from "../../store/featutres/auth/auth-slice.js";
 import ChildAddModal from "./ChildAddModal.jsx";
 import MedButton from "../../components/button/MedButton";
+import {FaPlus} from "react-icons/all.js";
+
 function Child() {
 
     const [isModalOpen, setModalState] = useState(false);
@@ -16,18 +18,20 @@ function Child() {
     const [childrenList, setChildrenList] = useState([]);
 
     const parentId = useSelector(getToken);
-    function updateChild(){
+
+    function updateChild() {
         setModalState(!isModalOpen);
     }
-    function addChild(){
+
+    function addChild() {
         setAddModalState(!isAddModalOpen);
     }
+
 
     useEffect( ()=>{
 
         async function getChildrenForParent(){
             const res = await get(`/api/parent/children/${parentId}`)
-            console.log( res.data)
             setChildrenList(res.data || [])
         }
         if(parentId){
@@ -36,26 +40,19 @@ function Child() {
 
     }, [parentId])
 
-    const deleteChild = async (event, childId) =>{
+    console.warn(childrenList);
+
+    const deleteChild = async (event, childId) => {
         event.preventDefault();
         const res = await del(`/api/child/${childId}`)
-        console.log( res.data)
     }
     return (
         <div>
             <h1>
                 All My Children
-                <ChildAddModal isModalOpen={isAddModalOpen}
-                               closeButtonCallback={() => setAddModalState(!isAddModalOpen)}
-                               parentId={parentId}/>
-                <MedButton label={"Adauga copil"}
-                           circle={true}
-                           variant={"primary"}
-                           size={"medium"}
-                           onClick={addChild}/>
             </h1>
             <TabView activeTab={0}>
-                {childrenList.map(
+                 {childrenList.map(
                 m =>
                 <TabPanel title={m.firstName} key={m.id}>
                     <ChildModal isModalOpen={isModalOpen}
@@ -75,8 +72,10 @@ function Child() {
                     />
                 </TabPanel>
                 )}
+                <TabPanel icon={FaPlus}>
+                    <ChildAddModal parentId={parentId}></ChildAddModal>
+                </TabPanel>
             </TabView>
-
         </div>
     )
 }

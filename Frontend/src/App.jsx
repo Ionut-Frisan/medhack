@@ -10,19 +10,23 @@ import SignUp from "./pages/SignUp/SignUp.jsx";
 import './assets/style/index.scss'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Child from "./pages/Child/Child.jsx";
+import Welcome from "./pages/Welcome/Welcome";
 
 function App() {
     return (
         <>
             <NavBar/>
             <Routes>
-                <Route exact path='/' element={<DoctorRoute/>}>
-                    <Route exact path='/doctor' element={<Home/>}/>
+                <Route exact path='/doctor' element={<DoctorRoute/>}>
+                    <Route index element={<Home/>}/>
+                    <Route path='/doctor/asd' element={<Home/>}/>
                 </Route>
+                <Route exact path='/' element={<Home/>}></Route>
                 <Route exact path='/login' element={<Login/>}/>
                 <Route exact path='/sign-up' element={<SignUp/>}/>
                 <Route exact path='/componentDemo' element={<Buttons/>}/>
                 <Route exact path='/myChild' element={<Child/>}/>
+                <Route exact path='/welcome' element={<Welcome/>}/>
             </Routes>
         </>
     )

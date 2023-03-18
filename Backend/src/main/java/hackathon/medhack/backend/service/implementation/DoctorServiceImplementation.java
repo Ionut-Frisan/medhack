@@ -1,5 +1,6 @@
 package hackathon.medhack.backend.service.implementation;
 
+import hackathon.medhack.backend.exceptions.CustomException;
 import hackathon.medhack.backend.model.Doctor;
 import hackathon.medhack.backend.model.Parent;
 import hackathon.medhack.backend.model.dto.DoctorDto;
@@ -58,8 +59,11 @@ public class DoctorServiceImplementation implements DoctorService {
     }
 
     @Override
-    public Long addDoctor(DoctorDto doctorDto) {
+    public Long addDoctor(DoctorDto doctorDto)  {
         Doctor doctor = doctorMapper.convertDoctorDtoToDoctor(doctorDto);
+        if (doctorRepository.getByEmail(doctorDto.getEmail()).isPresent()) {
+            throw new CustomException("Email already used");
+        }
         doctorRepository.save(doctor);
         return doctor.getId();
     }

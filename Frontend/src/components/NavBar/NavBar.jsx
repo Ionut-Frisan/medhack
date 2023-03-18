@@ -4,8 +4,8 @@ import Link from "../router/Link.jsx";
 import MedButton from "../button/MedButton.jsx";
 import Burger from "./Burger.jsx";
 import './NavBar.scss';
-import {useSelector} from "react-redux";
-import {getAuthStatus, getRole, logout} from "../../store/featutres/auth/auth-slice.js";
+import {useDispatch, useSelector} from "react-redux";
+import {getAuthStatus, getRole, logout as logoutStore} from "../../store/featutres/auth/auth-slice.js";
 import Dropdown from "../dropdown/Dropdown.jsx";
 import {useNavigate} from "react-router-dom";
 
@@ -14,9 +14,14 @@ const NavBar = ({}) => {
     const isLoggedIn = useSelector(getAuthStatus);
     const role = useSelector(getRole);
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const logout = () => {
+        dispatch(logoutStore());
+        navigate('/login');
+    }
     const options = [
         {
-            action: () => console.warn('Clicked from dropdown'),
+            action: () => logout(),
             label: 'Log out'
         }
     ]
@@ -64,10 +69,10 @@ const NavBar = ({}) => {
                     <Link to="/faq">FAQ</Link>
                 </li>
                 <li>
-                    <Link to="/">Log in</Link>
+                    <Link to="/login">Log in</Link>
                 </li>
                 <li>
-                    <Link to="/">Sign up</Link>
+                    <Link to="/sign-up">Sign up</Link>
                 </li>
             </ul>
         </nav>
@@ -88,13 +93,13 @@ const NavBar = ({}) => {
                     ) : (
                         <>
                             <li>
-                                <Link to="/">Vaccine dictionary</Link>
+                                <Link to="/vaccines">Vaccine list</Link>
                             </li>
                             <li>
-                                <Link to="/">Children</Link>
+                                <Link to="/mychild">Children</Link>
                             </li>
                             <li>
-                                <Link to="/">My profile</Link>
+                                <Link to="/profile">My profile</Link>
                             </li>
                         </>
                     )
@@ -109,10 +114,10 @@ const NavBar = ({}) => {
                     role === 'doctor' ? (
                         <>
                             <li>
-                                <Link to="/">Vaccine dictionary</Link>
+                                <Link to="/vaccines">Vaccine list</Link>
                             </li>
                             <li>
-                                <Link to="/">Patients</Link>
+                                <Link to="/patients">Patients</Link>
                             </li>
                             <li>
                                 <span onClick={() => logout()}>Logout</span>
@@ -121,13 +126,13 @@ const NavBar = ({}) => {
                     ) : (
                         <>
                             <li>
-                                <Link to="/">Vaccine dictionary</Link>
+                                <Link to="/vaccines">Vaccine dictionary</Link>
                             </li>
                             <li>
-                                <Link to="/">Children</Link>
+                                <Link to="/mychild">Children</Link>
                             </li>
                             <li>
-                                <Link to="/">My profile</Link>
+                                <Link to="/profile">My profile</Link>
                             </li>
                             <li>
                                 <span onClick={() => logout()}>Logout</span>

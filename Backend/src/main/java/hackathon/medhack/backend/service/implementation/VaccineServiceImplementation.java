@@ -52,4 +52,14 @@ public class VaccineServiceImplementation implements VaccineService {
     public void deleteVaccine(Long vaccineId) {
         vaccineRepository.deleteById(vaccineId);
     }
+
+    @Override
+    public List<VaccineDto> getVaccinesByName(String name) {
+        List<VaccineDto> vaccinesDto = new ArrayList<>();
+        List<Vaccine> vaccines = vaccineRepository.getByNameContainingIgnoreCase(name);
+
+        vaccines.forEach(vaccine -> vaccinesDto.add(vaccineMapper.convertVaccineToVaccineDto(vaccine)));
+
+        return vaccinesDto;
+    }
 }

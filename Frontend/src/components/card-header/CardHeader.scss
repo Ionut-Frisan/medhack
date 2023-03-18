@@ -1,0 +1,29 @@
+.card-header{
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
+  color: #0B0754;
+  font-family: 'Poppins', cursive;
+  background-color: white;
+}
+
+.card-header-elements{
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding-left: 10px;
+
+}
+
+.arrow-image{
+  width: 50px;
+  height: 50px;
+  align-content: end;
+}
+.arrow-transition{
+  transform : rotate(180deg);
+  width: 50px;
+  height: 50px;
+  align-content: end;
+}

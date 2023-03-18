@@ -10,6 +10,7 @@ import SignUp from "./pages/SignUp/SignUp.jsx";
 import './assets/style/index.scss'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Welcome from "./pages/Welcome/Welcome";
+import VaccineDictionaryList from "./pages/VaccineDictionary/VaccineDictionaryList";
 
 function App() {
     return (
@@ -25,6 +26,7 @@ function App() {
                 <Route exact path='/sign-up' element={<SignUp/>}/>
                 <Route exact path='/componentDemo' element={<Buttons/>}/>
                 <Route exact path='/welcome' element={<Welcome/>}/>
+                <Route exact path='/vaccineDictionary' element={<VaccineDictionaryList/>}/>
             </Routes>
         </>
     )

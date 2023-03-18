@@ -18,7 +18,7 @@ function Welcome() {
                         recomandate.
                     </h1>
                 </div>
-                <MedButton label={"Informează-te"} />
+                <MedButton className={"font-link-description"} label={"Informează-te"} circle={true} variant="primary" size="large"/>
             </div>
         </div>
 

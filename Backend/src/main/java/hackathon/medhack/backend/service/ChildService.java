@@ -14,4 +14,6 @@ public interface ChildService {
     void deleteChild(Long childId);
 
     Long updateChild(Long childId, ChildDto childDto);
+
+    List<ChildDto> getChildrenByName(String name);
 }

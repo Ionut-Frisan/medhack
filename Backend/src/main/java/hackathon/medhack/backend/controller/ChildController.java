@@ -41,4 +41,9 @@ public class ChildController {
     public ResponseEntity<Long> updateChild(@PathVariable Long childId, @RequestBody ChildDto childDto){
         return new ResponseEntity<>(childService.updateChild(childId, childDto), HttpStatus.OK);
     }
+
+    @GetMapping("/search/{name}")
+    public ResponseEntity<List<ChildDto>> getChildrenByName(@PathVariable String name) {
+        return new ResponseEntity<>(childService.getChildrenByName(name), HttpStatus.OK);
+    }
 }

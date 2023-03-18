@@ -8,6 +8,7 @@ import hackathon.medhack.backend.model.dto.ParentDto;
 import hackathon.medhack.backend.model.mapper.DoctorMapper;
 import hackathon.medhack.backend.model.mapper.ParentMapper;
 import hackathon.medhack.backend.repository.DoctorRepository;
+import hackathon.medhack.backend.repository.ParentRepository;
 import hackathon.medhack.backend.service.DoctorService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -24,6 +25,8 @@ import java.util.List;
 public class DoctorServiceImplementation implements DoctorService {
 
     private final DoctorRepository doctorRepository;
+
+    private final ParentRepository parentRepository;
     private final DoctorMapper doctorMapper;
     private final ParentMapper parentMapper;
 
@@ -62,6 +65,9 @@ public class DoctorServiceImplementation implements DoctorService {
     public Long addDoctor(DoctorDto doctorDto)  {
         Doctor doctor = doctorMapper.convertDoctorDtoToDoctor(doctorDto);
         if (doctorRepository.getByEmail(doctorDto.getEmail()).isPresent()) {
+            throw new CustomException("Email already used");
+        }
+        if (parentRepository.getByEmail(doctorDto.getEmail()).isPresent()) {
             throw new CustomException("Email already used");
         }
         doctorRepository.save(doctor);

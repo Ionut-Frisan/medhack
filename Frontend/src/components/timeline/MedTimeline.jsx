@@ -15,7 +15,7 @@ const MedTimeline = ({ children, position, ...props }) => {
         return {
             ...props,
             layout,
-            lineColor: 'red',
+            lineColor: '#525252',
         }
     }, [props]);
 

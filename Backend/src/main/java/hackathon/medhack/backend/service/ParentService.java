@@ -11,4 +11,6 @@ public interface ParentService {
     List<ChildDto> getChildrenForParent(Long parentId);
     Long addParent(ParentDto parentDto);
     void deleteParent(Long parentId);
+
+    List<ParentDto> getParentsByName(String name);
 }

@@ -26,4 +26,5 @@ public class ChildVaccine {
 
     private Boolean isDone;
     private LocalDate childVaccineDate;
+    private LocalDate dateWhenDone;
 }

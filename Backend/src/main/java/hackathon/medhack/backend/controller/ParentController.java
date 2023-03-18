@@ -43,4 +43,9 @@ public class ParentController {
         return new ResponseEntity<>("Parent deleted", HttpStatus.OK);
     }
 
+    @GetMapping("/search/{name}")
+    public ResponseEntity<List<ParentDto>> getParentsByName(@PathVariable String name) {
+        return new ResponseEntity<>(parentService.getParentsByName(name), HttpStatus.OK);
+    }
+
 }

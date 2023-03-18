@@ -12,7 +12,7 @@ public class VaccineDto {
 
     private String name;
     private String description;
-    private Integer age;
+    private float age;
     private String preventedDiseases;
     private String sideEffects;
 }

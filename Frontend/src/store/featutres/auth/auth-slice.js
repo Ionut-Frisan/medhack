@@ -1,5 +1,4 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import { createSlice } from "@reduxjs/toolkit";
 import useLocalStorage from "../../../hooks/useLocalStorage.js";
 
 const ls = useLocalStorage();
@@ -46,6 +45,7 @@ export const authSlice = createSlice({
           state.token = '';
           state.role = '';
           state.isLoggedIn = false;
+          return;
        }
        state.token = token;
        state.role = role;

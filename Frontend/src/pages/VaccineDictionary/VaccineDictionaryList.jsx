@@ -3,6 +3,7 @@ import VaccineDictionary from "./VaccineDictionary";
 import useRequest from "../../hooks/useRequest";
 import MedInput from "../../components/input/MedInput";
 import {FaSearch} from "react-icons/fa";
+import "./VaccineDictionary.scss";
 
 function VaccineDictionaryList() {
     const [vaccineList, setVaccineList] = useState([]);
@@ -51,7 +52,7 @@ function VaccineDictionaryList() {
 
 
     return(
-        <div className={"vaccine-card"}>
+        <div className={"background-search"}>
             <div className={"search-bar"}>
                 <MedInput placeholder={"Caută Vaccin"} length={"small"} size={"large"} endIcon={FaSearch}
                           rounded={true} onChange={(e)=>searchVaccine(e)}/>

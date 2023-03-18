@@ -17,7 +17,9 @@ import { useEffect } from "react";
 import Child from "./pages/Child/Child.jsx";
 import Welcome from "./pages/Welcome/Welcome";
 import VaccineDictionaryList from "./pages/VaccineDictionary/VaccineDictionaryList";
+import MedicPatientList from "./pages/MedicPatients/MedicPatientList";
 import ParentHome from "./pages/ParentHome/ParentHome.jsx";
+import FAQ from "./pages/FAQ/FAQ";
 
 function App() {
     const dispatch = useDispatch();
@@ -39,7 +41,9 @@ function App() {
                 <Route exact path='/myChild' element={<Child/>}/>
                 <Route exact path='/welcome' element={<Welcome/>}/>
                 <Route exact path='/vaccineDictionary' element={<VaccineDictionaryList/>}/>
+                <Route exact path='/medicPatients' element={<MedicPatientList/>}/>
                 <Route exact path='/parent-home' element={<ParentHome />}/>
+                <Route exact path='/faq' element={<FAQ />}/>
             </Routes>
         </>
     )

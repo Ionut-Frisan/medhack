@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useMemo, useState} from "react";
 import { useNavigate } from "react-router-dom";
 
 import './SignUp.scss';
@@ -6,6 +6,7 @@ import './SignUp.scss';
 import MedButton from "../../components/button/MedButton.jsx";
 import MedInput from "../../components/input/MedInput.jsx";
 import Link from "../../components/router/Link.jsx";
+import Select from 'react-select'
 
 import image from "../../assets/images/10132.jpg";
 import useRequest from "../../hooks/useRequest";
@@ -16,12 +17,25 @@ const SignUp = () => {
     const [email, setEmail] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
     const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
+    const [doctorId, setDoctorID] = useState('');
+    const [isDoctor, setIsDoctor] = useState(false);
+    const [doctors, setDoctors] = useState([]);
     
-    const {post} = useRequest();
-
+    const {post, get} = useRequest();
+    
+    const getDoctorList = async () => {
+        if(!!doctors.length) return;
+        await get('api/doctor/all', {}, ({data}) => setDoctors(data));
+    }
+    
     // TODO Razvan: validate
-
+    useEffect(() => {getDoctorList().then().catch()});
+    const options = useMemo(() => {
+        return doctors.map((doctor) => ({
+            label: `${doctor.firstName || ''} ${doctor.lastName || ''}`,
+            value: doctor.id,
+        }));
+    }, [doctors]);
     const handleSubmit = async (event) => {
         event.preventDefault();
         const body = {
@@ -30,8 +44,10 @@ const SignUp = () => {
             email,
             phoneNumber,
             password,
-        }
-        const res = await post('/api/doctor/add', {data: body});
+        };
+        if (!isDoctor) body.doctorId = doctorId;
+        const url = isDoctor ? '/api/doctor/add' : '/api/parent/add';
+        const res = await post(url, {data: body});
     }
 
     return (
@@ -69,12 +85,19 @@ const SignUp = () => {
                           size={'large'}
                           onChange={(e) => setPassword(e.target.value)}
                 />
-                <MedInput labelPosition={'float'}
-                          label={'Confirm password'}
-                          type={'password'}
-                          size={'large'}
-                          onChange={(e) => setConfirmPassword(e.target.value)}
-                />
+                {
+                    isDoctor ? <></> : <Select
+                    className={'med-select'}
+                    placeholder={'Select your doctor'}
+                    options={options}
+                    required={true}
+                    onChange={(option) => setDoctorID(option.value)}
+                    ></Select>
+                }
+                <div className={'checkbox'}>
+                    <label>I am a doctor</label>
+                    <input type={"checkbox"} onChange={() => setIsDoctor(!isDoctor)} checked={isDoctor}/>
+                </div>
                 <span className={'log-in-option'}>
                     Already have an account?
                     <Link to={'/login'}> Log in</Link>

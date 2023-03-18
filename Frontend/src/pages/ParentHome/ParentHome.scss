@@ -1,0 +1,44 @@
+@import 'src/assets/style/variables';
+
+.child-list-main{
+  & > * {
+    margin-bottom: 1rem;
+  }
+}
+
+.child-card{
+  font-size: 1.4rem;
+  width: 100%;
+  display: flex;
+  box-shadow: 3px 2px 2px $border_color;
+  justify-content: space-between;
+  user-select: none;
+  text-align: center;
+  
+  .child-vaccine-carousel{
+    max-width: 50%;
+  }
+  
+  .carousel-root, .carousel-slider, .slide-wrapper{
+    height: 100%!important;
+  }
+  
+  .user-image {
+    margin: 0;
+  }
+  
+  .vaccine-carousel{
+    height: 100%;
+    .tag-info{
+      background-color: $color_info;
+    }
+    .tag-error{
+      background-color: $color_danger;
+      color: white;
+    }
+    .tag-success{
+      background-color: $color_success;
+      color: white;
+    }
+  }
+}

@@ -1,9 +1,11 @@
-import {useState, useRef, useEffect} from "react";
+import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import {
-  login,
   getToken,
+  getRole,
+  login,
+  logout,
 } from "../../store/featutres/auth/auth-slice.js";
 import '../SignUp/SignUp.scss';
 import MedInput from "../../components/input/MedInput.jsx";
@@ -14,25 +16,22 @@ import image from "../../assets/images/10132.jpg";
 import useRequest from "../../hooks/useRequest.js";
 
 export default function Login() {
+  const emailRef = useRef("");
+  const passwordRef = useRef("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const token = useSelector(getToken);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const token = useSelector(getToken);
+
   const { post } = useRequest();
-  
-  useEffect(() => {
-    if(!!token){
-      navigate('/welcome');
-    }
-  }, [])
 
   // TODO Razvan: validate
 
   const onSuccess = (res) => {
     // TODO: Notification
     dispatch(login(res.data));
-    navigate('/welcome');
+    res.data?.role === 'parent' ? navigate('/parent-home') : navigate('/doctor-home');
   }
 
   const onError = (res) => {
@@ -69,7 +68,7 @@ export default function Login() {
         />
         <span className={'log-in-option'}>
           Don't have an account?
-          <Link to={'/login'}> Sign up</Link>
+          <Link to='/sign-up'> Sign up</Link>
         </span>
         <span className={'divider-horizontal'}></span>
         <MedButton length={'flexible'}

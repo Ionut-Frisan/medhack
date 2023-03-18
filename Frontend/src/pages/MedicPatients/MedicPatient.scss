@@ -1,15 +1,14 @@
-
 .search-bar{
   display: flex;
   justify-content: flex-end;
   padding-bottom: 10px ;
 }
 
-.vaccine-card{
+.patient-card{
   padding: 2% 5%;
 }
 
-.no-vaccine-message {
+.no-patients-message {
   display: flex;
   font-family: 'Poppins', cursive;
   color: #0B0754;

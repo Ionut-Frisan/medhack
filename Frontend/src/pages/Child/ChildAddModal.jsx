@@ -42,6 +42,7 @@ function ChildAddModal({isModalOpen, closeButtonCallback, parentId}){
             secondParentLastName,
             parentId
         }
+        console.warn({body});
         const res = await post('/api/child/add', {data: body});
         console.log(res.data)
         closeButtonCallback();

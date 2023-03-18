@@ -18,18 +18,20 @@ function Child() {
     const [childrenList, setChildrenList] = useState([]);
 
     const parentId = useSelector(getToken);
-    function updateChild(){
-        setModalState(!isModalOpen); 
+
+    function updateChild() {
+        setModalState(!isModalOpen);
     }
-    function addChild(){
+
+    function addChild() {
         setAddModalState(!isAddModalOpen);
     }
+
 
     useEffect( ()=>{
 
         async function getChildrenForParent(){
             const res = await get(`/api/parent/children/${parentId}`)
-            console.log( res.data)
             setChildrenList(res.data || [])
         }
         if(parentId){
@@ -38,7 +40,9 @@ function Child() {
 
     }, [parentId])
 
-    const deleteChild = async (event, childId) =>{
+    console.warn(childrenList);
+
+    const deleteChild = async (event, childId) => {
         event.preventDefault();
         const res = await del(`/api/child/${childId}`)
     }
@@ -48,12 +52,12 @@ function Child() {
                 All My Children
             </h1>
             <TabView activeTab={0}>
-                {childrenList.map(
-                child =>
-                <TabPanel title={child.firstName} key={child.id}>
+                 {childrenList.map(
+                m =>
+                <TabPanel title={m.firstName} key={m.id}>
                     <ChildModal isModalOpen={isModalOpen}
                                 closeButtonCallback={() => setModalState(!isModalOpen)}
-                                children={child}/>
+                                children={m}/>
                     <MedButton label={"Modifica copil"}
                                circle={true}
                                variant={"primary"}
@@ -64,12 +68,12 @@ function Child() {
                                circle={true}
                                variant={"primary"}
                                size={"medium"}
-                               onClick={(e)=>deleteChild(e, child.id)}
+                               onClick={(e)=>deleteChild(e, m.id)}
                     />
                 </TabPanel>
                 )}
                 <TabPanel icon={FaPlus}>
-                    <ChildAddModal></ChildAddModal>
+                    <ChildAddModal parentId={parentId}></ChildAddModal>
                 </TabPanel>
             </TabView>
         </div>

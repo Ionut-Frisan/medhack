@@ -12,6 +12,7 @@ import java.time.LocalDate;
 public class ChildVaccineDto {
     private Long id;
     private String name;
+    private String description;
     private LocalDate childVaccineDate;
     private LocalDate dateWhenDone;
     private Boolean isDone;

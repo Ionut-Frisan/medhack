@@ -9,6 +9,7 @@ import SignUp from "./pages/SignUp/SignUp.jsx";
 
 import './assets/style/index.scss'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import Welcome from "./pages/Welcome/Welcome";
 
 function App() {
     return (
@@ -23,6 +24,7 @@ function App() {
                 <Route exact path='/login' element={<Login/>}/>
                 <Route exact path='/sign-up' element={<SignUp/>}/>
                 <Route exact path='/componentDemo' element={<Buttons/>}/>
+                <Route exact path='/welcome' element={<Welcome/>}/>
             </Routes>
         </>
     )

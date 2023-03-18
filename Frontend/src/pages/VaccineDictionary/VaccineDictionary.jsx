@@ -36,9 +36,9 @@ function VaccineDictionary(props) {
                 <CardHeader>
                     <div className={"card-header-elements"}>
                         <div>
-                            <h1>
+                            <div className={"text-header"}>
                                 {props.name}
-                            </h1>
+                            </div>
                         </div>
                         {!isOpen ?
                             <img className={"arrow-image"} src={arrow} alt={"arrow image"} onClick={clickArrow}/>

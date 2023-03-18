@@ -1,17 +1,24 @@
 package hackathon.medhack.backend.service.implementation;
 
 import hackathon.medhack.backend.model.Child;
+import hackathon.medhack.backend.model.ChildVaccine;
 import hackathon.medhack.backend.model.Parent;
+import hackathon.medhack.backend.model.Vaccine;
 import hackathon.medhack.backend.model.dto.ChildDto;
 import hackathon.medhack.backend.model.mapper.ChildMapper;
 import hackathon.medhack.backend.repository.ChildRepository;
+import hackathon.medhack.backend.repository.ChildVaccineRepository;
 import hackathon.medhack.backend.repository.ParentRepository;
+import hackathon.medhack.backend.repository.VaccineRepository;
 import hackathon.medhack.backend.service.ChildService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +31,13 @@ public class ChildServiceImplementation implements ChildService {
 
     private final ParentRepository parentRepository;
 
+    private final ChildVaccineRepository childVaccineRepository;
+
+    private final VaccineRepository vaccineRepository;
+
     private final ChildMapper childMapper;
+
+    private final Logger logger = LoggerFactory.getLogger(ChildServiceImplementation.class);
 
     @Override
     public List<ChildDto> getAllChildren() {
@@ -46,6 +59,8 @@ public class ChildServiceImplementation implements ChildService {
 
     @Override
     public Long addChild(ChildDto childDto) {
+        logger.info("Adding child");
+
         if (parentRepository.findById(childDto.getParentId()).isEmpty()) {
             return null;
         }
@@ -53,6 +68,21 @@ public class ChildServiceImplementation implements ChildService {
         Child child = childMapper.convertChildDtoToChild(childDto);
         child.setParent(parent);
         childRepository.save(child);
+
+        for(Vaccine vaccine : vaccineRepository.findAll()) {
+            LocalDate childVaccineDate = child.getDateOfBirth();
+            if (vaccine.getAge() >= 1) {
+                int months = ((int) vaccine.getAge());
+                childVaccineDate = childVaccineDate.plusMonths(months);
+            } else {
+                int weeks = (int) (vaccine.getAge() * 4);
+                childVaccineDate = childVaccineDate.plusWeeks(weeks);
+            }
+
+            childVaccineRepository.save(
+                    new ChildVaccine(null,child, vaccine, false, childVaccineDate, null)
+            );
+        }
 
         return child.getId();
     }

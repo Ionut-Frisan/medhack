@@ -36,4 +36,9 @@ public class VaccineController {
         vaccineService.deleteVaccine(vaccineId);
         return new ResponseEntity<>("Vaccine deleted", HttpStatus.OK);
     }
+
+    @GetMapping("/search/{name}")
+    public ResponseEntity<List<VaccineDto>> getVaccinesByName(@PathVariable String name) {
+        return new ResponseEntity<>(vaccineService.getVaccinesByName(name),HttpStatus.OK);
+    }
 }

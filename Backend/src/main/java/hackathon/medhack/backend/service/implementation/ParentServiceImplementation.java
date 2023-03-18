@@ -85,4 +85,13 @@ public class ParentServiceImplementation implements ParentService {
     public void deleteParent(Long parentId) {
         parentRepository.deleteById(parentId);
     }
+
+    @Override
+    public List<ParentDto> getParentsByName(String name) {
+        List<ParentDto> parentsDto = new ArrayList<>();
+        List<Parent> parents = parentRepository.getByFirstNameContainingIgnoreCaseOrLastNameContainingIgnoreCase(name,name);
+        parents.forEach(parent -> parentsDto.add(parentMapper.convertParentToParentDto(parent)));
+
+        return parentsDto;
+    }
 }

@@ -1,11 +1,14 @@
 import {useState} from "react";
+import { useNavigate } from "react-router-dom";
 
 import './SignUp.scss';
+
 import MedButton from "../../components/button/MedButton.jsx";
 import MedInput from "../../components/input/MedInput.jsx";
 import Link from "../../components/router/Link.jsx";
 
 import image from "../../assets/images/10132.jpg";
+import useRequest from "../../hooks/useRequest";
 
 const SignUp = () => {
     const [firstName, setFirstName] = useState('');
@@ -14,11 +17,21 @@ const SignUp = () => {
     const [phoneNumber, setPhoneNumber] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    
+    const {post} = useRequest();
 
-    const handleSubmit = (event) => {
+    // TODO Razvan: validate
+
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        // TODO: validate values
-        console.warn(firstName);
+        const body = {
+            firstName,
+            lastName,
+            email,
+            phoneNumber,
+            password,
+        }
+        const res = await post('/api/doctor/add', {data: body});
     }
 
     return (

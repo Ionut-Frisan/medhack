@@ -7,4 +7,6 @@ import java.util.Optional;
 
 public interface ParentRepository extends JpaRepository<Parent, Long> {
     Optional<Parent> getByEmailAndPassword(String email, String password);
+
+    Optional<Parent> getByEmail(String email);
 }

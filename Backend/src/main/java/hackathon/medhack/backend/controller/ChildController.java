@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping("api/child")
 @RequiredArgsConstructor
@@ -34,5 +35,10 @@ public class ChildController {
     public ResponseEntity<String> deleteChild(@PathVariable Long childId) {
         childService.deleteChild(childId);
         return new ResponseEntity<>("Child deleted", HttpStatus.OK);
+    }
+
+    @PutMapping("/{childId}")
+    public ResponseEntity<Long> updateChild(@PathVariable Long childId, @RequestBody ChildDto childDto){
+        return new ResponseEntity<>(childService.updateChild(childId, childDto), HttpStatus.OK);
     }
 }

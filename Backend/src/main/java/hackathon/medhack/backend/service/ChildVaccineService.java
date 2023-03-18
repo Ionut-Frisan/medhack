@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface ChildVaccineService {
     List<ChildVaccineDto> getChildVaccines(Long childId);
+
+    ChildVaccineDto updateChildVaccine(ChildVaccineDto childVaccineDto);
 }

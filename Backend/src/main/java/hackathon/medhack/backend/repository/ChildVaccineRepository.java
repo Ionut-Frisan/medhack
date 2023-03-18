@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface ChildVaccineRepository extends JpaRepository<ChildVaccine, Long> {
 
-    @Query("SELECT new hackathon.medhack.backend.model.dto.ChildVaccineDto(va.id, va.name, cv.childVaccineDate, cv.isDone) " +
+    @Query("SELECT new hackathon.medhack.backend.model.dto.ChildVaccineDto(va.id, va.name, va.description, cv.childVaccineDate, cv.dateWhenDone, cv.isDone) " +
             "FROM ChildVaccine cv " +
             "JOIN Child ch ON ch.id = cv.child.id " +
             "JOIN Vaccine va ON va.id = cv.vaccine.id WHERE cv.child.id = :childId")

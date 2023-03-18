@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -14,5 +13,6 @@ public class ChildVaccineDto {
     private Long id;
     private String name;
     private LocalDate childVaccineDate;
+    private LocalDate dateWhenDone;
     private Boolean isDone;
 }

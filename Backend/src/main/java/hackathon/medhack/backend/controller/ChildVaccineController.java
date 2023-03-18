@@ -1,5 +1,6 @@
 package hackathon.medhack.backend.controller;
 
+import hackathon.medhack.backend.model.dto.ChildVaccineDto;
 import hackathon.medhack.backend.service.ChildVaccineService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -20,6 +21,10 @@ public class ChildVaccineController {
     public ResponseEntity<List<?>> getChildVaccines(@PathVariable Long childId) {
         return new ResponseEntity<>(childVaccineService.getChildVaccines(childId), HttpStatus.OK);
     }
-    //comment
+
+    @PutMapping
+    public ResponseEntity<ChildVaccineDto> updateChildVaccine(@RequestBody ChildVaccineDto childVaccineDto) {
+        return new ResponseEntity<>(childVaccineService.updateChildVaccine(childVaccineDto), HttpStatus.OK);
+    }
 
 }

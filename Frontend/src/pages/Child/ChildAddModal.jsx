@@ -60,11 +60,11 @@ function ChildAddModal({isModalOpen, closeButtonCallback, parentId}){
 
     return (
         <div>
-            <MedModal
-                isOpen={isModalOpen}
-                title={firstName + " " + lastName}
-                closeButtonCallback={closeButtonCallback}
-            >
+            {/*<MedModal*/}
+            {/*    isOpen={isModalOpen}*/}
+            {/*    title={firstName + " " + lastName}*/}
+            {/*    closeButtonCallback={closeButtonCallback}*/}
+            {/*>*/}
                 <form onSubmit={handleSubmit}>
                     <div>
                         <UserImage src="https://img.freepik.com/premium-vector/cute-baby-boy-profile-picture-kid-avatar_176411-4644.jpg?w=2000" alt="Child profile picture"/>
@@ -126,7 +126,7 @@ function ChildAddModal({isModalOpen, closeButtonCallback, parentId}){
                         />
                     </div>
                 </form>
-            </MedModal>
+            {/*</MedModal>*/}
         </div>
     )
 }

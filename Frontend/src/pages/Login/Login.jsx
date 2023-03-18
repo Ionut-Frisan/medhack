@@ -1,11 +1,9 @@
-import { useState, useRef } from "react";
+import {useState, useRef, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import {
-  getToken,
-  getRole,
   login,
-  logout,
+  getToken,
 } from "../../store/featutres/auth/auth-slice.js";
 import '../SignUp/SignUp.scss';
 import MedInput from "../../components/input/MedInput.jsx";
@@ -16,23 +14,25 @@ import image from "../../assets/images/10132.jpg";
 import useRequest from "../../hooks/useRequest.js";
 
 export default function Login() {
-  const emailRef = useRef("");
-  const passwordRef = useRef("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const token = useSelector(getToken);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
+  const token = useSelector(getToken);
   const { post } = useRequest();
+  
+  useEffect(() => {
+    if(!!token){
+      navigate('/welcome');
+    }
+  }, [])
 
   // TODO Razvan: validate
 
   const onSuccess = (res) => {
     // TODO: Notification
-    console.warn(res.data);
-    console.warn({ login });
     dispatch(login(res.data));
+    navigate('/welcome');
   }
 
   const onError = (res) => {

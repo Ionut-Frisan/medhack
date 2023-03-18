@@ -35,7 +35,7 @@ const NavBar = ({}) => {
             <FaMedrt/>
             <ul className={'navbar-links'}>
                 <li>
-                    <Link to="/vaccines">Vaccine list</Link>
+                    <Link to="/vaccineDictionary">Vaccine list</Link>
                 </li>
                 <li>
                     <Link to="/faq">FAQ</Link>

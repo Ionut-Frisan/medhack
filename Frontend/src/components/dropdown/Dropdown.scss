@@ -1,0 +1,41 @@
+@import '../../assets/style/variables';
+
+.dropdown{
+  position: relative;
+  height: fit-content !important;
+  
+  ul.dropdown-options{
+    display: flex;
+    list-style: none;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    justify-content: center!important;
+    align-items: start;
+    gap: 0;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    //border: 0.1rem solid $border_color;
+    width: 10rem;
+    box-sizing: border-box;
+    box-shadow: 3px 2px 2px $border_color;
+    
+    &.hidden{
+      display: none;
+    }
+    
+    li{
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+      width: 100%;
+      display: block;
+      box-sizing: border-box;
+      
+      &:hover{
+        background-color: #3b82f6;
+      }
+    }
+  }
+}

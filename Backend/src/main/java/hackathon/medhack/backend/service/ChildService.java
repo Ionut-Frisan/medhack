@@ -16,4 +16,8 @@ public interface ChildService {
     Long updateChild(Long childId, ChildDto childDto);
 
     List<ChildDto> getChildrenByName(String name);
+
+    List<ChildDto> getChildrenForDoctor(Long doctorId);
+
+    List<ChildDto> getChildrenForDoctorByName(Long doctorId, String name);
 }

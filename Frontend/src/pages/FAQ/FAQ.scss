@@ -1,0 +1,29 @@
+.background{
+  background-image: url('../../assets/images/ilustratie_-_semnul_intrebarii.png');
+  background-repeat: no-repeat;
+  background-position: right;
+  height:calc(100vh - 28rem);
+  background-size: contain;
+  margin-right: 35px;
+  margin-top: 38px;
+}
+
+.question{
+  font-family: 'DM Serif Display', cursive;
+  font-size: 27px;
+  color: #E75756;
+  padding-left: 5%;
+  white-space: pre-wrap;
+  margin-bottom: 1%;
+}
+
+.answer{
+  font-family: 'Poppins', cursive;
+  font-size: 17px;
+  color: #0B0754;
+  padding-left: 7%;
+  white-space: pre-wrap;
+  width: 40%;
+  margin-bottom: 1%;
+}
+

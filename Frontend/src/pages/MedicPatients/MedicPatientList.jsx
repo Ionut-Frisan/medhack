@@ -4,33 +4,41 @@ import "./MedicPatient.scss"
 import MedicPatient from "./MedicPatient";
 import MedInput from "../../components/input/MedInput";
 import {FaSearch} from "react-icons/fa";
+import {useSelector} from "react-redux";
+import {getToken} from "../../store/featutres/auth/auth-slice";
 
 function MedicPatientList() {
     const [childList, setChildList] = useState([]);
     const [noChild, setNoChild] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
+    const doctorID = useSelector(getToken);
     const {get} = useRequest();
-
     async function getAllChildren(){
 
-        const res = await get('/api/child/all');
+        const res = await get(`/api/child/searchForMedic/${doctorID}`);
         setChildList(res.data);
         setNoChild(false);
     }
 
     useEffect( ()=>{
-        getAllChildren().then(() => {console.log("Children list fetched")
-        setIsLoading(false)});
-    }, [])
+        if(doctorID) {
+            getAllChildren().then(() => {
+                console.log("Children list fetched")
+                setIsLoading(false)
+            });
+        }
+    }, [doctorID])
 
     const searchPatient =(e)=>{
         if(e.target.value === ""){
-            getAllChildren().then()
+            if(doctorID) {
+                getAllChildren().then()
+            }
         }
         if(e.target.value <= 1)
             return
         async function getSearchedChildren(){
-            const res = await get(`/api/child/search/${e.target.value}`)
+            const res = await get(`/api/child/searchForMedicWithName/${doctorID}/${e.target.value}`)
             setChildList(res.data)
             if(res.data.length === 0){
                 setNoChild(true)
@@ -40,7 +48,9 @@ function MedicPatientList() {
 
         }
         if(e.target.valueOf()){
-            getSearchedChildren().then();
+            if(doctorID) {
+                getSearchedChildren().then();
+            }
         }
     }
 

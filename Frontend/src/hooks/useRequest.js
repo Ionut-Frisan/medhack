@@ -9,7 +9,6 @@ const useRequest = () => {
     axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
   }
   const handler = async (config, errorCallback, successCallback) => {
-    console.warn({config});
     return await axios(config)
       .then((res) => {
         const returnObj = {

@@ -68,6 +68,9 @@ public class ParentServiceImplementation implements ParentService {
         if(parentRepository.getByEmail(parentDto.getEmail()).isPresent()) {
             throw new CustomException("Email already used");
         }
+        if(doctorRepository.getByEmail(parentDto.getEmail()).isPresent()) {
+            throw new CustomException("Email already used");
+        }
 
         if (doctorRepository.findById(parentDto.getDoctorId()).isEmpty()) {
             throw new CustomException("Non existent doctor");

@@ -9,9 +9,16 @@ import SignUp from "./pages/SignUp/SignUp.jsx";
 
 import './assets/style/index.scss'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { initializeStore } from "./store/featutres/auth/auth-slice.js";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
 import Welcome from "./pages/Welcome/Welcome";
 
 function App() {
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(initializeStore());
+    }, []);
     return (
         <>
             <NavBar/>

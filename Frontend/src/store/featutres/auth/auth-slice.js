@@ -28,17 +28,29 @@ export const authSlice = createSlice({
       state.role = "";
       state.isLoggedIn = false;
       ls.set("token", "");
+      ls.set("role", "");
     },
     login: (state, action) => {
       const { id: token = "", role = "" } = action.payload;
-      console.warn({action});
       if (!token || !role) return;
       state.token = token;
       state.role = role;
       state.isLoggedIn = true;
       ls.set("token", token);
       ls.set("role", role);
-    }
+    },
+    initializeStore: (state, action) => {
+       const role = ls.get('role');
+       const token = ls.get('token');
+       if (!token || !role) {
+          state.token = '';
+          state.role = '';
+          state.isLoggedIn = false;
+       }
+       state.token = token;
+       state.role = role;
+       state.isLoggedIn = true; 
+    },
   },
   // extraReducers(builder) {
   //   builder
@@ -65,6 +77,6 @@ export const getToken = (state) => state.auth.token;
 export const getRole = (state) => state.auth.role;
 export const getAuthStatus = (state) => state.auth.isLoggedIn;
 
-export const { logout, login } = authSlice.actions;
+export const { logout, login, initializeStore } = authSlice.actions;
 
 export default authSlice.reducer;

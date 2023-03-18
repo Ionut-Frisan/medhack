@@ -22,8 +22,9 @@ public class Vaccine {
     private String name;
     private String abbreviation;
 
-    @NotNull
-    @Size(max=3000)
+//    @NotNull
+//    @Size(max=3000)
+    @Lob
     private String description;
 
     private float age;

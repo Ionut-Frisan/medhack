@@ -9,12 +9,17 @@ function MiniVaccine(props){
                     {props.name}
                 </div>
                 <div>
-                    {props.age}
+                    {props.description}
                 </div>
                 <div>
-
+                    {props.childVaccineDate}
                 </div>
-
+                <div>
+                    {props.dateWhenDone}
+                </div>
+                <div>
+                    {props.isDone}
+                </div>
             </Card>
         </div>
 

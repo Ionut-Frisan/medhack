@@ -11,8 +11,11 @@ public class VaccineDto {
     private Long id;
 
     private String name;
+    private String abbreviation;
     private String description;
     private float age;
-    private String preventedDiseases;
-    private String sideEffects;
+    private String comments;
+    private Boolean isMandatory;
+    private String linkDoctor;
+    private String linkPatient;
 }

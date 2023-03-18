@@ -24,13 +24,17 @@ public class Vaccine {
 
 //    @NotNull
 //    @Size(max=3000)
-    @Lob
+    @Column(columnDefinition = "TEXT")
     private String description;
 
     private float age;
     private String comments;
     private Boolean isMandatory;
+
+    @Column(columnDefinition = "TEXT")
     private String linkDoctor;
+
+    @Column(columnDefinition = "TEXT")
     private String linkPatient;
 
 

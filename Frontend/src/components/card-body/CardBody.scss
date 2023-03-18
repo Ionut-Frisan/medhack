@@ -1,0 +1,16 @@
+.card-body{
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  border-bottom-left-radius: 14px;
+  border-bottom-right-radius: 14px;
+  background-color: #BFD2FA;
+}
+
+.card-body-elements{
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  color: #0B0754;
+  padding-left: 10px;
+  font-family: 'Poppins', cursive;
+}

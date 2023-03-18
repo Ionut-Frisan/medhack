@@ -16,6 +16,7 @@ import { useEffect } from "react";
 
 import Child from "./pages/Child/Child.jsx";
 import Welcome from "./pages/Welcome/Welcome";
+import VaccineDictionaryList from "./pages/VaccineDictionary/VaccineDictionaryList";
 
 function App() {
     const dispatch = useDispatch();
@@ -36,6 +37,7 @@ function App() {
                 <Route exact path='/componentDemo' element={<Buttons/>}/>
                 <Route exact path='/myChild' element={<Child/>}/>
                 <Route exact path='/welcome' element={<Welcome/>}/>
+                <Route exact path='/vaccineDictionary' element={<VaccineDictionaryList/>}/>
             </Routes>
         </>
     )

@@ -29,17 +29,21 @@ function MedicPatientList() {
         }
         if(e.target.value <= 1)
             return
-        async function getSearchedVaccine(){
-            const res = await get(`/api/vaccine/search/${e.target.value}`)
-            setVaccineList(res.data)
+        async function getSearchedChildren(){
+            const res = await get(`/api/child/search/${e.target.value}`)
+            setChildList(res.data)
             if(res.data.length === 0){
-                setNoVaccine(true)
+                setNoChild(true)
             }else{
-                setNoVaccine(false)
+                setNoChild(false)
             }
 
         }
-        getSearchedVaccine().then();
+        if(e.target.valueOf()){
+            getSearchedChildren().then();
+        }
+
+
     }
 
     return(

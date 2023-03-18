@@ -15,7 +15,6 @@
   padding-left: 10px;
 
 }
-
 .arrow-image{
   width: 50px;
   height: 50px;
@@ -26,4 +25,13 @@
   width: 50px;
   height: 50px;
   align-content: end;
+}
+
+.vaccine-button {
+  align-content: end;
+}
+
+.comp {
+  display: flex;
+  flex-direction: column;
 }

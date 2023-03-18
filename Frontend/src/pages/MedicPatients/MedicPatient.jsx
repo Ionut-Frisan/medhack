@@ -3,8 +3,7 @@ import arrow from "../../assets/images/arrow.png";
 import CardBody from "../../components/card-body/CardBody";
 import {useEffect, useState} from "react";
 import useRequest from "../../hooks/useRequest";
-import MiniVaccine from "./MiniVaccine";
-import MiniVaccineList from "./MiniVaccineList";
+import MedButton from "../../components/button/MedButton";
 
 function MedicPatient(props) {
 
@@ -59,8 +58,8 @@ function MedicPatient(props) {
 
     return (
         <div className={"patient-card"}>
-            <div>
-                <CardHeader>
+            <div onClick={clickArrow}>
+                <CardHeader >
                     <div className={"card-header-elements"}>
                         <div>
                             <h1>
@@ -70,10 +69,14 @@ function MedicPatient(props) {
                                 {parentName}
                             </h2>
                         </div>
-                        {!isOpen ?
-                            <img className={"arrow-image"} src={arrow} alt={"arrow image"} onClick={clickArrow}/>
-                            : <img className={"arrow-transition"} src={arrow} alt={"arrow image"} onClick={clickArrow}/>
-                        }
+                        <div className={"comp"}>
+                            <MedButton className={"vaccine-button"} circle={true} label={"Vaccinuri"}/>
+                            {!isOpen ?
+                                <img className={"arrow-image"} src={arrow} alt={"arrow image"} onClick={clickArrow}/>
+                                : <img className={"arrow-transition"} src={arrow} alt={"arrow image"} onClick={clickArrow}/>
+                            }
+                        </div>
+
                     </div>
                 </CardHeader>
                 {isOpen === true &&
@@ -101,7 +104,6 @@ function MedicPatient(props) {
                             Domiciliu actual: {props.currentResidence}
                         </div>
                     </div>
-                    <MiniVaccineList/>
                 </CardBody>}
             </div>
         </div>

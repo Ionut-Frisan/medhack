@@ -4,7 +4,6 @@ import "./MedicPatient.scss"
 import MedicPatient from "./MedicPatient";
 import MedInput from "../../components/input/MedInput";
 import {FaSearch} from "react-icons/fa";
-import MiniVaccine from "./MiniVaccine";
 
 function MedicPatientList() {
     const [childList, setChildList] = useState([]);

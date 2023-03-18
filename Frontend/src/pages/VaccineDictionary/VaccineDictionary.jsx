@@ -14,18 +14,31 @@ function VaccineDictionary(props) {
             setIsOpen(false)
         }
     }
+
+    const calculateAge = (numberOfMonths) => {
+        if (numberOfMonths === 0) {
+            return "Mai puțin de o lună";
+        } else if (numberOfMonths === 1) {
+            return numberOfMonths + " lună";
+        } else if (numberOfMonths < 12) {
+            return numberOfMonths + " luni";
+        } else if (numberOfMonths === 12) {
+            return parseInt(numberOfMonths / 12) + " an";
+        } else {
+            return parseInt(numberOfMonths / 12) + " ani";
+        }
+
+    }
+
     return (
         <div className={"vaccine-card"}>
-            <div>
+            <div onClick={clickArrow}>
                 <CardHeader>
                     <div className={"card-header-elements"}>
                         <div>
                             <h1>
                                 {props.name}
                             </h1>
-                            <h2>
-                                {props.age} luni
-                            </h2>
                         </div>
                         {!isOpen ?
                             <img className={"arrow-image"} src={arrow} alt={"arrow image"} onClick={clickArrow}/>
@@ -39,10 +52,7 @@ function VaccineDictionary(props) {
                         <div>
                             {props.description}
                         </div>
-                        <br/>
-                        <div>
-                            {props.age} luni
-                        </div>
+                        {calculateAge(props.age)}
                         <div>
                             {props.preventedDiseases}
                         </div>

@@ -27,4 +27,15 @@ public class ChildVaccineController {
         return new ResponseEntity<>(childVaccineService.updateChildVaccine(childVaccineDto), HttpStatus.OK);
     }
 
+    @GetMapping("/generatePdf/{childId}")
+    public ResponseEntity<String> generatePdfForChild(@PathVariable Long childId) {
+        try {
+            childVaccineService.generatePdf(childId);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+        return new ResponseEntity<>("Generated pdf",HttpStatus.OK);
+    }
+
 }

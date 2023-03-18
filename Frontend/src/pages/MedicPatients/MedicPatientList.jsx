@@ -1,9 +1,10 @@
 import {useEffect, useState} from "react";
 import useRequest from "../../hooks/useRequest";
-
+import "./MedicPatient.scss"
 import MedicPatient from "./MedicPatient";
 import MedInput from "../../components/input/MedInput";
 import {FaSearch} from "react-icons/fa";
+import MiniVaccine from "./MiniVaccine";
 
 function MedicPatientList() {
     const [childList, setChildList] = useState([]);
@@ -42,12 +43,10 @@ function MedicPatientList() {
         if(e.target.valueOf()){
             getSearchedChildren().then();
         }
-
-
     }
 
     return(
-        <div>
+        <div className={"patient-card"}>
             <div className={"search-bar"}>
                 <MedInput placeholder={"Caută Pacient"} length={"small"} size={"large"} endIcon={FaSearch}
                           rounded={true} onChange={(e)=>searchPatient(e)}/>
@@ -73,6 +72,7 @@ function MedicPatientList() {
                         />
                     )}
             </div>
+
         </div>
 
     )

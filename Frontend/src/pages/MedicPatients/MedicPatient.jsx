@@ -3,6 +3,8 @@ import arrow from "../../assets/images/arrow.png";
 import CardBody from "../../components/card-body/CardBody";
 import {useEffect, useState} from "react";
 import useRequest from "../../hooks/useRequest";
+import MiniVaccine from "./MiniVaccine";
+import MiniVaccineList from "./MiniVaccineList";
 
 function MedicPatient(props) {
 
@@ -99,6 +101,7 @@ function MedicPatient(props) {
                             Domiciliu actual: {props.currentResidence}
                         </div>
                     </div>
+                    <MiniVaccineList/>
                 </CardBody>}
             </div>
         </div>

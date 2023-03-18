@@ -11,19 +11,25 @@ public class VaccineMapper {
     public VaccineDto convertVaccineToVaccineDto(Vaccine vaccine) {
         return new VaccineDto(vaccine.getId(),
                 vaccine.getName(),
+                vaccine.getAbbreviation(),
                 vaccine.getDescription(),
                 vaccine.getAge(),
-                vaccine.getPreventedDiseases(),
-                vaccine.getSideEffects());
+                vaccine.getComments(),
+                vaccine.getIsMandatory(),
+                vaccine.getLinkDoctor(),
+                vaccine.getLinkPatient());
     }
 
     public Vaccine convertVaccineDtoToVaccine(VaccineDto vaccineDto) {
         return new Vaccine(vaccineDto.getId(),
                 vaccineDto.getName(),
+                vaccineDto.getAbbreviation(),
                 vaccineDto.getDescription(),
                 vaccineDto.getAge(),
-                vaccineDto.getPreventedDiseases(),
-                vaccineDto.getSideEffects(),
+                vaccineDto.getComments(),
+                vaccineDto.getIsMandatory(),
+                vaccineDto.getLinkDoctor(),
+                vaccineDto.getLinkPatient(),
                 null);
     }
 }

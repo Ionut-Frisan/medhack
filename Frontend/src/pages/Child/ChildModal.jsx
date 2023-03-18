@@ -5,6 +5,8 @@ import UserImage from "../../components/user-image/UserImage.jsx";
 import MedButton from "../../components/button/MedButton";
 import "./ChildModal.scss"
 import useRequest from "../../hooks/useRequest.js";
+import DatePicker from "react-datepicker";
+
 function ChildModal({isModalOpen, closeButtonCallback, children}){
 
     const [firstName, setFirstName] = useState(children.firstName);
@@ -38,6 +40,14 @@ function ChildModal({isModalOpen, closeButtonCallback, children}){
         closeButtonCallback();
     }
 
+    const handleDateChange = (date) => {
+        setDateOfBirth(date);
+    };
+
+    const handleGenderChange = (event) => {
+        setGender(event.target.value);
+    };
+
     return (
         <div>
             <MedModal
@@ -60,18 +70,19 @@ function ChildModal({isModalOpen, closeButtonCallback, children}){
                                   size={'large'}
                                   onChange={(e) => setFirstName(e.target.value)}
                         />
-                        <MedInput labelPosition={'float'}
-                                  label={'DATA NASTERII'}
-                                  value={dateOfBirth}
-                                  size={'large'}
-                                  onChange={(e) => setDateOfBirth(e.target.value)}
+                        <DatePicker placeholder="DATA NASTERII"
+                                    dateFormat={"yyyy-MM-dd"}
+                                    selected={new Date(dateOfBirth)}
+                                    onChange={handleDateChange}
                         />
-                        <MedInput labelPosition={'float'}
-                                  label={'SEXUL'}
-                                  value={gender}
-                                  size={'large'}
-                                  onChange={(e) => setGender(e.target.value)}
-                        />
+                        <select className={"gender-dropdown"}
+                                placeholder={"SEXUL"}
+                                defaultValue={gender}
+                                onChange={handleGenderChange}
+                        >
+                            <option value={"feminin"}>FEMININ</option>
+                            <option value={"masculin"}>MASCULIN</option>
+                        </select>
                         <MedInput labelPosition={'float'}
                                   label={'CNP'}
                                   value={cnp}

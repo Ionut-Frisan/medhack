@@ -22,13 +22,20 @@ public class Vaccine {
     private String name;
     private String abbreviation;
 
+
+//    @NotNull
+//    @Size(max=3000)
     @Column(columnDefinition = "TEXT")
     private String description;
 
     private float age;
     private String comments;
     private Boolean isMandatory;
+
+    @Column(columnDefinition = "TEXT")
     private String linkDoctor;
+
+    @Column(columnDefinition = "TEXT")
     private String linkPatient;
 
 

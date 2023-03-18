@@ -12,6 +12,7 @@ function Child() {
     const [isModalOpen, setModalState] = useState(false);
     const [isAddModalOpen, setAddModalState] = useState(false);
     const {get} = useRequest();
+    const {del} = useRequest();
     const [childrenList, setChildrenList] = useState([]);
 
     const parentId = useSelector(getToken);
@@ -35,6 +36,11 @@ function Child() {
 
     }, [parentId])
 
+    const deleteChild = async (event, childId) =>{
+        event.preventDefault();
+        const res = await del(`/api/child/${childId}`)
+        console.log( res.data)
+    }
     return (
         <div>
             <h1>
@@ -59,7 +65,14 @@ function Child() {
                                circle={true}
                                variant={"primary"}
                                size={"medium"}
-                               onClick={updateChild}/>
+                               onClick={updateChild}
+                    />
+                    <MedButton label={"Sterge copil"}
+                               circle={true}
+                               variant={"primary"}
+                               size={"medium"}
+                               onClick={(e)=>deleteChild(e, m.id)}
+                    />
                 </TabPanel>
                 )}
             </TabView>

@@ -6,23 +6,35 @@ import {FaSearch} from "react-icons/fa";
 
 function VaccineDictionaryList() {
     const [vaccineList, setVaccineList] = useState([]);
+    const [noVaccine, setNoVaccine] = useState(false);
     const {get} = useRequest();
 
+    async function getAllVaccine(){
+        const res = await get('/api/vaccine/all')
+        setVaccineList(res.data)
+        setNoVaccine(false)
+    }
+
     useEffect( ()=>{
-        async function getAllVaccine(){
-            const res = await get('/api/vaccine/all')
-            console.log( res.data)
-            setVaccineList(res.data)
-        }
         getAllVaccine().then();
 
     }, [])
 
-    const searchVaccine =()=>{
+    const searchVaccine =(e)=>{
+        if(e.target.value === ""){
+            getAllVaccine().then()
+        }
+        if(e.target.value <= 1)
+            return
         async function getSearchedVaccine(){
-            const res = await get('/api/vaccine/all')
-            console.log( res.data)
+            const res = await get(`/api/vaccine/search/${e.target.value}`)
             setVaccineList(res.data)
+            if(res.data.length === 0){
+                setNoVaccine(true)
+            }else{
+                setNoVaccine(false)
+            }
+
         }
         getSearchedVaccine().then();
     }
@@ -42,9 +54,10 @@ function VaccineDictionaryList() {
         <div className={"vaccine-card"}>
             <div className={"search-bar"}>
                 <MedInput placeholder={"Caută Vaccin"} length={"small"} size={"large"} endIcon={FaSearch}
-                          rounded={true}/>
+                          rounded={true} onChange={(e)=>searchVaccine(e)}/>
             </div>
             <div>
+                {noVaccine && <h1 className={"no-vaccine-message"}>Nu s-a găsit niciun vaccin cu acest nume.</h1>}
                 {vaccineDictionaryList}
             </div>
         </div>

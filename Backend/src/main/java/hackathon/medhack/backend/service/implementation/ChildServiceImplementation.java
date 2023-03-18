@@ -128,4 +128,13 @@ public class ChildServiceImplementation implements ChildService {
         }
         return childId;
     }
+
+    @Override
+    public List<ChildDto> getChildrenByName(String name) {
+        List<ChildDto> childrenDto = new ArrayList<>();
+        List<Child> children = childRepository.getByFirstNameContainingIgnoreCaseOrLastNameContainingIgnoreCase(name,name);
+        children.forEach(child -> childrenDto.add(childMapper.convertChildToChildDto(child)));
+
+        return childrenDto;
+    }
 }

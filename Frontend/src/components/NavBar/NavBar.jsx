@@ -84,10 +84,10 @@ const NavBar = ({}) => {
                     role === 'doctor' ? (
                         <>
                             <li>
-                                <Link to="/">Vaccine dictionary</Link>
+                                <Link to="/vaccineDictionary">Vaccine dictionary</Link>
                             </li>
                             <li>
-                                <Link to="/">Patients</Link>
+                                <Link to="/medicPatients">Patients</Link>
                             </li>
                         </>
                     ) : (

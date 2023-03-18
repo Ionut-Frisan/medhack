@@ -1,5 +1,4 @@
 import Question from "./Question";
-import question from "../../assets/images/ilustratie_-_semnul_intrebarii.png";
 
 const QUESTIONS = [
     {

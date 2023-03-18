@@ -5,11 +5,17 @@ import UserImage from "../../components/user-image/UserImage.jsx";
 import MedButton from "../../components/button/MedButton";
 import "./ChildModal.scss"
 import useRequest from "../../hooks/useRequest.js";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import "../../components/date-picker/react-datepicker.scss"
+import {useNavigate} from "react-router-dom";
+
+
 function ChildAddModal({isModalOpen, closeButtonCallback, parentId}){
 
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
-    const [dateOfBirth, setDateOfBirth] = useState('');
+    const [dateOfBirth, setDateOfBirth] = useState(new Date());
     const [gender, setGender] = useState('');
     const [cnp, setCnp] = useState('');
     const [permanentResidence, setPermanentResidence] = useState('');
@@ -17,6 +23,10 @@ function ChildAddModal({isModalOpen, closeButtonCallback, parentId}){
     const [secondParentFirstName, setSecondParentFirstName] = useState('');
     const [secondParentLastName, setSecondParentLastName] = useState('');
     const {post} = useRequest();
+
+    const refreshPage = ()=>{
+        window.location.reload();
+    }
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -35,7 +45,18 @@ function ChildAddModal({isModalOpen, closeButtonCallback, parentId}){
         const res = await post('/api/child/add', {data: body});
         console.log(res.data)
         closeButtonCallback();
+        refreshPage()
     }
+
+
+    const handleDateChange = (date) => {
+        setDateOfBirth(date);
+    };
+
+    const handleGenderChange = (event) => {
+        setGender(event.target.value);
+    };
+
 
     return (
         <div>
@@ -57,16 +78,20 @@ function ChildAddModal({isModalOpen, closeButtonCallback, parentId}){
                                   size={'large'}
                                   onChange={(e) => setFirstName(e.target.value)}
                         />
-                        <MedInput labelPosition={'float'}
-                                  label={'DATA NASTERII'}
-                                  size={'large'}
-                                  onChange={(e) => setDateOfBirth(e.target.value)}
+                        <DatePicker
+                                    label="DATA NASTERII"
+                                    dateFormat={"yyyy-MM-dd"}
+                                    selected={new Date(dateOfBirth)}
+                                    onChange={handleDateChange}
                         />
-                        <MedInput labelPosition={'float'}
-                                  label={'SEXUL'}
-                                  size={'large'}
-                                  onChange={(e) => setGender(e.target.value)}
-                        />
+                        <select className={"gender-dropdown"}
+                                placeholder={"SEXUL"}
+                                defaultValue={gender}
+                                onChange={handleGenderChange}
+                        >
+                            <option value={"feminin"}>FEMININ</option>
+                            <option value={"masculin"}>MASCULIN</option>
+                        </select>
                         <MedInput labelPosition={'float'}
                                   label={'CNP'}
                                   size={'large'}

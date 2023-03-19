@@ -36,7 +36,7 @@ const ScheduleItem = (props) => {
             console.log(res.data);
         }
 
-        sendMsg().then();
+        sendMsg().then(textBoxText.current.value = '');
     }
 
     return (

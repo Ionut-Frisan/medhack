@@ -28,11 +28,12 @@
 .elements{
   display: flex;
 }
-.background{
+
+.background-mesaj{
   background-image: url('../../assets/images/ilustratie_conversatie.png');
   background-repeat: no-repeat;
   background-position: right;
-  height:calc(100vh - 34rem);
+  height:calc(100vh - 28rem);
   background-size: contain;
   margin-right: 35px;
   margin-top: 38px;

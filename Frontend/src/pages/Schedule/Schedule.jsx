@@ -29,14 +29,11 @@ function Schedule() {
         />)
 
     return (
-        <div>
-            {vaccineChildList}
-            <div className={"background"}>
-                <div >
+            <div className={"background-mesaj"}>
+                <div>
                     {vaccineChildList}
                 </div>
             </div>
-        </div>
 
     )
 }

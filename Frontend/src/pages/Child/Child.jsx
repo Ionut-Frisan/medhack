@@ -11,24 +11,16 @@ import ChildPanel from "./ChildPanel.jsx";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import { FaPlus } from 'react-icons/fa'
 import MedTimeline from "../../components/timeline/MedTimeline.jsx";
+import ChildPanelContent from "./ChildPanelContent.jsx";
+import './ChildPage.scss';
 
 function Child() {
-
-    const [isModalOpen, setModalState] = useState(false);
     const [isAddModalOpen, setAddModalState] = useState(false);
     const { get, del } = useRequest();
     const [childrenList, setChildrenList] = useState([]);
     const [childrenVaccines, setChildrenVaccines] = useState([]);
 
     const parentId = useSelector(getToken);
-
-    function updateChild() {
-        setModalState(!isModalOpen);
-    }
-
-    function addChild() {
-        setAddModalState(!isAddModalOpen);
-    }
 
     useEffect(() => {
         async function getChildrenForParent() {
@@ -53,71 +45,27 @@ function Child() {
         });
     }, [childrenList])
 
-    const deleteChild = async (event, childId) => {
-        event.preventDefault();
-        const res = await del(`/api/child/${childId}`)
-    }
-    const getVaccineStatus = (vaccine) => {
-        const {
-            isDone,
-            dateWhenDone,
-            childVaccineDate = '',
-        } = vaccine;
-        if (dateWhenDone) {
-            return 'success';
-        }
-        const recommendedDate = new Date(Date.parse(childVaccineDate));// new Date(parseInt(dateParts[0]), parseInt(dateParts[1]) -1, parseInt(dateParts[2]));
-        const now = new Date();
-        const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-        if (today < recommendedDate) {
-            return 'info';
-        }
-        return 'error';
-    }
+    // const deleteChild = async (event, childId) => {
+    //     event.preventDefault();
+    //     const res = await del(`/api/child/${childId}`)
+    // }
     return (
-        <div>
+        <div className={'children-page'}>
             <h1>
                 All My Children
             </h1>
-            <MedButton label={"Adauga copil"}
-                circle={true}
-                variant={"primary"}
-                size={"medium"}
-                onClick={addChild} />
             <Tabs>
                 <TabList>
                     {childrenList.map(m => <Tab key={`tab-${m.id}`}>{m.firstName}</Tab>)}
                     <Tab><FaPlus /></Tab>
                 </TabList>
-                {childrenList.map((m, index) => <TabPanel key={m.id}>
-                    <ChildModal isModalOpen={isModalOpen}
-                        closeButtonCallback={() => setModalState(!isModalOpen)}
-                        children={m} />
-                    <MedButton label={"Modifica copil"}
-                        circle={true}
-                        variant={"primary"}
-                        size={"medium"}
-                        onClick={updateChild}
-                    />
-                    <MedButton label={"Sterge copil"}
-                        circle={true}
-                        variant={"primary"}
-                        size={"medium"}
-                        onClick={(e) => deleteChild(e, child.id)}
-                    />
-                    {childrenVaccines?.[index]?.length ? <MedTimeline position={'left'}>
-                        {childrenVaccines?.[index]?.map((vaccine) =>
-                            <MedTimeline.item
-                                title={vaccine.name}
-                                status={getVaccineStatus(vaccine)}
-                            >
-                                <span>asd</span>
-                            </MedTimeline.item>
-                        )}
-                    </MedTimeline> : <></>}
+                {childrenList.map((m, index) => <TabPanel key={m.id} style={{position: 'relative'}}>
+                <div className={'child-vaccine-info-wrapper'}>
+                    <ChildPanelContent childrenVaccines={childrenVaccines} index={index} childId={m.id} child={m}/>
+                </div>
                 </TabPanel>)}
                 <TabPanel>
-                    <ChildAddModal></ChildAddModal>
+                    <ChildAddModal parentId={parentId}></ChildAddModal>
                 </TabPanel>
             </Tabs>
         </div>

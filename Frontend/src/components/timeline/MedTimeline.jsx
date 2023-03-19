@@ -3,6 +3,8 @@ import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeli
 import 'react-vertical-timeline-component/style.min.css';
 import MedTimelineElement from './MedTimelineElement';
 
+import './MedTimeline.scss';
+
 const MedTimeline = ({ children, position, ...props }) => {
     
     const layout = useMemo(() => {

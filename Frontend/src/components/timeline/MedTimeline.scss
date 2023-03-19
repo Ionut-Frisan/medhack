@@ -1,0 +1,9 @@
+.timeline{
+  width: 100%;
+  margin: 0;
+  max-height: 60rem!important;
+  overflow: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

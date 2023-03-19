@@ -1,0 +1,28 @@
+.child-vaccine-info-wrapper{
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  font-size: 1rem;
+  gap: 2rem;
+  white-space: pre-wrap;
+  .timeline{
+    flex-grow: 1;
+  }
+  .vaccine-info-fragment{
+    flex-shrink: 1;
+    flex-grow: 3;
+    font-size: 1.4rem;
+  }
+}
+
+.children-page{
+  max-width: 90%;
+  margin: auto;
+  box-sizing: border-box;
+}
+
+.child-info-buttons{
+  position: absolute;
+  display: inline-block;
+  right: 2rem;
+  top: 0;
+}

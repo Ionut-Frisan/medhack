@@ -1,7 +1,6 @@
 .child-vaccine-info-wrapper{
   display: grid;
   grid-template-columns: 1fr 2fr;
-  font-size: 1rem;
   gap: 2rem;
   white-space: pre-wrap;
   .timeline{
@@ -12,6 +11,12 @@
     flex-grow: 3;
     font-size: 1.4rem;
   }
+  font-family: 'Poppins', cursive;
+  color: #0B0754;
+  padding-top: 30px;
+  font-size: 13px;
+  background-color: #ebf0ff;
+
 }
 
 .children-page{
@@ -25,4 +30,12 @@
   display: inline-block;
   right: 2rem;
   top: 0;
+}
+.title{
+  font-family: 'Poppins', cursive;
+}
+.icons{
+  font-size: 30px;
+  color: #0B0754;
+  padding: 2px;
 }

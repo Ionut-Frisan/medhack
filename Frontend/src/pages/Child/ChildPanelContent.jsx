@@ -6,6 +6,7 @@ import Link from "../../components/router/Link.jsx";
 import ChildModal from "./ChildModal.jsx";
 import MedButton from "../../components/button/MedButton.jsx";
 import {FaEdit, FaTimes, FaFileDownload} from "react-icons/fa";
+import {MdDeleteOutline} from "react-icons/all.js";
 
 const ChildPanelContent = ({childrenVaccines, index, childId, child}) => {
     const [selectedVaccine, setSelectedVaccine] = useState(childrenVaccines?.[index]?.[0] || {});
@@ -56,10 +57,15 @@ const ChildPanelContent = ({childrenVaccines, index, childId, child}) => {
     const deleteChild = async (event, childId) => {
         event.preventDefault();
         const res = await del(`/api/child/${childId}`)
+        refreshPage();
     }
 
     function updateChild() {
         setModalState(!isModalOpen);
+    }
+
+    const refreshPage = ()=>{
+        window.location.reload();
     }
 
 
@@ -88,13 +94,14 @@ const ChildPanelContent = ({childrenVaccines, index, childId, child}) => {
                                startIcon={FaFileDownload}
                                onClick={(e) => deleteChild(e, child.id)}
                     />
-                    {/*<MedButton label={""}*/}
-                    {/*           circle={true}*/}
-                    {/*           variant={"danger"}*/}
-                    {/*           size={"medium"}*/}
-                    {/*           startIcon={FaTimes}*/}
-                    {/*           onClick={(e) => deleteChild(e, child.id)}*/}
-                    {/*/>*/}
+                    <MedButton label={""}
+                               customClass={"icons"}
+                               circle={true}
+                               variant={"plain"}
+                               size={"large"}
+                               startIcon={MdDeleteOutline}
+                               onClick={(e) => deleteChild(e, child.id)}
+                    />
                 </div>
                 {childrenVaccines?.[index]?.length ?
                     <MedTimeline position={'left'} className={'timeline'}>

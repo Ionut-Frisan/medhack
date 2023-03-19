@@ -9,6 +9,7 @@ import com.itextpdf.layout.property.TextAlignment;
 import hackathon.medhack.backend.model.Child;
 import hackathon.medhack.backend.model.ChildVaccine;
 import hackathon.medhack.backend.model.Parent;
+import hackathon.medhack.backend.model.dto.ChildDto;
 import hackathon.medhack.backend.model.dto.ChildVaccineDto;
 import hackathon.medhack.backend.model.mapper.ChildMapper;
 import hackathon.medhack.backend.repository.ChildRepository;

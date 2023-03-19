@@ -78,28 +78,31 @@ const NavBar = ({}) => {
         </nav>
     ) : (
         <nav className={'navbar'}>
-            <Link to={role === 'doctor' ? '/doctor-home' : '/patient-home'}><img className={"logo"} src={logo} alt={"logo"}/></Link>
+            <Link to={'/welcome'}><img className={"logo"} src={logo} alt={"logo"}/></Link>
             <ul className={'navbar-links'}>
                 {
                     role === 'doctor' ? (
                         <>
                             <li>
-                                <Link to="/vaccineDictionary">Vaccine dictionary</Link>
+                                <Link to="/vaccineDictionary">Dictionar Vaccin</Link>
                             </li>
                             <li>
-                                <Link to="/medicPatients">Patients</Link>
+                                <Link to="/medicPatients">Pacienti</Link>
                             </li>
                             <li>
-                                <Link to="/schedule">Schedule</Link>
+                                <Link to="/schedule">Programari</Link>
                             </li>
                         </>
                     ) : (
                         <>
                             <li>
-                                <Link to="/vaccineDictionary">Vaccine dictionary</Link>
+                                <Link to="/parent-home">Acasa</Link>
                             </li>
                             <li>
-                                <Link to="/myChild">Children</Link>
+                                <Link to="/vaccineDictionary">Dictionar Vaccin</Link>
+                            </li>
+                            <li>
+                                <Link to="/myChild">Copii</Link>
                             </li>
                             <li>
                                 <Link to="/messages">Mesaje</Link>
@@ -120,10 +123,13 @@ const NavBar = ({}) => {
                     role === 'doctor' ? (
                         <>
                             <li>
-                                <Link to="/vaccineDictionary">Vaccine dictionary</Link>
+                                <Link to="/vaccineDictionary">Dictionar Vaccin</Link>
                             </li>
                             <li>
-                                <Link to="/medicPatients">Patients</Link>
+                                <Link to="/medicPatients">Pacienti</Link>
+                            </li>
+                            <li>
+                                <Link to="/schedule">Programari</Link>
                             </li>
                             <li>
                                 <span onClick={() => logout()}>Logout</span>
@@ -132,10 +138,16 @@ const NavBar = ({}) => {
                     ) : (
                         <>
                             <li>
-                                <Link to="/vaccineDictionary">Vaccine dictionary</Link>
+                                <Link to="/parent-home">Acasa</Link>
                             </li>
                             <li>
-                                <Link to="/myChild">Children</Link>
+                                <Link to="/vaccineDictionary">Dictionar Vaccin</Link>
+                            </li>
+                            <li>
+                                <Link to="/myChild">Copii</Link>
+                            </li>
+                            <li>
+                                <Link to="/messages">Mesaje</Link>
                             </li>
                             <li>
                                 <Link to="/faq">FAQ</Link>

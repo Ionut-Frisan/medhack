@@ -1,7 +1,14 @@
 import "./Welcome.scss"
 import MedButton from "../../components/button/MedButton"
+import {useNavigate} from "react-router-dom";
 
 function Welcome() {
+    const navigate = useNavigate();
+
+    const redirectVaccineDictionary = () => {
+        navigate('/vaccineDictionary');
+    }
+
     return (
         <div className={"welcome-page"}>
             <div className={"welcome-text"}>
@@ -18,7 +25,7 @@ function Welcome() {
                         recomandate.
                     </h1>
                 </div>
-                <MedButton className={"font-link-description"} label={"Informează-te"} circle={true} variant="primary" size="large"/>
+                <MedButton onClick={redirectVaccineDictionary} className={"font-link-description"} label={"Informează-te"} circle={true} variant="primary" size="large"/>
             </div>
         </div>
 

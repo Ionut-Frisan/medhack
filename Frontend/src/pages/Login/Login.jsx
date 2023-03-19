@@ -31,7 +31,7 @@ export default function Login() {
   const onSuccess = (res) => {
     // TODO: Notification
     dispatch(login(res.data));
-    res.data?.role === 'parent' ? navigate('/parent-home') : navigate('/medicPatients');
+    res.data?.role === 'parent' ? navigate('/parent-home') : res.data?.role === 'parent' ? navigate('/medicPatients') : '';
   }
 
   const onError = (res) => {
@@ -50,7 +50,7 @@ export default function Login() {
   return (
     <div className={'flex-2-1'}>
       <div className={'presentation'}>
-        <img src={image} />
+        <img width={'100%'} height={'100%'} src={image} alt={''}/>
       </div>
       <form className={'form'} onSubmit={handleSubmit}>
         <h1>App name</h1>

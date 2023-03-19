@@ -2,7 +2,9 @@ import arrow from "../../assets/images/arrow.png";
 import "./VaccineDictionary.scss"
 import CardHeader from "../../components/card-header/CardHeader";
 import CardBody from "../../components/card-body/CardBody";
-import {useState} from "react";
+import {useMemo, useState} from "react";
+import Link from "../../components/router/Link";
+import {useBELink} from "../../hooks/useBELink";
 
 function VaccineDictionary(props) {
     const [isOpen, setIsOpen] = useState(false)
@@ -17,7 +19,7 @@ function VaccineDictionary(props) {
 
     const calculateAge = (numberOfMonths) => {
         if (numberOfMonths === 0) {
-            return "Mai puțin de o lună";
+            return "La naștere";
         } else if (numberOfMonths === 1) {
             return numberOfMonths + " lună";
         } else if (numberOfMonths < 12) {
@@ -29,6 +31,7 @@ function VaccineDictionary(props) {
         }
 
     }
+    const linksComputed = useMemo(() => useBELink(props?.linkDoctor), []);
 
     return (
         <div className={"vaccine-card"}>
@@ -38,6 +41,9 @@ function VaccineDictionary(props) {
                         <div>
                             <div className={"text-header"}>
                                 {props.name}
+                            </div>
+                            <div className={"abbreviation"}>
+                                {props.abbreviation}
                             </div>
                         </div>
                         {!isOpen ?
@@ -50,14 +56,23 @@ function VaccineDictionary(props) {
                 <CardBody>
                     <div className={"card-body-elements"}>
                         <div>
+                            <h1 className={"label"}>Vârstă administrare: </h1>
+                            {calculateAge(props.age)}
+                        </div>
+                        <div>
+                            <h1 className={"label"}>Obligatoriu: </h1>
+                            {props.isMandatory ? <div>Da</div> : <div>Nu</div>}
+                        </div>
+                        <div>
+                            <h1 className={"label"}>Descriere: </h1>
                             {props.description}
                         </div>
-                        {calculateAge(props.age)}
                         <div>
-                            {props.preventedDiseases}
-                        </div>
-                        <div>
-                            {props.sideEffects}
+                            <p><b>Link-uri externe: </b>{linksComputed.map((linkObj, index) => {
+                                return linkObj.url ? <><Link to={linkObj.url} key={`external-link-${index}`}
+                                                             _blank={true}>{linkObj.label || 'Link extern'}</Link> {index !== linksComputed.length - 1 ?
+                                    <b> | </b> : <></>} </> : <span>-</span>
+                            })}</p>
                         </div>
                     </div>
                 </CardBody>}

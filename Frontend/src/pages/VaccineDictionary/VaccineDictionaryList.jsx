@@ -46,10 +46,12 @@ function VaccineDictionaryList() {
         <VaccineDictionary key={vaccine.id}
                            id={vaccine.id}
                            name={vaccine.name}
+                           abbreviation={vaccine.abbreviation}
                            description={vaccine.description}
                            age={vaccine.age}
-                           preventedDiseases={vaccine.preventedDiseases}
-                           sideEffects={vaccine.sideEffects}
+                           isMandatory={vaccine.isMandatory}
+                           linkDoctor={vaccine.linkDoctor}
+                           linkPatient={vaccine.linkPatient}
         />);
 
 

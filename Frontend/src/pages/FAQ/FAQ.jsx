@@ -80,7 +80,7 @@ function FAQ (){
 
     return(
         <div className={"background"}>
-            <div>
+            <div className={'questions-wrapper'}>
                 {QUESTIONS.map(q=>
                     <Question   key={q.id}
                                 id={q.id}

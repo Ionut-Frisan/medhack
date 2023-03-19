@@ -49,7 +49,7 @@ public class ParentController {
         return new ResponseEntity<>(parentService.getParentsByName(name), HttpStatus.OK);
     }
 
-    @GetMapping("/sendMemo")
+    @PostMapping("/sendMemo")
     public ResponseEntity<String> deleteParent(@RequestBody EmailDto emailDto) {
         return new ResponseEntity<>(parentService.sendMemoForParent(emailDto), HttpStatus.OK);
     }

@@ -1,5 +1,4 @@
 import {useState} from "react";
-import {FaMedrt} from "react-icons/fa";
 import Link from "../router/Link.jsx";
 import MedButton from "../button/MedButton.jsx";
 import Burger from "./Burger.jsx";
@@ -101,6 +100,9 @@ const NavBar = ({}) => {
                             </li>
                             <li>
                                 <Link to="/myChild">Children</Link>
+                            </li>
+                            <li>
+                                <Link to="/messages">Mesaje</Link>
                             </li>
                             <li>
                                 <Link to="/faq">FAQ</Link>

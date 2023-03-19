@@ -20,6 +20,7 @@ import MedicPatientList from "./pages/MedicPatients/MedicPatientList";
 import ParentHome from "./pages/ParentHome/ParentHome.jsx";
 import FAQ from "./pages/FAQ/FAQ";
 import Schedule from "./pages/Schedule/Schedule.jsx";
+import MessageList from "./pages/Notifications/MessageList.jsx";
 
 function App() {
     const dispatch = useDispatch();
@@ -43,6 +44,7 @@ function App() {
                 <Route exact path='/parent-home' element={<ParentHome />}/>
                 <Route exact path='/faq' element={<FAQ />}/>
                 <Route exact path='/schedule' element={<Schedule/>}/>
+                <Route exact path='/messages' element={<MessageList/>}/>
             </Routes>
         </>
     )

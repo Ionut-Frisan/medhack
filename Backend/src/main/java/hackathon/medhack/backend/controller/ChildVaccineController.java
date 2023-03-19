@@ -36,7 +36,7 @@ public class ChildVaccineController {
     public ResponseEntity<byte[]> generatePdfForChild(@PathVariable Long childId) {
         try {
             childVaccineService.generatePdf(childId);
-            final String filePath = "D:/MedHack/Backend/src/main/resources/Vaccine_Report.pdf";
+            final String filePath = "C:/Users/dunca/OneDrive/Desktop/MedHack/Vaccine_Report.pdf";
             final byte[] pdfBytes = Files.readAllBytes(Paths.get(filePath));
 
             final HttpHeaders headers = new HttpHeaders();

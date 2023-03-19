@@ -76,12 +76,12 @@ public class ChildVaccineImplementation implements ChildVaccineService {
         String childDataString = String.format("" +
                         "Nume: %s \n" +
                         "Prenume: %s \n" +
-                        "Data nașterii: %s \n" +
+                        "Data nasterii: %s \n" +
                         "Sex: %s \n" +
                         "CNP: %s \n" +
                         "Domiciuliu stabil: %s \n" +
                         "Domiciuliu actual: %s \n" +
-                        "Nume și prenume părinți: %s %s și %s %s \n",
+                        "Nume si prenume parinti: %s %s si %s %s \n",
                 child.getFirstName(), child.getLastName(),
                 child.getDateOfBirth().toString(), child.getGender(),
                 child.getCNP(), child.getPermanentResidence(),
@@ -89,7 +89,7 @@ public class ChildVaccineImplementation implements ChildVaccineService {
                 child.getParent().getLastName(), child.getSecondParentLastName(),
                 child.getSecondParentLastName());
 
-        String destination = "D:/MedHack/Backend/src/main/resources/Vaccine_Report.pdf";
+        String destination = "C:/Users/dunca/OneDrive/Desktop/MedHack/Vaccine_Report.pdf";
         PdfDocument pdf = new PdfDocument(new PdfWriter(destination));
         Document document = new Document(pdf);
 

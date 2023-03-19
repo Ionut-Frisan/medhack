@@ -1,6 +1,8 @@
+import "./Message.scss";
+
 const Message =(props) => {
     return(
-        <div>
+        <div className={"message"}>
             {props.msg}
             {props.date}
         </div>

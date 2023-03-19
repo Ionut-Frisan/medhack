@@ -1,6 +1,7 @@
 package hackathon.medhack.backend.controller;
 
 import hackathon.medhack.backend.model.dto.ChildDto;
+import hackathon.medhack.backend.model.dto.EmailDto;
 import hackathon.medhack.backend.model.dto.ParentDto;
 import hackathon.medhack.backend.service.ParentService;
 import lombok.RequiredArgsConstructor;
@@ -48,4 +49,8 @@ public class ParentController {
         return new ResponseEntity<>(parentService.getParentsByName(name), HttpStatus.OK);
     }
 
+    @GetMapping("/sendMemo")
+    public ResponseEntity<String> deleteParent(@RequestBody EmailDto emailDto) {
+        return new ResponseEntity<>(parentService.sendMemoForParent(emailDto), HttpStatus.OK);
+    }
 }

@@ -97,9 +97,10 @@ const ChildPanelContent = ({childrenVaccines, index, childId, child, forMedic = 
                             {/*/>*/}
                         </>
                         : <>
-                            closeButtonCallback={() => setModalState(!isModalOpen)}
                             <ChildModal isModalOpen={isModalOpen}
-                                        children={child}/>
+                                        children={child}
+                                        closeButtonCallback={() => setModalState(!isModalOpen)}
+                                        />
                             <MedButton label={""}
                                         customClass={'icons'}
                                        circle={true}
@@ -139,17 +140,18 @@ const ChildPanelContent = ({childrenVaccines, index, childId, child, forMedic = 
                                 <br/>
                                 <span><b>Data recomandata vaccin: </b>{vaccine.childVaccineDate}</span>
                                 {vaccine.isDone && <span><b>Efectuat la:</b>{vaccine.dateWhenDone}</span>}
-                                {!vaccine.isDone
+                                {!forMedic ? <></> : !vaccine.isDone
                                     ?
                                     <MedButton customClass={'mark-as-done-btn'} 
                                                 startIcon={FaCheck} 
-                                                variant={'success'}
-                                               outlined={true} title={'Marcheaza ca facut'} 
+                                                variant={'info'}
+                                               outlined={true} 
+                                               title={'Marcheaza ca facut'} 
                                                onClick={(e) => {
                                                     e?.stopPropagation?.();
                                                     updateVaccineCB({id: vaccine.childVaccineId, isDone: true})
                                                 }}/>
-                                    : <MedButton label={'Facut'} disabled={true} variant={'info'} customClass={'mark-as-done-btn'}></MedButton>
+                                    : <MedButton label={'Administrat'} disabled={true} variant={'success'} customClass={'mark-as-done-btn'}></MedButton>
                                 }
                             </MedTimeline.item>
                         )}

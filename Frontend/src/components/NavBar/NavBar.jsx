@@ -35,7 +35,7 @@ const NavBar = ({}) => {
             <Link to={'/welcome'}><img className={"logo"} src={logo} alt={"logo"}/></Link>
             <ul className={'navbar-links'}>
                 <li>
-                    <Link to="/vaccineDictionary">Vaccine dictionary</Link>
+                    <Link to="/vaccineDictionary">Dicționar Vaccin</Link>
                 </li>
                 <li>
                     <Link to="/faq">FAQ</Link>
@@ -63,7 +63,7 @@ const NavBar = ({}) => {
             <Burger onClick={toggleOpen} open={isOpen}/>
             <ul className={`navbar-menu ${isOpen ? 'navbar-menu__open' : ''}`}>
                 <li>
-                    <Link to="/vaccineDictionary">Vaccine dictionary</Link>
+                    <Link to="/vaccineDictionary">Dicționar Vaccin</Link>
                 </li>
                 <li>
                     <Link to="/faq">FAQ</Link>
@@ -78,28 +78,31 @@ const NavBar = ({}) => {
         </nav>
     ) : (
         <nav className={'navbar'}>
-            <Link to={role === 'doctor' ? '/doctor-home' : '/patient-home'}><img className={"logo"} src={logo} alt={"logo"}/></Link>
+            <Link to={'/welcome'}><img className={"logo"} src={logo} alt={"logo"}/></Link>
             <ul className={'navbar-links'}>
                 {
                     role === 'doctor' ? (
                         <>
                             <li>
-                                <Link to="/vaccineDictionary">Vaccine dictionary</Link>
+                                <Link to="/vaccineDictionary">Dicționar Vaccin</Link>
                             </li>
                             <li>
-                                <Link to="/medicPatients">Patients</Link>
+                                <Link to="/medicPatients">Pacienți</Link>
                             </li>
                             <li>
-                                <Link to="/schedule">Schedule</Link>
+                                <Link to="/schedule">Programări</Link>
                             </li>
                         </>
                     ) : (
                         <>
                             <li>
-                                <Link to="/vaccineDictionary">Vaccine dictionary</Link>
+                                <Link to="/parent-home">Acasă</Link>
                             </li>
                             <li>
-                                <Link to="/myChild">Children</Link>
+                                <Link to="/vaccineDictionary">Dicționar Vaccin</Link>
+                            </li>
+                            <li>
+                                <Link to="/myChild">Copii</Link>
                             </li>
                             <li>
                                 <Link to="/messages">Mesaje</Link>
@@ -120,10 +123,13 @@ const NavBar = ({}) => {
                     role === 'doctor' ? (
                         <>
                             <li>
-                                <Link to="/vaccineDictionary">Vaccine dictionary</Link>
+                                <Link to="/vaccineDictionary">Dicționar Vaccin</Link>
                             </li>
                             <li>
-                                <Link to="/medicPatients">Patients</Link>
+                                <Link to="/medicPatients">Pacienți</Link>
+                            </li>
+                            <li>
+                                <Link to="/schedule">Programări</Link>
                             </li>
                             <li>
                                 <span onClick={() => logout()}>Logout</span>
@@ -132,10 +138,16 @@ const NavBar = ({}) => {
                     ) : (
                         <>
                             <li>
-                                <Link to="/vaccineDictionary">Vaccine dictionary</Link>
+                                <Link to="/parent-home">Acasă</Link>
                             </li>
                             <li>
-                                <Link to="/myChild">Children</Link>
+                                <Link to="/vaccineDictionary">Dicționar Vaccin</Link>
+                            </li>
+                            <li>
+                                <Link to="/myChild">Copii</Link>
+                            </li>
+                            <li>
+                                <Link to="/messages">Mesaje</Link>
                             </li>
                             <li>
                                 <Link to="/faq">FAQ</Link>

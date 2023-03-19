@@ -10,6 +10,7 @@ const ScheduleItem = (props) => {
     const [sendMessage, setSendMessage] = useState(false);
     const [name, setName] = useState();
     const [parentId, setParentId] = useState();
+    const [childId, setChildId] = useState();
     const {get, post} = useRequest();
     const doctorId = useSelector(getToken);
 
@@ -19,6 +20,8 @@ const ScheduleItem = (props) => {
         const getChildName = async () => {
             const res = await get(`api/child_vaccine/getChild/${props.childVaccineId}`);
             const tmpName = res.data.firstName +" "+ res.data.lastName;
+            const id = res.data.id
+            setChildId(id);
             setName(tmpName);
             setParentId(res.data.parentId);
         }
@@ -33,7 +36,8 @@ const ScheduleItem = (props) => {
             const body = {
                 doctorId,
                 parentId,
-                message:textBoxText.current.value
+                message:textBoxText.current.value,
+                date: new Date()
             }
             const res = await post('api/message/add', {data: body});
             console.log(res.data);
@@ -42,6 +46,18 @@ const ScheduleItem = (props) => {
         sendMsg().then(textBoxText.current.value = '');
     }
 
+    const sendMemoEmailParent = () =>{
+        const sendMail = async () =>{
+            const body = {
+                doctorId,
+                parentId,
+                childId
+            }
+            console.log(body)
+            const res = await post('api/parent/sendMemo', {data: body});
+        }
+        sendMail().then();
+    }
     return (
         <div className={"schedule-item"} >
             <CardBlue>
@@ -55,6 +71,7 @@ const ScheduleItem = (props) => {
                     {name}
                 </div>
                 <MedButton label={"Conactează părinte"} onClick={() => setSendMessage(!sendMessage)}>Contact Parent</MedButton>
+                <MedButton label={"Trimite email"} onClick={sendMemoEmailParent}>Email Parent</MedButton>
                 {sendMessage &&
                 <div className={"mesaj"}>
                     <textarea  ref={textBoxText} rows="4" cols="50"></textarea>

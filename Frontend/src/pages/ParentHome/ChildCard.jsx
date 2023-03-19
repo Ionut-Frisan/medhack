@@ -35,8 +35,8 @@ const ChildCard = ({ child }) => {
         const now = new Date();
         const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
         if (today < recommendedDate) {
-            return <span> Stare: <span className={'tag-success'}>Trebuie făcut</span><br />Dată recomandată: <span
-                className={'tag-success'}>{childVaccineDate}</span></span>
+            return <span> Stare: <span className={'tag-warning'}>Trebuie făcut</span><br />Dată recomandată: <span
+                className={'tag-warning'}>{childVaccineDate}</span></span>
         }
         return <span>Stare: <span className={'tag-error'}>Lipsește</span><br />Dată recomandată: <span
             className={'tag-error'}>{childVaccineDate}</span></span>
@@ -61,6 +61,7 @@ const ChildCard = ({ child }) => {
                     showArrows={true}
                     infiniteLoop={true}
                     showThumbs={false}
+                    showIndicators={false}
                 >
                     {vaccineList.map(vaccine => {
                         return (

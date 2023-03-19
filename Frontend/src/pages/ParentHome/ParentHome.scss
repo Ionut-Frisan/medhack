@@ -56,5 +56,29 @@
     &:has(.tag-info){
       background-color: $color_info;
     }
+    &:has(.tag-warning){
+      background-color: $color_warning;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px){
+  .child-card{
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    
+    .child-info{
+      & > * {
+        margin: 0;
+      }
+    }
+    
+    .child-vaccine-carousel{
+      width: 100%!important;
+      max-width: 100%;
+      margin: 0;
+      padding: 0;
+    }
   }
 }

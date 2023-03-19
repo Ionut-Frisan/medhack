@@ -13,7 +13,7 @@ function Schedule() {
     useEffect(() => {
         const getNextVaccines = async () => {
             const res = await get(`/api/vaccine/getNextVaccines/${doctorId}`);
-            setVaccineChild(res.data);
+            setVaccineChild(res.data || []);
         }
         if(doctorId){
             getNextVaccines().then();

@@ -1,6 +1,5 @@
 import {Route, Routes} from "react-router-dom";
 
-import Home from './pages/Home/Home.jsx';
 import Login from './pages/Login/Login.jsx';
 import DoctorRoute from "./components/router/DoctorRoute";
 import Buttons from "./pages/ComponentDemo/ComponentDemo.jsx";
@@ -20,6 +19,8 @@ import VaccineDictionaryList from "./pages/VaccineDictionary/VaccineDictionaryLi
 import MedicPatientList from "./pages/MedicPatients/MedicPatientList";
 import ParentHome from "./pages/ParentHome/ParentHome.jsx";
 import FAQ from "./pages/FAQ/FAQ";
+import Schedule from "./pages/Schedule/Schedule.jsx";
+import MessageList from "./pages/Notifications/MessageList.jsx";
 
 function App() {
     const dispatch = useDispatch();
@@ -31,10 +32,8 @@ function App() {
             <NavBar/>
             <Routes>
                 <Route exact path='/doctor' element={<DoctorRoute/>}>
-                    <Route index element={<Home/>}/>
-                    <Route path='/doctor/asd' element={<Home/>}/>
+                    <Route index element={<MedicPatientList/>}/>
                 </Route>
-                <Route exact path='/' element={<Home/>}></Route>
                 <Route exact path='/login' element={<Login/>}/>
                 <Route exact path='/sign-up' element={<SignUp/>}/>
                 <Route exact path='/componentDemo' element={<Buttons/>}/>
@@ -44,6 +43,8 @@ function App() {
                 <Route exact path='/medicPatients' element={<MedicPatientList/>}/>
                 <Route exact path='/parent-home' element={<ParentHome />}/>
                 <Route exact path='/faq' element={<FAQ />}/>
+                <Route exact path='/schedule' element={<Schedule/>}/>
+                <Route exact path='/messages' element={<MessageList/>}/>
             </Routes>
         </>
     )

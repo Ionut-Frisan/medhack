@@ -4,19 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c49c48c2-7aff-4a60-914c-934fec753308" name="Changes" comment="deleted useless register">
-      <change afterPath="$PROJECT_DIR$/../Frontend/src/assets/images/arrow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Frontend/src/assets/images/search.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Frontend/src/components/card-body/CardBody.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Frontend/src/components/card-body/CardBody.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Frontend/src/components/card-header/CardHeader.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Frontend/src/components/card-header/CardHeader.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Frontend/src/pages/VaccineDictionary/VaccineDictionary.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Frontend/src/pages/VaccineDictionary/VaccineDictionary.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Frontend/src/pages/VaccineDictionary/VaccineDictionaryList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+    <list default="true" id="c49c48c2-7aff-4a60-914c-934fec753308" name="Changes" comment="send msg">
+      <change afterPath="$PROJECT_DIR$/../Frontend/src/pages/Notifications/Message.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Frontend/src/pages/Notifications/MessageList.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Frontend/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Frontend/src/components/NavBar/NavBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/src/components/NavBar/NavBar.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -4,6 +4,10 @@
   & > * {
     margin-bottom: 1rem;
   }
+  font-family: 'Poppins', cursive;
+  color: #0B0754;
+
+  padding: 20px;
 }
 
 .child-card{
@@ -14,9 +18,11 @@
   justify-content: space-between;
   user-select: none;
   text-align: center;
+  background-color: #dce2f6;
   
   .child-vaccine-carousel{
     max-width: 50%;
+
   }
   
   .carousel-root, .carousel-slider, .slide-wrapper{
@@ -25,8 +31,9 @@
   
   .user-image {
     margin: 0;
+    padding: 20px;
   }
-  
+
   .vaccine-carousel{
     height: 100%;
     .tag-info{
@@ -39,6 +46,15 @@
     .tag-success{
       background-color: $color_success;
       color: white;
+    }
+    &:has(.tag-success){
+      background-color: $color_success;
+    }
+    &:has(.tag-error){
+      background-color: $color_danger;
+    }
+    &:has(.tag-info){
+      background-color: $color_info;
     }
   }
 }

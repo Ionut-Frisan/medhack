@@ -11,7 +11,7 @@ import '../SignUp/SignUp.scss';
 import MedInput from "../../components/input/MedInput.jsx";
 import MedButton from "../../components/button/MedButton.jsx";
 import Link from "../../components/router/Link.jsx";
-import image from "../../assets/images/10132.jpg";
+import image from "../../assets/images/ilustratie_spital.png";
 
 import useRequest from "../../hooks/useRequest.js";
 

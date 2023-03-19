@@ -8,6 +8,7 @@ import MedButton from "../../components/button/MedButton.jsx";
 import {FaEdit, FaTimes, FaFileDownload, FaCheck} from "react-icons/fa";
 import download from "downloadjs";
 import axios from "axios";
+import {MdDeleteOutline} from "react-icons/all.js";
 
 const ChildPanelContent = ({childrenVaccines, index, childId, child, forMedic = false, updateVaccineCB}) => {
     const [selectedVaccine, setSelectedVaccine] = useState(childrenVaccines?.[index]?.[0] || {});
@@ -67,10 +68,15 @@ const ChildPanelContent = ({childrenVaccines, index, childId, child, forMedic = 
     const deleteChild = async (event, childId) => {
         event.preventDefault();
         const res = await del(`/api/child/${childId}`)
+        refreshPage();
     }
 
     function updateChild() {
         setModalState(!isModalOpen);
+    }
+
+    const refreshPage = ()=>{
+        window.location.reload();
     }
 
 

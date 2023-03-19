@@ -8,8 +8,9 @@ import MedInput from "../../components/input/MedInput.jsx";
 import Link from "../../components/router/Link.jsx";
 import Select from 'react-select'
 
-import image from "../../assets/images/10132.jpg";
+import image from "../../assets/images/ilustratie_spital.png";
 import useRequest from "../../hooks/useRequest";
+
 
 const SignUp = () => {
     const [firstName, setFirstName] = useState('');

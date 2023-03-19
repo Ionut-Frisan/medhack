@@ -8,9 +8,13 @@ import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.property.TextAlignment;
 import hackathon.medhack.backend.model.Child;
 import hackathon.medhack.backend.model.ChildVaccine;
+import hackathon.medhack.backend.model.Parent;
+import hackathon.medhack.backend.model.dto.ChildDto;
 import hackathon.medhack.backend.model.dto.ChildVaccineDto;
+import hackathon.medhack.backend.model.mapper.ChildMapper;
 import hackathon.medhack.backend.repository.ChildRepository;
 import hackathon.medhack.backend.repository.ChildVaccineRepository;
+import hackathon.medhack.backend.repository.ParentRepository;
 import hackathon.medhack.backend.service.ChildVaccineService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -27,10 +31,13 @@ import java.util.List;
 @Transactional
 @Slf4j
 public class ChildVaccineImplementation implements ChildVaccineService {
+    private final ParentRepository parentRepository;
 
     private final ChildVaccineRepository childVaccineRepository;
 
     private final ChildRepository childRepository;
+
+    private final ChildMapper childMapper;
 
     @Override
     public List<ChildVaccineDto> getChildVaccines(Long childId) {
@@ -65,16 +72,28 @@ public class ChildVaccineImplementation implements ChildVaccineService {
         }
 
         Child child = childRepository.findById(childId).get();
-        String childDataString = String.format("%s %s born %s, sex %s, with CNP: %s, residence %s",
+
+        String childDataString = String.format("" +
+                        "Nume: %s \n" +
+                        "Prenume: %s \n" +
+                        "Data nașterii: %s \n" +
+                        "Sex: %s \n" +
+                        "CNP: %s \n" +
+                        "Domiciuliu stabil: %s \n" +
+                        "Domiciuliu actual: %s \n" +
+                        "Nume și prenume părinți: %s %s și %s %s \n",
                 child.getFirstName(), child.getLastName(),
                 child.getDateOfBirth().toString(), child.getGender(),
-                child.getCNP(), child.getPermanentResidence());
+                child.getCNP(), child.getPermanentResidence(),
+                child.getCurrentResidence(), child.getParent().getFirstName(),
+                child.getParent().getLastName(), child.getSecondParentLastName(),
+                child.getSecondParentLastName());
 
         String destination = "D:/MedHack/Backend/src/main/resources/Vaccine_Report.pdf";
         PdfDocument pdf = new PdfDocument(new PdfWriter(destination));
         Document document = new Document(pdf);
 
-        Paragraph title = new Paragraph("Vaccine Information");
+        Paragraph title = new Paragraph("Carnet de Vaccinare");
         title.setTextAlignment(TextAlignment.CENTER);
         title.setBold();
         title.setFontSize(24);
@@ -91,9 +110,9 @@ public class ChildVaccineImplementation implements ChildVaccineService {
         float [] pointColumnWidths = {150F, 150F, 150F, 150F};
         Table table = new Table(pointColumnWidths);
         table.addCell("Nr. Crt");
-        table.addCell("Name");
-        table.addCell("Vaccine Date");
-        table.addCell("Done");
+        table.addCell("Denumirea Vaccinului");
+        table.addCell("Data administrare");
+        table.addCell("Administrat");
 
         childVaccinesDto.forEach(childVaccineDto -> {
             table.addCell(childVaccineDto.getId().toString());
@@ -106,5 +125,12 @@ public class ChildVaccineImplementation implements ChildVaccineService {
         document.close();
 
         return true;
+    }
+
+    @Override
+    public ChildDto getChild(Long childVaccineId) {
+        ChildVaccine childVaccine = childVaccineRepository.findById(childVaccineId).get();
+
+        return childMapper.convertChildToChildDto(childVaccine.getChild());
     }
 }

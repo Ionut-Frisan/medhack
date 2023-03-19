@@ -1,5 +1,6 @@
 package hackathon.medhack.backend.controller;
 
+import hackathon.medhack.backend.model.dto.ChildDto;
 import hackathon.medhack.backend.model.dto.ChildVaccineDto;
 import hackathon.medhack.backend.service.ChildVaccineService;
 import lombok.RequiredArgsConstructor;
@@ -49,6 +50,11 @@ public class ChildVaccineController {
         }
 
         return new ResponseEntity<>(null,HttpStatus.OK);
+    }
+
+    @GetMapping("/getChild/{childVaccineId}")
+    public ResponseEntity<ChildDto> getChild(@PathVariable Long childVaccineId) {
+        return new ResponseEntity<>(childVaccineService.getChild(childVaccineId),HttpStatus.OK);
     }
 
 }

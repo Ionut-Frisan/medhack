@@ -90,6 +90,9 @@ const NavBar = ({}) => {
                             <li>
                                 <Link to="/medicPatients">Patients</Link>
                             </li>
+                            <li>
+                                <Link to="/schedule">Schedule</Link>
+                            </li>
                         </>
                     ) : (
                         <>

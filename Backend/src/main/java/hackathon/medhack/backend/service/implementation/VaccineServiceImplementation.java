@@ -1,8 +1,12 @@
 package hackathon.medhack.backend.service.implementation;
 
+import hackathon.medhack.backend.model.Child;
 import hackathon.medhack.backend.model.Vaccine;
+import hackathon.medhack.backend.model.dto.ChildVaccineDto;
 import hackathon.medhack.backend.model.dto.VaccineDto;
 import hackathon.medhack.backend.model.mapper.VaccineMapper;
+import hackathon.medhack.backend.repository.ChildRepository;
+import hackathon.medhack.backend.repository.ChildVaccineRepository;
 import hackathon.medhack.backend.repository.VaccineRepository;
 import hackathon.medhack.backend.service.VaccineService;
 import lombok.RequiredArgsConstructor;
@@ -11,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -21,6 +26,10 @@ public class VaccineServiceImplementation implements VaccineService {
     public final VaccineRepository vaccineRepository;
 
     public final VaccineMapper vaccineMapper;
+
+    public final ChildRepository childRepository;
+
+    public final ChildVaccineRepository childVaccineRepository;
 
     @Override
     public List<VaccineDto> getAllVaccines() {
@@ -61,5 +70,22 @@ public class VaccineServiceImplementation implements VaccineService {
         vaccines.forEach(vaccine -> vaccinesDto.add(vaccineMapper.convertVaccineToVaccineDto(vaccine)));
 
         return vaccinesDto;
+    }
+
+    Comparator<ChildVaccineDto> compareByDate = Comparator.comparing(ChildVaccineDto::getChildVaccineDate);
+    @Override
+    public List<ChildVaccineDto> getVaccinesForDoctor(Long doctorId) {
+        List<ChildVaccineDto> vaccinesDto = new ArrayList<>();
+        List<Child> children = childRepository.getChildrenForDoctor(doctorId);
+
+        for(Child child : children) {
+            List<ChildVaccineDto> tempChildVaccines = childVaccineRepository.getChildVaccines(child.getId());
+            vaccinesDto.addAll(tempChildVaccines);
+        }
+        vaccinesDto.sort(compareByDate);
+
+        if(vaccinesDto.size() < 10)
+            return vaccinesDto;
+        return vaccinesDto.subList(0, 10);
     }
 }

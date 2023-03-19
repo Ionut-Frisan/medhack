@@ -11,7 +11,12 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class ChildVaccineDto {
     private Long id;
+
+    private Long childVaccineId;
+
     private String name;
+
+    private String abbreviation;
     private String description;
     private LocalDate childVaccineDate;
     private LocalDate dateWhenDone;

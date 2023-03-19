@@ -9,12 +9,14 @@
 }
 
 .question{
+  cursor: pointer;
   font-family: 'DM Serif Display', cursive;
   font-size: 27px;
   color: #E75756;
   padding-left: 5%;
   white-space: pre-wrap;
   margin-bottom: 1%;
+  display: inline-block;
 }
 
 .answer{

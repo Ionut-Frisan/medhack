@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="dataSourceStorageLocal" created-in="IU-221.5921.22">
-    <data-source name="MedHack@localhost" uuid="43b43c0d-c9d5-4899-b77b-82d763eb2264">
+  <component name="dataSourceStorageLocal" created-in="IU-223.8836.41">
+    <data-source name="MedHack@localhost" uuid="fbf1a181-3a31-4f0e-b4db-bdb3b48c190c">
       <database-info product="PostgreSQL" version="15.2" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.5.0" dbms="POSTGRES" exact-version="15.2" exact-driver-version="42.5">
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>
@@ -10,8 +10,11 @@
       <user-name>postgres</user-name>
       <schema-mapping>
         <introspection-scope>
-          <node kind="database" qname="@">
-            <node kind="schema" qname="@" />
+          <node negative="1">
+            <node kind="database" qname="@">
+              <node kind="schema" qname="@" />
+            </node>
+            <node kind="database" qname="MedHack" />
           </node>
         </introspection-scope>
       </schema-mapping>

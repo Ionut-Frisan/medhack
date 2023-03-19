@@ -32,9 +32,9 @@ function VaccineDictionary(props) {
 
     return (
         <div className={"vaccine-card"}>
-            <div onClick={clickArrow}>
+            <div >
                 <CardHeader>
-                    <div className={"card-header-elements"}>
+                    <div onClick={clickArrow} className={"card-header-elements-click"}>
                         <div>
                             <div className={"text-header"}>
                                 {props.name}

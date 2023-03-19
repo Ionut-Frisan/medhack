@@ -4,11 +4,12 @@ import CardBody from "../../components/card-body/CardBody";
 import {useEffect, useState} from "react";
 import useRequest from "../../hooks/useRequest";
 import MedButton from "../../components/button/MedButton";
-
+import ChildVaccineModal from "./ChildVaccineModal.jsx";
 function MedicPatient(props) {
 
     const [isOpen, setIsOpen] = useState(false)
     const [parentName, setParentName] = useState("");
+    const [isVaccineModalOpen, setIsVaccineModalOpen] = useState(false); 
     const {get} = useRequest();
 
     const clickArrow = () => {
@@ -18,6 +19,12 @@ function MedicPatient(props) {
             setIsOpen(false)
         }
     }
+    
+    const toggleModal = (e) => {
+        e?.stopPropagation?.();
+        setIsVaccineModalOpen(!isVaccineModalOpen);
+    }
+    
 
     async function getParentById(id) {
         const res = await get(`/api/parent/${id}`)
@@ -58,6 +65,11 @@ function MedicPatient(props) {
 
     return (
         <div className={"patient-card"}>
+            <ChildVaccineModal
+                isOpen={isVaccineModalOpen}
+                closeModalCallback={toggleModal}
+                child={props}
+            ></ChildVaccineModal>
             <div onClick={clickArrow}>
                 <CardHeader >
                     <div className={"card-header-elements"}>
@@ -70,7 +82,7 @@ function MedicPatient(props) {
                             </h2>
                         </div>
                         <div className={"comp"}>
-                            <MedButton className={"vaccine-button"} circle={true} label={"Vaccinuri"}/>
+                            <MedButton className={"vaccine-button"} circle={true} label={"Vaccinuri"} onClick={toggleModal}/>
                             {!isOpen ?
                                 <img className={"arrow-image"} src={arrow} alt={"arrow image"} onClick={clickArrow}/>
                                 : <img className={"arrow-transition"} src={arrow} alt={"arrow image"} onClick={clickArrow}/>

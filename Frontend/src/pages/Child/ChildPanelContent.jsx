@@ -5,11 +5,11 @@ import {useBELink} from "../../hooks/useBELink.js";
 import Link from "../../components/router/Link.jsx";
 import ChildModal from "./ChildModal.jsx";
 import MedButton from "../../components/button/MedButton.jsx";
-import {FaEdit, FaTimes, FaFileDownload} from "react-icons/fa";
+import {FaEdit, FaTimes, FaFileDownload, FaCheck} from "react-icons/fa";
 import download from "downloadjs";
 import axios from "axios";
 
-const ChildPanelContent = ({childrenVaccines, index, childId, child}) => {
+const ChildPanelContent = ({childrenVaccines, index, childId, child, forMedic = false, updateVaccineCB}) => {
     const [selectedVaccine, setSelectedVaccine] = useState(childrenVaccines?.[index]?.[0] || {});
     const [vaccineInfo, setVaccineInfo] = useState({});
     const [isLoading, setIsLoading] = useState(true);
@@ -48,9 +48,11 @@ const ChildPanelContent = ({childrenVaccines, index, childId, child}) => {
     const downloadReport = async () => {
         await axios.get(`api/child_vaccine/generatePdf/${childId}`, {headers: 'application/pdf', responseType: 'blob'})
             .then(response => {
-            download(response.data, 'Medical_Vaccine_Report.pdf');
-        });
+                download(response.data, 'Medical_Vaccine_Report.pdf');
+            });
     }
+
+    console.warn({childrenVaccines});
 
     const linksComputed = useMemo(() => useBELink(vaccineInfo?.linkDoctor), [selectedVaccine]);
 
@@ -78,30 +80,42 @@ const ChildPanelContent = ({childrenVaccines, index, childId, child}) => {
         isLoading ? <span>asd</span> :
             <>
                 <div className={'child-info-buttons'}>
-                    <ChildModal isModalOpen={isModalOpen}
-                                closeButtonCallback={() => setModalState(!isModalOpen)}
-                                children={child}/>
-                    <MedButton label={""}
-                               circle={true}
-                               variant={"plain"}
-                               size={"medium"}
-                               startIcon={FaEdit}
-                               onClick={updateChild}
-                    />
-                    <MedButton label={""}
-                               circle={true}
-                               variant={"plain"}
-                               size={"medium"}
-                               startIcon={FaFileDownload}
-                               onClick={() => downloadReport()}
-                    />
-                    {/*<MedButton label={""}*/}
-                    {/*           circle={true}*/}
-                    {/*           variant={"danger"}*/}
-                    {/*           size={"medium"}*/}
-                    {/*           startIcon={FaTimes}*/}
-                    {/*           onClick={(e) => deleteChild(e, child.id)}*/}
-                    {/*/>*/}
+                    {forMedic
+                        ? <>
+                            {/*<MedButton label={""}*/}
+                            {/*           circle={true}*/}
+                            {/*           variant={"plain"}*/}
+                            {/*           size={"medium"}*/}
+                            {/*           startIcon={FaFileDownload}*/}
+                            {/*           onClick={() => downloadReport()}*/}
+                            {/*/>*/}
+                        </>
+                        : <>
+                            closeButtonCallback={() => setModalState(!isModalOpen)}
+                            <ChildModal isModalOpen={isModalOpen}
+                                        children={child}/>
+                            <MedButton label={""}
+                                       circle={true}
+                                       variant={"plain"}
+                                       size={"medium"}
+                                       startIcon={FaEdit}
+                                       onClick={updateChild}
+                            />
+                            <MedButton label={""}
+                                       circle={true}
+                                       variant={"plain"}
+                                       size={"medium"}
+                                       startIcon={FaFileDownload}
+                                       onClick={() => downloadReport()}
+                            />
+                            {/*<MedButton label={""}*/}
+                            {/*           circle={true}*/}
+                            {/*           variant={"danger"}*/}
+                            {/*           size={"medium"}*/}
+                            {/*           startIcon={FaTimes}*/}
+                            {/*           onClick={(e) => deleteChild(e, child.id)}*/}
+                            {/*/>*/}
+                        </>}
                 </div>
                 {childrenVaccines?.[index]?.length ?
                     <MedTimeline position={'left'} className={'timeline'}>
@@ -111,10 +125,23 @@ const ChildPanelContent = ({childrenVaccines, index, childId, child}) => {
                                 status={getVaccineStatus(vaccine)}
                                 onTimelineElementClick={() => setSelectedVaccine(vaccine)}
                                 key={`${index}-${vaccine.id}`}
+                                style={{position: 'relative'}}
                             >
                                 <br/>
                                 <span><b>Data recomandata vaccin: </b>{vaccine.childVaccineDate}</span>
                                 {vaccine.isDone && <span><b>Efectuat la:</b>{vaccine.dateWhenDone}</span>}
+                                {!vaccine.isDone
+                                    ?
+                                    <MedButton customClass={'mark-as-done-btn'} 
+                                                startIcon={FaCheck} 
+                                                variant={'success'}
+                                               outlined={true} title={'Marcheaza ca facut'} 
+                                               onClick={(e) => {
+                                                    e?.stopPropagation?.();
+                                                    updateVaccineCB({id: vaccine.childVaccineId, isDone: true})
+                                                }}/>
+                                    : <MedButton label={'Facut'} disabled={true} variant={'info'} customClass={'mark-as-done-btn'}></MedButton>
+                                }
                             </MedTimeline.item>
                         )}
                     </MedTimeline> : <></>

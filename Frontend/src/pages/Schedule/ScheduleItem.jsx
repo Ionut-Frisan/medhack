@@ -2,6 +2,9 @@ import {useEffect, useRef, useState} from "react";
 import useRequest from "../../hooks/useRequest.js";
 import {useSelector} from "react-redux";
 import {getToken} from "../../store/featutres/auth/auth-slice.js";
+import "./Schedule.scss";
+import CardBlue from "../../components/card-blue/CardBlue";
+import MedButton from "../../components/button/MedButton";
 
 const ScheduleItem = (props) => {
     const [sendMessage, setSendMessage] = useState(false);
@@ -15,7 +18,7 @@ const ScheduleItem = (props) => {
     useEffect(() => {
         const getChildName = async () => {
             const res = await get(`api/child_vaccine/getChild/${props.childVaccineId}`);
-            const tmpName = res.data.firstName + res.data.lastName;
+            const tmpName = res.data.firstName +" "+ res.data.lastName;
             setName(tmpName);
             setParentId(res.data.parentId);
         }
@@ -40,22 +43,26 @@ const ScheduleItem = (props) => {
     }
 
     return (
-      <div>
-          <div>
-              {props.abbreviation}
-          </div>
-          <div>
-              {props.childVaccineDate}
-              {name}
-          </div>
-          <button onClick={() => setSendMessage(!sendMessage)}>Contact Parent</button>
-          {sendMessage &&
-              <div>
-                  <textarea ref={textBoxText}></textarea>
-                  <button onClick={sendMessageToParent}>Send</button>
-              </div>
-          }
-      </div>
+        <div className={"schedule-item"} >
+            <CardBlue>
+                <div className={"vax-name"}>
+                    {props.abbreviation}
+                </div>
+                <div className={"detalii"}>
+                    {props.childVaccineDate}
+                </div>
+                <div className={"detalii"}>
+                    {name}
+                </div>
+                <MedButton label={"Conactează părinte"} onClick={() => setSendMessage(!sendMessage)}>Contact Parent</MedButton>
+                {sendMessage &&
+                <div className={"mesaj"}>
+                    <textarea  ref={textBoxText} rows="4" cols="50"></textarea>
+                    <MedButton label={"Trimite mesaj"} onClick={sendMessageToParent}>Send</MedButton>
+                </div>
+                }
+            </CardBlue>
+        </div>
     );
 }
 

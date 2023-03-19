@@ -3,6 +3,7 @@ import useRequest from "../../hooks/useRequest.js";
 import {useSelector} from "react-redux";
 import {getToken} from "../../store/featutres/auth/auth-slice.js";
 import ScheduleItem from "./ScheduleItem.jsx";
+import "./Schedule.scss";
 
 function Schedule() {
     const [vaccineChild, setVaccineChild] = useState([]);
@@ -22,7 +23,7 @@ function Schedule() {
 
     const vaccineChildList = vaccineChild.map(vc =>
         <ScheduleItem key={vc.childVaccineId}
-                      abbreviation={vc.abbreviation}
+                      abbreviation={vc.abbreviation || vc.name}
                       childVaccineDate={vc.childVaccineDate}
                       childVaccineId={vc.childVaccineId}
         />)
@@ -30,6 +31,11 @@ function Schedule() {
     return (
         <div>
             {vaccineChildList}
+            <div className={"background"}>
+                <div >
+                    {vaccineChildList}
+                </div>
+            </div>
         </div>
 
     )

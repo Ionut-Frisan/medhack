@@ -22,7 +22,7 @@ function VaccineDictionary(props) {
             return numberOfMonths + " lună";
         } else if (numberOfMonths < 12) {
             return numberOfMonths + " luni";
-        } else if (numberOfMonths === 12) {
+        } else if (numberOfMonths === 12 || numberOfMonths < 24) {
             return parseInt(numberOfMonths / 12) + " an";
         } else {
             return parseInt(numberOfMonths / 12) + " ani";

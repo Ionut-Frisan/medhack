@@ -8,6 +8,7 @@ import {getAuthStatus, getRole, logout as logoutStore} from "../../store/featutr
 import Dropdown from "../dropdown/Dropdown.jsx";
 import {useNavigate} from "react-router-dom";
 import logo from "../../assets/images/Logo_icon_transparent.png";
+import {FaUserCircle} from "react-icons/all.js";
 
 const NavBar = ({}) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -115,6 +116,7 @@ const NavBar = ({}) => {
                 }
             </ul>
             <ul className={'navbar-actions'}>
+                <FaUserCircle/>
                 <Dropdown options={options}></Dropdown>
             </ul>
             <Burger onClick={toggleOpen} open={isOpen}/>

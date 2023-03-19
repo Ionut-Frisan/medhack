@@ -3,10 +3,14 @@ package hackathon.medhack.backend.controller;
 import hackathon.medhack.backend.model.dto.ChildVaccineDto;
 import hackathon.medhack.backend.service.ChildVaccineService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 
 @CrossOrigin
@@ -28,14 +32,23 @@ public class ChildVaccineController {
     }
 
     @GetMapping("/generatePdf/{childId}")
-    public ResponseEntity<String> generatePdfForChild(@PathVariable Long childId) {
+    public ResponseEntity<byte[]> generatePdfForChild(@PathVariable Long childId) {
         try {
             childVaccineService.generatePdf(childId);
+            final String filePath = "D:/MedHack/Backend/src/main/resources/Vaccine_Report.pdf";
+            final byte[] pdfBytes = Files.readAllBytes(Paths.get(filePath));
+
+            final HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.parseMediaType("application/pdf"));
+            headers.setContentDispositionFormData("attachment", "Medical_Vaccine_Report");
+            headers.setCacheControl("no-cache");
+
+            return new ResponseEntity<>(pdfBytes, headers, HttpStatus.OK);
         } catch (Exception e) {
             System.out.println(e);
         }
 
-        return new ResponseEntity<>("Generated pdf",HttpStatus.OK);
+        return new ResponseEntity<>(null,HttpStatus.OK);
     }
 
 }

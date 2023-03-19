@@ -32,6 +32,6 @@ public class Child {
     @JoinColumn(name="parent_id")
     private Parent parent;
 
-    @OneToMany(mappedBy = "child")
+    @OneToMany(mappedBy = "child", cascade = CascadeType.PERSIST, orphanRemoval = true)
     private List<ChildVaccine> childVaccineList;
 }

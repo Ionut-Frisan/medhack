@@ -20,6 +20,7 @@ import VaccineDictionaryList from "./pages/VaccineDictionary/VaccineDictionaryLi
 import MedicPatientList from "./pages/MedicPatients/MedicPatientList";
 import ParentHome from "./pages/ParentHome/ParentHome.jsx";
 import FAQ from "./pages/FAQ/FAQ";
+import Schedule from "./pages/Schedule/Schedule.jsx";
 
 function App() {
     const dispatch = useDispatch();
@@ -44,6 +45,7 @@ function App() {
                 <Route exact path='/medicPatients' element={<MedicPatientList/>}/>
                 <Route exact path='/parent-home' element={<ParentHome />}/>
                 <Route exact path='/faq' element={<FAQ />}/>
+                <Route exact path='/schedule' element={<Schedule/>}/>
             </Routes>
         </>
     )

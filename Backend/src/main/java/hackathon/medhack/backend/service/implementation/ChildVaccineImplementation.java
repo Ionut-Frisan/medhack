@@ -8,7 +8,9 @@ import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.property.TextAlignment;
 import hackathon.medhack.backend.model.Child;
 import hackathon.medhack.backend.model.ChildVaccine;
+import hackathon.medhack.backend.model.dto.ChildDto;
 import hackathon.medhack.backend.model.dto.ChildVaccineDto;
+import hackathon.medhack.backend.model.mapper.ChildMapper;
 import hackathon.medhack.backend.repository.ChildRepository;
 import hackathon.medhack.backend.repository.ChildVaccineRepository;
 import hackathon.medhack.backend.service.ChildVaccineService;
@@ -31,6 +33,8 @@ public class ChildVaccineImplementation implements ChildVaccineService {
     private final ChildVaccineRepository childVaccineRepository;
 
     private final ChildRepository childRepository;
+
+    private final ChildMapper childMapper;
 
     @Override
     public List<ChildVaccineDto> getChildVaccines(Long childId) {
@@ -106,5 +110,12 @@ public class ChildVaccineImplementation implements ChildVaccineService {
         document.close();
 
         return true;
+    }
+
+    @Override
+    public ChildDto getChild(Long childVaccineId) {
+        ChildVaccine childVaccine = childVaccineRepository.findById(childVaccineId).get();
+
+        return childMapper.convertChildToChildDto(childVaccine.getChild());
     }
 }

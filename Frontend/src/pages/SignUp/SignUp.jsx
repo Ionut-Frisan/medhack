@@ -30,7 +30,7 @@ const SignUp = () => {
     }
     
     // TODO Razvan: validate
-    useEffect(() => {getDoctorList().then().catch()});
+    useEffect(() => {getDoctorList().then().catch()}, []);
     const options = useMemo(() => {
         return doctors.map((doctor) => ({
             label: `${doctor.firstName || ''} ${doctor.lastName || ''}`,

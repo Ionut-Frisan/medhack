@@ -33,7 +33,8 @@ const ScheduleItem = (props) => {
             const body = {
                 doctorId,
                 parentId,
-                message:textBoxText.current.value
+                message:textBoxText.current.value,
+                date: new Date()
             }
             const res = await post('api/message/add', {data: body});
             console.log(res.data);

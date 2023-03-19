@@ -6,6 +6,8 @@ import Link from "../../components/router/Link.jsx";
 import ChildModal from "./ChildModal.jsx";
 import MedButton from "../../components/button/MedButton.jsx";
 import {FaEdit, FaTimes, FaFileDownload} from "react-icons/fa";
+import download from "downloadjs";
+import axios from "axios";
 
 const ChildPanelContent = ({childrenVaccines, index, childId, child}) => {
     const [selectedVaccine, setSelectedVaccine] = useState(childrenVaccines?.[index]?.[0] || {});
@@ -41,6 +43,13 @@ const ChildPanelContent = ({childrenVaccines, index, childId, child}) => {
             this.forceUpdate();
         }
         setIsLoading(false);
+    }
+
+    const downloadReport = async () => {
+        await axios.get(`api/child_vaccine/generatePdf/${childId}`, {headers: 'application/pdf', responseType: 'blob'})
+            .then(response => {
+            download(response.data, 'Medical_Vaccine_Report.pdf');
+        });
     }
 
     const linksComputed = useMemo(() => useBELink(vaccineInfo?.linkDoctor), [selectedVaccine]);
@@ -84,7 +93,7 @@ const ChildPanelContent = ({childrenVaccines, index, childId, child}) => {
                                variant={"plain"}
                                size={"medium"}
                                startIcon={FaFileDownload}
-                               onClick={(e) => deleteChild(e, child.id)}
+                               onClick={() => downloadReport()}
                     />
                     {/*<MedButton label={""}*/}
                     {/*           circle={true}*/}

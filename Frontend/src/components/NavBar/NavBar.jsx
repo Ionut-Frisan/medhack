@@ -8,6 +8,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {getAuthStatus, getRole, logout as logoutStore} from "../../store/featutres/auth/auth-slice.js";
 import Dropdown from "../dropdown/Dropdown.jsx";
 import {useNavigate} from "react-router-dom";
+import logo from "../../assets/images/Logo_icon_transparent.png";
 
 const NavBar = ({}) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -32,10 +33,10 @@ const NavBar = ({}) => {
 
     return !isLoggedIn ? (
         <nav className={'navbar'}>
-            <FaMedrt/>
+            <img className={"logo"} src={logo} alt={"logo"}/>
             <ul className={'navbar-links'}>
                 <li>
-                    <Link to="/vaccineDictionary">Vaccine list</Link>
+                    <Link to="/vaccineDictionary">Vaccine dictionary</Link>
                 </li>
                 <li>
                     <Link to="/faq">FAQ</Link>
@@ -63,7 +64,7 @@ const NavBar = ({}) => {
             <Burger onClick={toggleOpen} open={isOpen}/>
             <ul className={`navbar-menu ${isOpen ? 'navbar-menu__open' : ''}`}>
                 <li>
-                    <Link to="/vaccines">Vaccine list</Link>
+                    <Link to="/vaccineDictionary">Vaccine dictionary</Link>
                 </li>
                 <li>
                     <Link to="/faq">FAQ</Link>
@@ -78,7 +79,7 @@ const NavBar = ({}) => {
         </nav>
     ) : (
         <nav className={'navbar'}>
-            <FaMedrt/>
+            <img className={"logo"} src={logo} alt={"logo"}/>
             <ul className={'navbar-links'}>
                 {
                     role === 'doctor' ? (
@@ -93,13 +94,13 @@ const NavBar = ({}) => {
                     ) : (
                         <>
                             <li>
-                                <Link to="/vaccines">Vaccine list</Link>
+                                <Link to="/vaccineDictionary">Vaccine dictionary</Link>
                             </li>
                             <li>
-                                <Link to="/mychild">Children</Link>
+                                <Link to="/myChild">Children</Link>
                             </li>
                             <li>
-                                <Link to="/profile">My profile</Link>
+                                <Link to="/faq">FAQ</Link>
                             </li>
                         </>
                     )
@@ -114,10 +115,10 @@ const NavBar = ({}) => {
                     role === 'doctor' ? (
                         <>
                             <li>
-                                <Link to="/vaccines">Vaccine list</Link>
+                                <Link to="/vaccineDictionary">Vaccine dictionary</Link>
                             </li>
                             <li>
-                                <Link to="/patients">Patients</Link>
+                                <Link to="/medicPatients">Patients</Link>
                             </li>
                             <li>
                                 <span onClick={() => logout()}>Logout</span>
@@ -126,13 +127,13 @@ const NavBar = ({}) => {
                     ) : (
                         <>
                             <li>
-                                <Link to="/vaccines">Vaccine dictionary</Link>
+                                <Link to="/vaccineDictionary">Vaccine dictionary</Link>
                             </li>
                             <li>
-                                <Link to="/mychild">Children</Link>
+                                <Link to="/myChild">Children</Link>
                             </li>
                             <li>
-                                <Link to="/profile">My profile</Link>
+                                <Link to="/faq">FAQ</Link>
                             </li>
                             <li>
                                 <span onClick={() => logout()}>Logout</span>

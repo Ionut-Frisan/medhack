@@ -49,6 +49,7 @@ const MedTimelineElement = ({ children, customClass = '', icon, title, status, .
             iconStyle={iconStyle}
             icon = {iconComputed}
             // contentArrowStyle={{ borderRight: '7px solid ' }}
+            {...props}
         >
             <h3 className='vertical-timeline-element-title'>
                 {title}

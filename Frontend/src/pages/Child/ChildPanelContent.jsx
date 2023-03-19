@@ -101,6 +101,7 @@ const ChildPanelContent = ({childrenVaccines, index, childId, child, forMedic = 
                             <ChildModal isModalOpen={isModalOpen}
                                         children={child}/>
                             <MedButton label={""}
+                                        customClass={'icons'}
                                        circle={true}
                                        variant={"plain"}
                                        size={"medium"}
@@ -108,6 +109,7 @@ const ChildPanelContent = ({childrenVaccines, index, childId, child, forMedic = 
                                        onClick={updateChild}
                             />
                             <MedButton label={""}
+                                        customClass={'icons'}
                                        circle={true}
                                        variant={"plain"}
                                        size={"medium"}
@@ -115,6 +117,7 @@ const ChildPanelContent = ({childrenVaccines, index, childId, child, forMedic = 
                                        onClick={() => downloadReport()}
                             />
                             {/*<MedButton label={""}*/}
+                            {/*           customClass={'icons'}*/}
                             {/*           circle={true}*/}
                             {/*           variant={"danger"}*/}
                             {/*           size={"medium"}*/}

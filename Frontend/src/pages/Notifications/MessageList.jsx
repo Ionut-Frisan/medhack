@@ -3,6 +3,7 @@ import {useEffect, useState} from "react";
 import Message from "./Message.jsx";
 import {useSelector} from "react-redux";
 import {getToken} from "../../store/featutres/auth/auth-slice.js";
+import "./Message.scss";
 
 const MessageList = () => {
     const [msg, setMsg] = useState([]);
@@ -27,7 +28,7 @@ const MessageList = () => {
     return(
         <div>
             <div>
-                <h1>Mesaje de la doctor:</h1>
+                <div className={"titlu"}>Mesaje de la doctor:</div>
             </div>
             <div>
                 {msgList}

@@ -11,6 +11,7 @@ import Select from 'react-select'
 import image from "../../assets/images/ilustratie_spital.png";
 import useRequest from "../../hooks/useRequest";
 
+
 const SignUp = () => {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');

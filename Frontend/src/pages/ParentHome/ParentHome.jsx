@@ -29,8 +29,17 @@ const ParentHome = () => {
         }
         if(parentId){
             popNotification().then(data => {
-                const message = `Aveti o programare pentru ${data.abbreviation || data.name} in data de ${data.childVaccineDate}.`;
-                toast(message);
+                const date = new Date(data.childVaccineDate);
+                const today = new Date();
+                let message = ""
+                if(date.getTime() < today.getTime()){
+                    message = `Ati avut o programare pentru ${data.abbreviation || data.name} in data de ${data.childVaccineDate}.`
+                    toast.error(message);
+                } else {
+                    message = `Aveti o programare pentru ${data.abbreviation || data.name} in data de ${data.childVaccineDate}.`;
+                    toast.info(message);
+                }
+
             });
         }
 

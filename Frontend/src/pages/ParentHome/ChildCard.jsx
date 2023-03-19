@@ -22,10 +22,10 @@ const ChildCard = ({ child }) => {
             childVaccineDate = '',
         } = vaccine;
         if (dateWhenDone) {
-            return <span>Status: <span
-                className={'tag-success'}>Done</span>
-                <br />Vaccine date: {vaccine.dateWhenDone}
-                <br />Completed: <span
+            return <span>Stare: <span
+                className={'tag-success'}>Administrat</span>
+                <br />Dată vaccin: {vaccine.dateWhenDone}
+                <br />Dată administrare: <span
                     className={'tag-success'}>{dateWhenDone}
                 </span>
             </span>
@@ -35,10 +35,10 @@ const ChildCard = ({ child }) => {
         const now = new Date();
         const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
         if (today < recommendedDate) {
-            return <span> Status: <span className={'tag-success'}>To do</span><br />Recommended date: <span
+            return <span> Stare: <span className={'tag-success'}>Trebuie făcut</span><br />Dată recomandată: <span
                 className={'tag-success'}>{childVaccineDate}</span></span>
         }
-        return <span>Status: <span className={'tag-error'}>Missed</span><br />Missed: <span
+        return <span>Stare: <span className={'tag-error'}>Lipsește</span><br />Dată recomandată: <span
             className={'tag-error'}>{childVaccineDate}</span></span>
     }
 

@@ -31,7 +31,7 @@ export default function Login() {
   const onSuccess = (res) => {
     // TODO: Notification
     dispatch(login(res.data));
-    res.data?.role === 'parent' ? navigate('/parent-home') : navigate('/doctor-home');
+    res.data?.role === 'parent' ? navigate('/parent-home') : navigate('/medicPatients');
   }
 
   const onError = (res) => {

@@ -79,6 +79,25 @@
       }
     }
   }
+      li:has(a){
+      position: relative;
+      user-select: none;
+      &::before{
+        content: '';
+        height: 0.2rem;
+        width: 0;
+        top: 100%;
+        background-color: $color_secondary;
+        transition: width 0.2s ease;
+        position: absolute;
+      }
+      &:hover{
+        &::before{
+          width: 100%;
+        }
+      }
+    }
+  
   .navbar-menu {
     visibility: hidden;
     position: fixed;

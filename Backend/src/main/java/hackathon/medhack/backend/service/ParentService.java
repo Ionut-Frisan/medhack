@@ -1,7 +1,7 @@
 package hackathon.medhack.backend.service;
 
-import hackathon.medhack.backend.model.Child;
 import hackathon.medhack.backend.model.dto.ChildDto;
+import hackathon.medhack.backend.model.dto.ChildVaccineDto;
 import hackathon.medhack.backend.model.dto.EmailDto;
 import hackathon.medhack.backend.model.dto.ParentDto;
 
@@ -16,4 +16,6 @@ public interface ParentService {
 
     List<ParentDto> getParentsByName(String name);
     String sendMemoForParent(EmailDto emailDto);
+
+    ChildVaccineDto getNextVaccine(Long parentId);
 }

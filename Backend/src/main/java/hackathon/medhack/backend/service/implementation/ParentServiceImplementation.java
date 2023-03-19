@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.Comparator;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -124,5 +124,26 @@ public class ParentServiceImplementation implements ParentService {
             SendEmail.sendVaccineMemo(doctorEmail, parentEmail, child, vaccine);
         }
         return "Email sent";
+    }
+
+    Comparator<ChildVaccineDto> compareByDate = Comparator.comparing(ChildVaccineDto::getChildVaccineDate);
+    @Override
+    public ChildVaccineDto getNextVaccine(Long parentId) {
+        List<ChildVaccineDto> childVaccinesDto = new ArrayList<>();
+
+        Parent parent = parentRepository.findById(parentId).get();
+        List<Child> children = parent.getChildren();
+
+        for (Child child : children) {
+            childVaccinesDto.addAll(childVaccineRepository.getChildVaccines(child.getId()));
+        }
+        childVaccinesDto.sort(compareByDate);
+
+        for(ChildVaccineDto childVaccineDto : childVaccinesDto) {
+            if(!childVaccineDto.getIsDone()) {
+                return childVaccineDto;
+            }
+        }
+        return null;
     }
 }

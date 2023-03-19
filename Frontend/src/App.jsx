@@ -34,11 +34,12 @@ function App() {
                 <Route exact path='/doctor' element={<DoctorRoute/>}>
                     <Route index element={<MedicPatientList/>}/>
                 </Route>
+                <Route index element={<MedicPatientList/>}/>
                 <Route exact path='/login' element={<Login/>}/>
                 <Route exact path='/sign-up' element={<SignUp/>}/>
-                <Route exact path='/componentDemo' element={<Buttons/>}/>
-                <Route exact path='/myChild' element={<Child/>}/>
                 <Route exact path='/welcome' element={<Welcome/>}/>
+                {/*<Route exact path='/componentDemo' element={<Buttons/>}/>*/}
+                <Route exact path='/myChild' element={<Child/>}/>
                 <Route exact path='/vaccineDictionary' element={<VaccineDictionaryList/>}/>
                 <Route exact path='/medicPatients' element={<MedicPatientList/>}/>
                 <Route exact path='/parent-home' element={<ParentHome />}/>

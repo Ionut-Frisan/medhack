@@ -32,7 +32,7 @@ const NavBar = ({}) => {
 
     return !isLoggedIn ? (
         <nav className={'navbar'}>
-            <img className={"logo"} src={logo} alt={"logo"}/>
+            <Link to={'/welcome'}><img className={"logo"} src={logo} alt={"logo"}/></Link>
             <ul className={'navbar-links'}>
                 <li>
                     <Link to="/vaccineDictionary">Vaccine dictionary</Link>
@@ -78,7 +78,7 @@ const NavBar = ({}) => {
         </nav>
     ) : (
         <nav className={'navbar'}>
-            <img className={"logo"} src={logo} alt={"logo"}/>
+            <Link to={role === 'doctor' ? '/doctor-home' : '/patient-home'}><img className={"logo"} src={logo} alt={"logo"}/></Link>
             <ul className={'navbar-links'}>
                 {
                     role === 'doctor' ? (

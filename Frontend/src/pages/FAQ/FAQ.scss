@@ -2,9 +2,10 @@
   background-image: url('../../assets/images/ilustratie_-_semnul_intrebarii.png');
   background-repeat: no-repeat;
   background-position: right;
-  height:calc(100vh - 28rem);
+  height:calc(100vh - 6rem);
   background-size: contain;
-  margin-right: 35px;
+  margin-right: 2%;
+    background-attachment: fixed;
   margin-top: 38px;
 }
 
@@ -29,3 +30,21 @@
   margin-bottom: 1%;
 }
 
+@media only screen and (max-width: 1200px) {
+  .background{
+  }
+  
+  .questions-wrapper{
+    width: 80%;
+    height: calc(100vh - 6rem);
+    overflow: auto;
+    padding: 0 10%;
+      &::-webkit-scrollbar {
+    display: none;
+  }
+    background-color: rgba(255,255,255,0.8);
+      .answer{
+        width: 100%;
+      }
+  }
+}

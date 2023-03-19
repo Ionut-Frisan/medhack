@@ -66,12 +66,12 @@
       li:first-child{
         transform: rotate(45deg);
         transform-origin: left;
-        width: 130%;
+        width: 125%;
       }
       li:last-child{
         transform-origin: left;
         transform: rotate(-45deg);
-        width: 130%;
+        width: 125%;
       }
       li:nth-child(2){
         transform: translate(-50%);

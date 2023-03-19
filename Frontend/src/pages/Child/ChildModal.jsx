@@ -49,7 +49,7 @@ function ChildModal({isModalOpen, closeButtonCallback, children}){
     };
 
     return (
-        <div>
+        <div >
             <MedModal
                 isOpen={isModalOpen}
                 title={firstName + " " + lastName}

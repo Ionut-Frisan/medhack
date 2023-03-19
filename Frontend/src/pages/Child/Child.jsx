@@ -51,11 +51,11 @@ function Child() {
     // }
     return (
         <div className={'children-page'}>
-            <h1>
-                All My Children
+            <h1 className={"title"}>
+                Ierarhia vaccinurilor pentru fiecare copil:
             </h1>
             <Tabs>
-                <TabList>
+                <TabList className={"tabs"}>
                     {childrenList.map(m => <Tab key={`tab-${m.id}`}>{m.firstName}</Tab>)}
                     <Tab><FaPlus /></Tab>
                 </TabList>

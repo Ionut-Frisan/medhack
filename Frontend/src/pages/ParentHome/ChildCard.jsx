@@ -35,7 +35,7 @@ const ChildCard = ({ child }) => {
         const now = new Date();
         const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
         if (today < recommendedDate) {
-            return <span> Stare: <span className={'tag-warning'}>Trebuie făcut</span><br />Dată recomandată: <span
+            return <span> Stare: <span className={'tag-warning'}>Trebuie administrat</span><br />Dată recomandată: <span
                 className={'tag-warning'}>{childVaccineDate}</span></span>
         }
         return <span>Stare: <span className={'tag-error'}>Lipsește</span><br />Dată recomandată: <span

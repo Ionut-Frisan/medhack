@@ -57,7 +57,7 @@ const SignUp = () => {
                 <img src={image}/>
             </div>
             <form className={'form'} onSubmit={handleSubmit}>
-                <h1>App name</h1>
+                <h1>VaxSoft</h1>
                 <MedInput labelPosition={'float'}
                           label={'First name'}
                           size={'large'}

@@ -53,7 +53,7 @@ export default function Login() {
         <img width={'100%'} height={'100%'} src={image} alt={''}/>
       </div>
       <form className={'form'} onSubmit={handleSubmit}>
-        <h1>App name</h1>
+        <h1>VaxSoft</h1>
         <MedInput labelPosition={'float'}
           label={'Email'}
           type={'email'}
